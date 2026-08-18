@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>상담 문의 — 주방 사진 한 장으로 견적 시작 | 공간가구연구소</title>
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/logo-mark.png">
+<meta name="description" content="주방 사진 한 장 보내주시면 예상 견적을 바로 안내해 드립니다. 카카오톡 상담, 무료 방문 실측.">
+<meta name="keywords" content="싱크대 교체, 싱크볼 교체, 사각싱크볼, 수전 교체, 냉장고장 리폼, 주방 리모델링, 씽크대 견적, 서울 경기 싱크대">
+<meta property="og:title" content="상담 문의 — 주방 사진 한 장으로 견적 시작 | 공간가구연구소">
+<meta property="og:description" content="주방 사진 한 장 보내주시면 예상 견적을 바로 안내해 드립니다. 카카오톡 상담, 무료 방문 실측.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="공간가구연구소">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="img/logo.png"><!-- TODO 배포 시 절대 URL로 교체 -->
+<!-- TODO 도메인 확정 후 주석 해제하고 URL 교체
+<link rel="canonical" href="https://DOMAIN/PAGE">
+<meta property="og:url" content="https://DOMAIN/PAGE">
+<meta name="naver-site-verification" content="서치어드바이저_발급코드">
+<meta name="google-site-verification" content="서치콘솔_발급코드">
+-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+/* ============ 디자인 토큰 ============ */
+:root{
+  --primary:#ff385c;
+  --primary-active:#e00b41;
+  --primary-tint:rgba(255,56,92,0.08);
+  --canvas:#ffffff;
+  --surface-soft:#f7f7f7;
+  --surface-strong:#f2f2f2;
+  --hairline:#dddddd;
+  --hairline-soft:#ebebeb;
+  --ink:#222222;
+  --body:#3f3f3f;
+  --muted:#6a6a6a;
+  --muted-soft:#929292;
+  --on-primary:#ffffff;
+  --r-sm:8px;
+  --r-md:14px;
+  --r-lg:16px;
+  --r-xl:32px;
+  --r-full:9999px;
+  --shadow:rgba(0,0,0,0.02) 0 0 0 1px, rgba(0,0,0,0.04) 0 2px 6px 0, rgba(0,0,0,0.1) 0 4px 8px 0;
+  --sp-sm:8px; --sp-md:12px; --sp-base:16px; --sp-lg:24px; --sp-xl:32px; --sp-xxl:48px; --sp-section:64px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:"Pretendard Variable",Pretendard,-apple-system,system-ui,Roboto,"Helvetica Neue",sans-serif;
+  background:var(--canvas); color:var(--ink);
+  font-size:16px; line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+.container{max-width:1280px;margin:0 auto;padding:0 var(--sp-lg)}
+section{padding:var(--sp-section) 0}
+.section-head{font-size:24px;font-weight:700;line-height:1.4;letter-spacing:-0.3px;margin-bottom:var(--sp-lg)}
+/* 센터 섹션 헤더 (레퍼런스 스타일) */
+.eyebrow{display:block;text-align:center;font-size:12px;font-weight:700;letter-spacing:2.5px;color:var(--primary);text-transform:uppercase;margin-bottom:var(--sp-md)}
+.center-head{text-align:center;font-size:30px;font-weight:700;letter-spacing:-0.5px}
+.center-sub{text-align:center;font-size:16px;color:var(--muted);margin-top:var(--sp-md);margin-bottom:var(--sp-xxl)}
+
+/* ============ 상단 내비게이션 ============ */
+.top-nav{height:72px;border-bottom:1px solid var(--hairline);position:sticky;top:0;background:var(--canvas);z-index:100}
+.top-nav .container{height:100%;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:8px;font-size:19px;font-weight:700;color:var(--primary);letter-spacing:-0.3px}
+.logo svg,.logo img{width:30px;height:30px;object-fit:contain}
+.gnb{display:flex;gap:6px;position:absolute;left:50%;transform:translateX(-50%)}
+.gnb a{font-size:15px;font-weight:600;color:var(--muted);padding:10px 16px;border-radius:var(--r-full)}
+.gnb a:hover{background:var(--surface-soft);color:var(--ink)}
+.gnb a.active{color:var(--ink)}
+.nav-right{display:flex;align-items:center;gap:var(--sp-md)}
+.nav-cta{font-size:14px;font-weight:600;color:#fff;background:var(--primary);padding:10px 18px;border-radius:var(--r-full)}
+.nav-cta:active{background:var(--primary-active)}
+/* 현재 페이지 표시 — 클릭 대상이 아니라 위치 표시 */
+.nav-cta.current{background:var(--primary-tint);color:var(--primary);cursor:default;box-shadow:inset 0 0 0 1px var(--primary)}
+.nav-cta.current:active{background:var(--primary-tint)}
+
+/* ============ 페이지 헤더 ============ */
+.page-head{padding:var(--sp-xxl) 0 0;text-align:center}
+
+/* ============ 상담 방법 비교 카드 ============ */
+.channel-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-lg);max-width:960px;margin:0 auto}
+.channel-card{position:relative;border:1px solid var(--hairline-soft);border-radius:var(--r-lg);padding:var(--sp-xl);background:linear-gradient(180deg,#fafafa 0%,#ffffff 100%);box-shadow:rgba(0,0,0,0.03) 0 2px 10px;display:flex;flex-direction:column}
+.channel-card.kakao{border:2px solid #f5d800;background:linear-gradient(180deg,#fffdf0 0%,#ffffff 100%)}
+.reco-badge{position:absolute;top:-13px;left:var(--sp-xl);background:var(--ink);color:#fff;font-size:12px;font-weight:700;letter-spacing:0.5px;padding:5px 12px;border-radius:var(--r-full)}
+.ch-icon{width:60px;height:60px;border-radius:var(--r-lg);background:var(--primary-tint);display:flex;align-items:center;justify-content:center;margin-bottom:var(--sp-lg)}
+.channel-card h3{font-size:20px;font-weight:700;letter-spacing:-0.3px;margin-bottom:var(--sp-sm)}
+.channel-card .ch-desc{font-size:15px;color:var(--body);line-height:1.6;margin-bottom:var(--sp-lg)}
+.ch-facts{list-style:none;margin-bottom:var(--sp-lg)}
+.ch-facts li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--muted);padding:6px 0}
+.chk{width:20px;height:20px;min-width:20px;border-radius:50%;background:var(--primary-tint);display:flex;align-items:center;justify-content:center;margin-top:1px}
+.ch-tel{font-size:26px;font-weight:700;letter-spacing:-0.3px;margin-bottom:var(--sp-base)}
+.btn-kakao{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#FEE500;color:#191919;font-size:17px;font-weight:700;height:56px;padding:0 24px;border-radius:var(--r-sm);border:none;cursor:pointer;width:100%;margin-top:auto}
+.btn-tel{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#fff;color:var(--ink);border:1px solid var(--ink);font-size:16px;font-weight:600;height:56px;padding:0 24px;border-radius:var(--r-sm);cursor:pointer;width:100%;margin-top:auto}
+.philosophy{max-width:960px;margin:var(--sp-lg) auto 0;text-align:center;font-size:15px;color:var(--body)}
+.philosophy b{color:var(--ink)}
+
+/* ============ 문의 폼 ============ */
+.form-section{background:var(--surface-soft)}
+.form-wrap{max-width:720px;margin:0 auto;background:#fff;border-radius:var(--r-lg);box-shadow:var(--shadow);padding:var(--sp-xl)}
+.mock-note{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);background:var(--surface-soft);border-radius:var(--r-sm);padding:10px 14px;margin-bottom:var(--sp-lg)}
+.field{margin-bottom:var(--sp-lg)}
+.field label{display:block;font-size:14px;font-weight:600;margin-bottom:8px}
+.field label .opt{font-weight:400;color:var(--muted-soft);font-size:13px}
+.field input[type="text"],.field input[type="tel"],.field select,.field textarea{
+  width:100%;border:1px solid var(--hairline);border-radius:var(--r-sm);padding:13px 14px;
+  font-size:15px;font-family:inherit;color:var(--ink);background:#fff;outline:none;
+}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--ink)}
+.field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5 6 6.5 11 1.5' stroke='%236a6a6a' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+.field textarea{min-height:120px;resize:vertical;line-height:1.6}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-base)}
+/* 사진 드롭존 */
+.dropzone{border:2px dashed var(--hairline);border-radius:var(--r-md);padding:var(--sp-xl) var(--sp-lg);text-align:center;background:var(--surface-soft);cursor:pointer}
+.dropzone:hover{border-color:var(--primary)}
+.dz-title{font-size:15px;font-weight:600;margin-top:var(--sp-md)}
+.dz-sub{font-size:13px;color:var(--muted);margin-top:4px}
+.photo-tips{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-sm);margin-top:var(--sp-md)}
+.tip{background:#fff;border:1px solid var(--hairline-soft);border-radius:var(--r-sm);padding:12px 10px;text-align:center}
+.tip .t-num{font-size:11px;font-weight:700;color:var(--primary);letter-spacing:1px}
+.tip .t-name{font-size:14px;font-weight:600;margin-top:2px}
+.tip .t-desc{font-size:12px;color:var(--muted);margin-top:2px}
+/* 개인정보 동의 */
+.consent{border-top:1px solid var(--hairline-soft);padding-top:var(--sp-lg);margin-bottom:var(--sp-lg)}
+.consent-row{display:flex;align-items:center;gap:10px;font-size:14px}
+.consent-row input[type="checkbox"]{width:18px;height:18px;accent-color:var(--primary)}
+.consent details{margin-top:var(--sp-sm)}
+.consent summary{font-size:13px;color:var(--muted);cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:4px}
+.consent summary::after{content:"+";color:var(--muted-soft)}
+.consent details[open] summary::after{content:"–"}
+.consent .c-body{font-size:13px;color:var(--muted);background:var(--surface-soft);border-radius:var(--r-sm);padding:14px;margin-top:8px;line-height:1.7}
+.btn-primary{display:inline-flex;align-items:center;justify-content:center;background:var(--primary);color:var(--on-primary);font-size:16px;font-weight:500;height:48px;padding:0 24px;border-radius:var(--r-sm);border:none;cursor:pointer}
+.btn-primary:active{background:var(--primary-active)}
+.form-wrap .btn-primary{width:100%;height:54px;font-size:17px;font-weight:600}
+
+/* ============ 문의 후 진행 ============ */
+.after-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-base);position:relative;margin-top:var(--sp-sm)}
+.after-line{position:absolute;top:48px;left:18%;right:18%;height:1px;background:var(--hairline)}
+.after-item{text-align:center;position:relative;z-index:1}
+.after-circle{width:96px;height:96px;border-radius:50%;background:#fff;box-shadow:var(--shadow);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;margin:0 auto var(--sp-lg)}
+.after-num{font-size:12px;font-weight:700;color:var(--primary)}
+.after-item h3{font-size:17px;font-weight:700;margin-bottom:6px}
+.after-item p{font-size:14px;color:var(--muted);max-width:240px;margin:0 auto}
+
+/* ============ 서비스 지역 ============ */
+.area-wrap{max-width:720px;margin:0 auto;text-align:center}
+.area-wrap p{font-size:15px;color:var(--body);margin-bottom:var(--sp-lg)}
+.area-pills{display:flex;gap:var(--sp-sm);justify-content:center;flex-wrap:wrap}
+.area-pill{border:1px solid var(--hairline);border-radius:var(--r-full);padding:9px 18px;font-size:14px;font-weight:500;background:#fff;color:var(--body)}
+.area-pill.etc{border-style:dashed;color:var(--muted)}
+
+/* ============ FAQ ============ */
+.faq{max-width:720px;margin:0 auto}
+.faq details{border-bottom:1px solid var(--hairline-soft);padding:var(--sp-base) 0}
+.faq summary{font-size:16px;font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between}
+.faq summary::after{content:"+";color:var(--muted);font-weight:400}
+.faq details[open] summary::after{content:"–"}
+.faq .a{font-size:15px;color:var(--body);padding-top:var(--sp-sm);max-width:720px}
+
+/* ============ 푸터 ============ */
+footer{border-top:1px solid var(--hairline);padding:var(--sp-xxl) 0 0}
+.f-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-lg);padding-bottom:var(--sp-xxl)}
+.f-col h4{font-size:16px;font-weight:500;margin-bottom:var(--sp-base)}
+.f-col a{display:block;font-size:14px;color:var(--ink);padding:6px 0}
+.f-col a:hover{text-decoration:underline}
+.legal-band{border-top:1px solid var(--hairline);padding:var(--sp-lg) 0;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted);flex-wrap:wrap;gap:var(--sp-md)}
+.legal-band .links a{margin-left:16px}
+
+/* ============ 모바일 하단 고정바 ============ */
+.mobile-bar{display:none}
+
+/* ============ 반응형 ============ */
+@media (max-width:1128px){
+  .gnb a{padding:10px 10px;font-size:14px}
+  .channel-grid{grid-template-columns:1fr;max-width:640px}
+}
+@media (max-width:744px){
+  .gnb{display:none}
+  .center-head{font-size:24px}
+  .channel-card{padding:var(--sp-lg)}
+  .reco-badge{left:var(--sp-lg)}
+  .form-wrap{padding:var(--sp-lg)}
+  .field-row{grid-template-columns:1fr}
+  .photo-tips{grid-template-columns:1fr}
+  .after-grid{grid-template-columns:1fr}
+  .after-line{display:none}
+  .f-cols{grid-template-columns:1fr}
+  body{padding-bottom:72px}
+  .mobile-bar{display:flex;position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--hairline);padding:10px var(--sp-base);gap:var(--sp-sm);z-index:200}
+  .mobile-bar a{flex:1;display:flex;align-items:center;justify-content:center;height:44px;border-radius:var(--r-sm);font-size:14px;font-weight:600;border:1px solid var(--hairline)}
+  .mobile-bar a.m-quote{background:var(--primary);color:#fff;border:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ 상단 내비게이션 ============ -->
+<nav class="top-nav">
+  <div class="container">
+    <a class="logo" href="index.html">
+      <img src="img/logo-mark.png" alt="공간가구연구소 로고">
+      공간가구연구소
+    </a>
+    <div class="gnb">
+      <a href="서비스.html">서비스</a>
+      <a href="씽크대견적.html">씽크대 견적</a>
+      <a href="시공사례.html">시공사례</a>
+      <a href="교육.html">교육</a>
+      <a href="자료실.html">자료실</a>
+    </div>
+    <div class="nav-right">
+      <a class="nav-cta current" href="상담문의.html" aria-current="page">상담 문의</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ 페이지 헤더 ============ -->
+<header class="page-head">
+  <div class="container">
+    <span class="eyebrow">Contact</span>
+    <h1 class="center-head">주방 사진 한 장이면 충분합니다</h1>
+    <p class="center-sub" style="margin-bottom:0">보내주신 사진으로 예상 견적을 먼저 안내해 드립니다</p>
+  </div>
+</header>
+
+<!-- ============ 상담 방법 비교 ============ -->
+<section>
+  <div class="container">
+    <div class="channel-grid">
+      <!-- 카카오톡 상담 -->
+      <div class="channel-card kakao">
+        <span class="reco-badge">가장 빠른 방법</span>
+        <div class="ch-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ff385c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9.5h8M8 13h5"/></svg>
+        </div>
+        <h3>카카오톡 상담</h3>
+        <p class="ch-desc">주방 사진을 보내주시면 대화창에서 바로 예상 견적을 안내해 드립니다. 전화 통화 없이 편하게 물어보세요.</p>
+        <ul class="ch-facts">
+          <li><span class="chk"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="#ff385c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>09시 ~ 24시 · 365일 응답</li>
+          <li><span class="chk"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="#ff385c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>사진 보내면 바로 예상 견적</li>
+          <li><span class="chk"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="#ff385c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>시공 사진·자료도 대화창에 남아 편리</li>
+        </ul>
+        <button class="btn-kakao" type="button">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#191919"><path d="M12 3C6.48 3 2 6.58 2 11c0 2.84 1.87 5.33 4.68 6.74l-.95 3.53c-.08.31.27.56.54.38l4.18-2.78c.51.06 1.03.13 1.55.13 5.52 0 10-3.58 10-8S17.52 3 12 3z"/></svg>
+          카카오톡으로 사진 보내기
+        </button>
+      </div>
+
+      <!-- 전화 상담 -->
+      <div class="channel-card">
+        <div class="ch-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ff385c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.2a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <h3>전화 상담</h3>
+        <p class="ch-desc">말로 설명하는 게 편하시면 전화 주세요. 다만 시공 중에는 받지 못할 수 있습니다 — 문자를 남겨주시면 확인 후 바로 다시 전화드립니다.</p>
+        <div class="ch-tel">010-8726-8288</div>
+        <ul class="ch-facts">
+          <li><span class="chk"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="#ff385c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>09시 ~ 22시 통화 가능</li>
+          <li><span class="chk"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="#ff385c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>부재 시 문자 남기면 콜백</li>
+        </ul>
+        <a class="btn-tel" href="tel:01087268288">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.2a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg>
+          전화 걸기
+        </a>
+      </div>
+    </div>
+    <p class="philosophy">전화보다 <b>사진 한 장</b>이 빠릅니다 — 사진을 보면 필요한 공사와 대략의 비용이 바로 보입니다.</p>
+  </div>
+</section>
+
+<!-- ============ 사진 첨부 문의 폼 ============ -->
+<section class="form-section">
+  <div class="container">
+    <span class="eyebrow">Photo Inquiry</span>
+    <h2 class="center-head">사진 첨부 문의</h2>
+    <p class="center-sub">카카오톡이 어려우시면 아래 폼으로 남겨주세요 — 확인 후 순서대로 연락드립니다</p>
+
+    <div class="form-wrap">
+      <div class="mock-note">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ff385c" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4.5M12 16h.01"/></svg>
+        목업 화면입니다 — 입력·전송 기능은 아직 동작하지 않습니다.
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="f-name">성함</label>
+          <input type="text" id="f-name" placeholder="홍길동">
+        </div>
+        <div class="field">
+          <label for="f-tel">연락처</label>
+          <input type="tel" id="f-tel" placeholder="010-0000-0000">
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="f-area">시공 지역 <span class="opt">시·구까지만 적어주세요</span></label>
+          <input type="text" id="f-area" placeholder="예: 광명시 철산동">
+        </div>
+        <div class="field">
+          <label for="f-type">공사 유형</label>
+          <select id="f-type">
+            <option>선택해 주세요</option>
+            <option>싱크볼 교체</option>
+            <option>수전 교체</option>
+            <option>후드 교체</option>
+            <option>대리석 교체</option>
+            <option>장 제작 (냉장고장·다용도장 등)</option>
+            <option>주방 전체 시공</option>
+            <option>기타 (내용에 적어주세요)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="f-msg">내용 <span class="opt">궁금한 점, 현재 상태를 편하게 적어주세요</span></label>
+        <textarea id="f-msg" placeholder="예: 싱크볼에서 물이 새는 것 같아요. 교체 비용이 궁금합니다."></textarea>
+      </div>
+
+      <div class="field">
+        <label>사진 첨부</label>
+        <div class="dropzone">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#ff385c" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M8.5 6 10 3.5h4L15.5 6"/><circle cx="12" cy="13" r="3.5"/></svg>
+          <div class="dz-title">주방 전체가 나온 사진 2~3장을 올려주세요</div>
+          <div class="dz-sub">여기를 눌러 선택하거나, 사진을 끌어다 놓으세요 (목업 — 업로드 미동작)</div>
+        </div>
+        <div class="photo-tips">
+          <div class="tip">
+            <div class="t-num">TIP 1</div>
+            <div class="t-name">전체 샷</div>
+            <div class="t-desc">주방이 한눈에 다 보이게</div>
+          </div>
+          <div class="tip">
+            <div class="t-num">TIP 2</div>
+            <div class="t-name">문제 부위 가까이</div>
+            <div class="t-desc">교체·수리할 곳을 가까이서</div>
+          </div>
+          <div class="tip">
+            <div class="t-num">TIP 3</div>
+            <div class="t-name">옆에서 한 컷</div>
+            <div class="t-desc">깊이·구조가 보이는 측면</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="consent">
+        <div class="consent-row">
+          <input type="checkbox" id="f-agree">
+          <label for="f-agree">개인정보 수집·이용에 동의합니다</label>
+        </div>
+        <details>
+          <summary>수집 항목·보관 기간 안내 보기</summary>
+          <div class="c-body">
+            수집 항목: 성함, 연락처, 시공 지역, 문의 내용, 첨부 사진<br>
+            이용 목적: 견적 안내 및 상담 연락<br>
+            보관 기간: 상담 종료 후 1년, 이후 즉시 파기<br>
+            ※ 목업 단계 안내문입니다. 실제 방침 문구는 배포 전 확정합니다.
+          </div>
+        </details>
+      </div>
+
+      <button class="btn-primary" type="button">문의 보내기</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 문의 후 진행 안내 ============ -->
+<section>
+  <div class="container">
+    <span class="eyebrow">Next Steps</span>
+    <h2 class="center-head">문의 후에는 이렇게 진행됩니다</h2>
+    <p class="center-sub">사진 접수부터 실측 일정까지, 세 단계면 됩니다</p>
+
+    <div class="after-grid">
+      <div class="after-line"></div>
+      <div class="after-item">
+        <div class="after-circle">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ff385c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          <span class="after-num">01</span>
+        </div>
+        <h3>접수 확인 (당일)</h3>
+        <p>문의가 접수되면 당일 안에 확인 연락을 드립니다</p>
+      </div>
+      <div class="after-item">
+        <div class="after-circle">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ff385c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="1.5" width="14" height="17" rx="2" transform="translate(2 2)"/><path d="M8.5 8.5h7M8.5 12h7M8.5 15.5h4"/></svg>
+          <span class="after-num">02</span>
+        </div>
+        <h3>예상 견적 안내</h3>
+        <p>보내주신 사진을 보고 예상 견적과 공사 범위를 안내해 드립니다</p>
+      </div>
+      <div class="after-item">
+        <div class="after-circle">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ff385c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>
+          <span class="after-num">03</span>
+        </div>
+        <h3>실측 일정 협의</h3>
+        <p>진행을 원하시면 편한 날짜에 방문 실측 일정을 잡습니다</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 서비스 지역 ============ -->
+<section style="padding-top:0">
+  <div class="container">
+    <span class="eyebrow">Service Area</span>
+    <h2 class="center-head">서비스 지역</h2>
+    <p class="center-sub" style="margin-bottom:var(--sp-lg)">수도권 전 지역은 기본으로 방문합니다 — 그 외 지역은 공사 규모에 따라 협의해 주세요</p>
+    <div class="area-wrap">
+      <div class="area-pills">
+        <span class="area-pill">서울</span>
+        <span class="area-pill">인천</span>
+        <span class="area-pill">경기 남부</span>
+        <span class="area-pill">경기 북부</span>
+        <span class="area-pill etc">그 외 지역 협의</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section style="padding-top:0">
+  <div class="container">
+    <h2 class="section-head" style="text-align:center">상담 전 자주 묻는 질문</h2>
+    <div class="faq">
+      <details open>
+        <summary>사진만 보내도 견적이 되나요?</summary>
+        <div class="a">네. 주방 전체가 나온 사진 2~3장이면 예상 견적을 안내해 드립니다. 정확한 금액은 실측 후 확정되며, 추가 비용이 생길 수 있는 부분은 실측 때 미리 설명드립니다.</div>
+      </details>
+      <details>
+        <summary>실측 방문에 비용이 있나요?</summary>
+        <div class="a">없습니다. 실측 방문은 무료이며, 실측 후 진행하지 않으셔도 비용을 청구하지 않습니다.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 푸터 ============ -->
+<footer>
+  <div class="container">
+    <div class="f-cols">
+      <div class="f-col">
+        <h4>시공 서비스</h4>
+        <a href="서비스.html">주방가구 제작·시공</a>
+        <a href="서비스.html">주방 부분 리폼</a>
+        <a href="서비스.html">타일 · 목공 · 도배</a>
+        <a href="씽크대견적.html">씽크대 견적</a>
+        <a href="시공사례.html">시공 사례</a>
+      </div>
+      <div class="f-col">
+        <h4>교육 · 자료</h4>
+        <a href="교육.html">교육 과정 소개</a>
+        <a href="자료실.html">시공 매뉴얼 (준비 중)</a>
+        <a href="자료실.html">회원 자료실 (준비 중)</a>
+        <a href="자료실.html">블로그 · 가이드</a>
+      </div>
+      <div class="f-col">
+        <h4>공간가구연구소</h4>
+        <a href="index.html">브랜드 소개</a>
+        <a href="계산기.html">견적 계산기</a>
+        <a href="상담문의.html">상담 문의</a>
+        <a href="index.html">자주 묻는 질문</a>
+      </div>
+    </div>
+    <div class="legal-band">
+      <span><img src="img/logo-mark.png" alt="" style="height:26px;vertical-align:middle;margin-right:8px">© 2026 공간가구연구소 · 대표 문의 010-8726-8288 · gongganfurniture@naver.com</span>
+      <span class="links"><a href="#">이용약관</a><a href="#">개인정보처리방침</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ 모바일 하단 고정바 ============ -->
+<div class="mobile-bar">
+  <a href="tel:01087268288">전화</a>
+  <a href="#">카톡 상담</a>
+  <a href="계산기.html" class="m-quote">예상 견적</a>
+</div>
+
+</body>
+</html>

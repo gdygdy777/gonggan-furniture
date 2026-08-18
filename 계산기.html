@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>싱크대 교체 비용 계산기 — 30초 예상 견적 | 공간가구연구소</title>
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/logo-mark.png">
+<meta name="description" content="연락처 입력 없이 30초 만에 싱크볼·수전·후드·상판 교체 예상 비용 확인. 철거·시공비 포함 실제 견적표 단가 기준.">
+<meta name="keywords" content="싱크대 교체, 싱크볼 교체, 사각싱크볼, 수전 교체, 냉장고장 리폼, 주방 리모델링, 씽크대 견적, 서울 경기 싱크대">
+<meta property="og:title" content="싱크대 교체 비용 계산기 — 30초 예상 견적 | 공간가구연구소">
+<meta property="og:description" content="연락처 입력 없이 30초 만에 싱크볼·수전·후드·상판 교체 예상 비용 확인. 철거·시공비 포함 실제 견적표 단가 기준.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="공간가구연구소">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="img/logo.png"><!-- TODO 배포 시 절대 URL로 교체 -->
+<!-- TODO 도메인 확정 후 주석 해제하고 URL 교체
+<link rel="canonical" href="https://DOMAIN/PAGE">
+<meta property="og:url" content="https://DOMAIN/PAGE">
+<meta name="naver-site-verification" content="서치어드바이저_발급코드">
+<meta name="google-site-verification" content="서치콘솔_발급코드">
+-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{
+  --primary:#ff385c; --primary-active:#e00b41; --primary-tint:rgba(255,56,92,0.08);
+  --canvas:#fff; --surface-soft:#f7f7f7; --surface-strong:#f2f2f2;
+  --hairline:#ddd; --hairline-soft:#ebebeb;
+  --ink:#222; --body:#3f3f3f; --muted:#6a6a6a; --muted-soft:#929292; --on-primary:#fff;
+  --r-sm:8px; --r-md:14px; --r-lg:16px; --r-xl:32px; --r-full:9999px;
+  --shadow:rgba(0,0,0,0.02) 0 0 0 1px, rgba(0,0,0,0.04) 0 2px 6px 0, rgba(0,0,0,0.1) 0 4px 8px 0;
+  --sp-sm:8px; --sp-md:12px; --sp-base:16px; --sp-lg:24px; --sp-xl:32px; --sp-xxl:48px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Pretendard Variable",Pretendard,-apple-system,system-ui,sans-serif;background:var(--canvas);color:var(--ink);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.container{max-width:1120px;margin:0 auto;padding:0 var(--sp-lg)}
+
+/* 내비 */
+.top-nav{height:72px;border-bottom:1px solid var(--hairline);position:sticky;top:0;background:var(--canvas);z-index:100}
+.top-nav .container{max-width:1280px;height:100%;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:8px;font-size:19px;font-weight:700;color:var(--primary);letter-spacing:-0.3px}
+.logo svg,.logo img{width:30px;height:30px;object-fit:contain}
+.gnb{display:flex;gap:6px;position:absolute;left:50%;transform:translateX(-50%)}
+.gnb a{font-size:15px;font-weight:600;color:var(--muted);padding:10px 16px;border-radius:var(--r-full)}
+.gnb a:hover{background:var(--surface-soft);color:var(--ink)}
+.gnb a.active{color:var(--ink)}
+.nav-cta{font-size:14px;font-weight:600;color:#fff;background:var(--primary);padding:10px 18px;border-radius:var(--r-full)}
+
+/* 헤더 */
+.calc-head{text-align:center;padding:var(--sp-xl) 0 var(--sp-lg)}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:2.5px;color:var(--primary);text-transform:uppercase}
+.calc-head h1{font-size:26px;font-weight:700;letter-spacing:-0.4px;margin-top:8px}
+.calc-head p{font-size:15px;color:var(--muted);margin-top:6px}
+
+/* 진행 바 */
+.progress-wrap{max-width:640px;margin:var(--sp-lg) auto 0;display:none}
+.progress-wrap.show{display:block}
+.progress-info{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);margin-bottom:6px}
+.progress-info b{color:var(--ink);font-weight:600}
+.progress-track{height:6px;background:var(--surface-strong);border-radius:var(--r-full);overflow:hidden}
+.progress-fill{height:100%;background:var(--primary);border-radius:var(--r-full);width:0%;transition:width .3s ease}
+
+/* 레이아웃 */
+.calc-layout{display:grid;grid-template-columns:1fr 340px;gap:var(--sp-lg);padding:var(--sp-lg) 0 80px;align-items:start}
+.stage{min-height:420px}
+
+/* 공사 유형 선택 그리드 */
+.type-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-md)}
+.type-card{border:1.5px solid var(--hairline);border-radius:var(--r-lg);padding:20px 14px;text-align:center;cursor:pointer;background:#fff;transition:all .15s}
+.type-card:hover{border-color:var(--ink);box-shadow:var(--shadow)}
+.type-card .t-ico{width:52px;height:52px;border-radius:var(--r-md);background:var(--primary-tint);display:flex;align-items:center;justify-content:center;margin:0 auto 10px}
+.type-card h3{font-size:15px;font-weight:700;letter-spacing:-0.2px}
+.type-card p{font-size:12px;color:var(--muted);margin-top:3px}
+
+/* 스텝 */
+.step-title{font-size:20px;font-weight:700;letter-spacing:-0.3px}
+.step-sub{font-size:14px;color:var(--muted);margin-top:4px;margin-bottom:var(--sp-lg)}
+.opt-list{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-md)}
+.opt-card{border:1.5px solid var(--hairline);border-radius:var(--r-md);padding:16px 18px;cursor:pointer;background:#fff;display:flex;justify-content:space-between;align-items:center;gap:10px;transition:all .12s}
+.opt-card:hover{border-color:var(--ink)}
+.opt-card.sel{border:2px solid var(--ink);background:#fbfbfb}
+.opt-card .o-name{font-size:15.5px;font-weight:600}
+.opt-card .o-desc{font-size:13px;color:var(--muted);margin-top:2px}
+.opt-card .o-price{font-size:13.5px;font-weight:600;color:var(--primary);white-space:nowrap}
+.opt-card .o-price.zero{color:var(--muted-soft);font-weight:500}
+/* 체크박스 옵션 */
+.opt-card .o-check{width:22px;height:22px;min-width:22px;border:1.5px solid var(--hairline);border-radius:6px;display:flex;align-items:center;justify-content:center}
+.opt-card.sel .o-check{background:var(--primary);border-color:var(--primary)}
+.opt-card.sel .o-check svg{display:block}
+.opt-card .o-check svg{display:none}
+/* 칩 (길이/폭) */
+.chip-row{display:flex;gap:var(--sp-sm);flex-wrap:wrap}
+.chip{border:1.5px solid var(--hairline);border-radius:var(--r-full);padding:12px 22px;font-size:15px;font-weight:600;cursor:pointer;background:#fff}
+.chip:hover{border-color:var(--ink)}
+.chip.sel{background:var(--ink);color:#fff;border-color:var(--ink)}
+.chip-hint{font-size:13px;color:var(--muted-soft);margin-top:10px}
+
+.step-nav{display:flex;justify-content:space-between;margin-top:var(--sp-xl)}
+.btn-back{display:inline-flex;align-items:center;gap:6px;font-size:15px;font-weight:600;color:var(--muted);background:none;border:none;cursor:pointer;padding:10px 4px}
+.btn-back:hover{color:var(--ink)}
+.btn-next{background:var(--primary);color:#fff;border:none;font-size:16px;font-weight:600;height:48px;padding:0 32px;border-radius:var(--r-sm);cursor:pointer}
+.btn-next:active{background:var(--primary-active)}
+.btn-next:disabled{background:#ffd1da;cursor:not-allowed}
+
+/* 요약 패널 */
+.summary{background:#fff;border:1px solid var(--hairline);border-radius:var(--r-lg);box-shadow:var(--shadow);padding:var(--sp-lg);position:sticky;top:96px}
+.summary h4{font-size:14px;font-weight:600;color:var(--muted);margin-bottom:var(--sp-md)}
+.sum-rows{border-bottom:1px solid var(--hairline-soft);padding-bottom:var(--sp-md);margin-bottom:var(--sp-md);min-height:40px}
+.sum-row{display:flex;justify-content:space-between;align-items:center;font-size:14px;padding:5px 0}
+.sum-row .s-label{color:var(--muted)}
+.sum-row .s-val{font-weight:600;text-align:right}
+.sum-row .s-edit{font-size:12px;color:var(--primary);cursor:pointer;margin-left:8px;font-weight:600}
+.sum-empty{font-size:13.5px;color:var(--muted-soft);padding:6px 0}
+.sum-price-label{font-size:13px;color:var(--muted)}
+.sum-price{font-size:26px;font-weight:800;letter-spacing:-0.5px;margin-top:2px}
+.sum-price small{font-size:14px;font-weight:600;color:var(--muted)}
+.sum-note{font-size:12px;color:var(--muted-soft);margin-top:8px;line-height:1.5}
+
+/* 결과 */
+.result{display:none}
+.result.show{display:block}
+.result-card{background:#fff;border:1px solid var(--hairline);border-radius:var(--r-lg);box-shadow:var(--shadow);padding:var(--sp-xl);text-align:center}
+.result-card .r-eyebrow{font-size:13px;font-weight:600;color:var(--muted)}
+.result-price{font-size:44px;font-weight:800;letter-spacing:-1px;margin:10px 0 4px}
+.result-price small{font-size:20px;font-weight:700}
+.result-range-note{font-size:14px;color:var(--muted)}
+.breakdown{max-width:460px;margin:var(--sp-lg) auto 0;text-align:left;border-top:1px solid var(--hairline);padding-top:var(--sp-md)}
+.bd-row{display:flex;justify-content:space-between;font-size:14.5px;padding:6px 0}
+.bd-row .b-label{color:var(--body)}
+.bd-row .b-val{font-weight:600}
+.result-disclaimer{max-width:520px;margin:var(--sp-lg) auto 0;background:var(--surface-soft);border-radius:var(--r-md);padding:14px 18px;font-size:13.5px;color:var(--body);text-align:left;line-height:1.6}
+.result-cta{display:flex;gap:var(--sp-md);justify-content:center;margin-top:var(--sp-lg);flex-wrap:wrap}
+.btn-kakao{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#FEE500;color:#191919;font-size:16px;font-weight:700;height:52px;padding:0 28px;border-radius:var(--r-sm);border:none;cursor:pointer}
+.btn-outline{display:inline-flex;align-items:center;justify-content:center;background:#fff;color:var(--ink);border:1px solid var(--ink);font-size:15px;font-weight:500;height:52px;padding:0 24px;border-radius:var(--r-sm);cursor:pointer}
+.btn-restart{font-size:14px;color:var(--muted);background:none;border:none;cursor:pointer;margin-top:var(--sp-base);text-decoration:underline}
+
+/* 기타 안내 */
+.etc-card{background:var(--surface-soft);border-radius:var(--r-lg);padding:var(--sp-xl);text-align:center}
+.etc-card h3{font-size:20px;font-weight:700}
+.etc-card p{font-size:15px;color:var(--body);margin-top:10px;line-height:1.7}
+
+/* 모바일 하단 요약바 */
+.m-sumbar{display:none}
+
+@media (max-width:1128px){
+  .type-grid{grid-template-columns:repeat(2,1fr)}
+  .gnb a{padding:10px 10px;font-size:14px}
+}
+@media (max-width:744px){
+  .gnb{display:none}
+  .calc-layout{grid-template-columns:1fr;padding-bottom:120px}
+  .summary{display:none}
+  .opt-list{grid-template-columns:1fr}
+  .calc-head h1{font-size:22px}
+  .m-sumbar{display:flex;position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--hairline);padding:12px var(--sp-base);z-index:200;align-items:center;justify-content:space-between;gap:12px}
+  .m-sumbar .ms-label{font-size:12px;color:var(--muted)}
+  .m-sumbar .ms-price{font-size:19px;font-weight:800;letter-spacing:-0.3px}
+}
+</style>
+</head>
+<body>
+
+<nav class="top-nav">
+  <div class="container">
+    <a class="logo" href="index.html">
+      <img src="img/logo-mark.png" alt="공간가구연구소 로고">
+      공간가구연구소
+    </a>
+    <div class="gnb">
+      <a href="서비스.html">서비스</a>
+      <a href="씽크대견적.html">씽크대 견적</a>
+      <a href="계산기.html" class="active">견적 계산기</a>
+      <a href="시공사례.html">시공사례</a>
+      <a href="교육.html">교육</a>
+      <a href="자료실.html">자료실</a>
+    </div>
+    <a class="nav-cta" href="상담문의.html">상담 문의</a>
+  </div>
+</nav>
+
+<header class="calc-head">
+  <div class="container">
+    <span class="eyebrow">Estimate</span>
+    <h1 id="headTitle">어떤 공사가 필요하세요?</h1>
+    <p id="headSub">버튼만 누르면 30초 안에 예상 견적이 나옵니다 — 연락처 입력 없이</p>
+    <div class="progress-wrap" id="progressWrap">
+      <div class="progress-info"><span id="progLabel">단계 1</span><b id="progPct">0%</b></div>
+      <div class="progress-track"><div class="progress-fill" id="progFill"></div></div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="calc-layout">
+    <main class="stage" id="stage"></main>
+    <aside class="summary" id="summary">
+      <h4>내 견적 요약</h4>
+      <div class="sum-rows" id="sumRows"><div class="sum-empty">공사 유형을 선택하면 여기에 표시됩니다</div></div>
+      <div class="sum-price-label">현재 예상 범위</div>
+      <div class="sum-price" id="sumPrice">— <small>만원</small></div>
+      <div class="sum-note">※ 싱크볼 교체는 실제 견적표 단가 기준입니다 (철거·시공비 포함). 그 외 공사는 예시 단가예요. 최종 금액은 실측 후 확정됩니다.</div>
+    </aside>
+  </div>
+</div>
+
+<div class="m-sumbar" id="mSumbar" style="display:none">
+  <div><div class="ms-label">현재 예상 범위</div><div class="ms-price" id="msPrice">—</div></div>
+  <button class="btn-next" id="msNext" style="height:44px;padding:0 22px" onclick="mobileNext()">다음</button>
+</div>
+
+<script>
+/* ==========================================================
+   견적 데이터 (⚠️ 전부 목업 예시 단가 — 정식 오픈 전 실제 단가로 교체)
+   단위: 만원. [min, max]
+========================================================== */
+const PLACE_STEP = { id:'place', title:'현장은 어떤 곳인가요?', sub:'건물 유형에 따라 작업 조건이 달라져요',
+  kind:'single', options:[
+    {name:'아파트', d:[0,0]}, {name:'빌라 · 연립', d:[0,0]},
+    {name:'단독주택', d:[0,0]}, {name:'오피스텔 · 상가', d:[0,0]},
+  ]};
+
+const TYPES = {
+  sink: { name:'싱크볼 교체', desc:'볼만 깔끔하게', base:[0,0],
+    icon:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ff385c" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="9" width="18" height="9" rx="2"/><path d="M12 9V5m0 0h4"/><path d="M12 14v.01"/></svg>',
+    steps:[ PLACE_STEP,
+      { id:'size', title:'싱크볼 크기를 골라주세요', sub:'기존 볼 크기와 비슷하게 고르시면 돼요. 잘 모르면 "잘 모르겠어요"를 선택하세요.',
+        kind:'single', options:[
+          {name:'소형', desc:'~860mm · 12개 제품', d:[40,87]},
+          {name:'중형', desc:'870~900mm · 9개 제품', d:[45,77]},
+          {name:'대형', desc:'900mm~ · 23개 제품', d:[47,94]},
+          {name:'잘 모르겠어요', desc:'사진 보내주시면 확인해 드려요', d:[40,94]},
+        ]},
+      { id:'opts', title:'함께 하실 작업이 있나요?', sub:'필요한 것만 선택하세요 (없으면 바로 다음)',
+        kind:'multi', options:[
+          {name:'수전 업그레이드', desc:'기본 3WAY 폭포수전은 무료 포함', d:[2,36]},
+          {name:'배수구 부속 교체', desc:'냄새·누수 예방', d:[2,4]},
+          {name:'추가 요청 작업', desc:'철거·폐기물은 기본 포함이에요', d:[0,5]},
+        ]},
+    ]},
+  faucet: { name:'수전 교체', desc:'수도꼭지 교체', base:[10,15],
+    icon:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ff385c" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v6m0 0c-4 0-7 2-7 6h14c0-4-3-6-7-6z"/><path d="M5 19h2m10 0h2"/></svg>',
+    steps:[ PLACE_STEP,
+      { id:'kind', title:'어떤 수전을 원하세요?', sub:'제품에 따라 가격이 달라져요',
+        kind:'single', options:[
+          {name:'일반 수전', desc:'기본형', d:[0,0]},
+          {name:'풀아웃(코브라) 수전', desc:'호스가 빠지는 타입', d:[3,6]},
+          {name:'벽붙이 수전', desc:'벽에서 나오는 타입', d:[5,8]},
+        ]},
+      { id:'opts', title:'추가 작업이 필요한가요?', sub:'필요한 것만 선택하세요',
+        kind:'multi', options:[
+          {name:'상판 타공', desc:'구멍 새로 뚫기', d:[3,5]},
+          {name:'앵글밸브 교체', desc:'노후 밸브 교체', d:[1,2]},
+        ]},
+    ]},
+  hood: { name:'후드 교체', desc:'환기 개선', base:[25,35],
+    icon:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ff385c" stroke-width="1.8" stroke-linecap="round"><path d="M4 14h16l-4-6H8l-4 6z"/><path d="M12 3v5M4 18h16M7 21h10"/></svg>',
+    steps:[ PLACE_STEP,
+      { id:'kind', title:'후드 종류를 골라주세요', sub:'',
+        kind:'single', options:[
+          {name:'슬라이드형', desc:'상부장 안에 들어가는 기본형', d:[0,0]},
+          {name:'침니형', desc:'노출형 · 인테리어 효과', d:[8,12]},
+          {name:'아일랜드형', desc:'천장 설치', d:[15,25]},
+        ]},
+      { id:'opts', title:'추가 작업이 필요한가요?', sub:'필요한 것만 선택하세요',
+        kind:'multi', options:[
+          {name:'덕트(배기관) 연장', desc:'배기 경로 수정', d:[3,6]},
+          {name:'기존 후드 폐기', desc:'수거·폐기', d:[1,2]},
+        ]},
+    ]},
+  counter: { name:'대리석 상판 교체', desc:'상판만 새것처럼', base:[15,20],
+    icon:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ff385c" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v7m14-7v7"/></svg>',
+    steps:[ PLACE_STEP,
+      { id:'len', title:'상판 길이가 얼마나 되나요?', sub:'줄자가 없으면 대략이면 돼요. 싱크대 앞에 서서 팔을 벌려보세요 — 한 뼘씩 재지 않아도 됩니다.',
+        kind:'chips', unit:'m', chips:[2.4, 3.0, 3.6, 4.2], allowCustom:true },
+      { id:'grade', title:'자재 등급을 골라주세요', sub:'미터당 단가가 달라져요',
+        kind:'single', options:[
+          {name:'인조대리석', desc:'가성비 · 가장 많이 선택', perM:[25,35]},
+          {name:'엔지니어드 스톤', desc:'스크래치·오염에 강함', perM:[40,60]},
+        ]},
+      { id:'opts', title:'추가 작업이 필요한가요?', sub:'필요한 것만 선택하세요',
+        kind:'multi', options:[
+          {name:'싱크볼 재설치', desc:'기존 볼 다시 장착', d:[3,5]},
+          {name:'기존 상판 철거·폐기', d:[5,8]},
+        ]},
+    ]},
+  reform: { name:'상하부장 리폼', desc:'도어·필름 교체', base:[0,0],
+    icon:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ff385c" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 3v18M8 10v4m8-4v4"/></svg>',
+    steps:[ PLACE_STEP,
+      { id:'scope', title:'어디까지 바꾸실 건가요?', sub:'미터당 단가로 계산돼요',
+        kind:'single', options:[
+          {name:'필름 리폼', desc:'도어 위에 필름 시공', perM:[15,25]},
+          {name:'도어 + 손잡이 교체', desc:'문짝을 새것으로', perM:[20,30]},
+          {name:'도어 + 몸통 보수', desc:'내부 선반·경첩까지', perM:[30,45]},
+        ]},
+      { id:'len', title:'장 길이가 얼마나 되나요?', sub:'상부장+하부장을 합친 길이예요. 대략이면 됩니다.',
+        kind:'chips', unit:'m', chips:[3.0, 4.5, 6.0, 7.5], allowCustom:true },
+      { id:'opts', title:'추가 작업이 필요한가요?', sub:'',
+        kind:'multi', options:[
+          {name:'경첩 전체 교체', desc:'문 처짐 해결', d:[5,10]},
+        ]},
+    ]},
+  cabinet: { name:'맞춤 장 제작', desc:'냉장고장·키큰장 등', base:[0,0],
+    icon:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ff385c" stroke-width="1.8" stroke-linecap="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M12 3v18M8 8h.01M16 8h.01"/></svg>',
+    steps:[ PLACE_STEP,
+      { id:'kind', title:'어떤 장을 만들까요?', sub:'공장에서 직접 제작해요',
+        kind:'single', options:[
+          {name:'냉장고장', d:[60,90]},
+          {name:'다용도장', d:[50,80]},
+          {name:'키큰장', d:[45,75]},
+          {name:'수납장 · 기타', d:[35,60]},
+        ]},
+      { id:'width', title:'폭이 얼마나 되나요?', sub:'설치할 자리 기준, 대략이면 돼요',
+        kind:'single', options:[
+          {name:'1m 이하', d:[0,0]},
+          {name:'1m ~ 1.5m', d:[10,20]},
+          {name:'1.5m 이상', d:[25,40]},
+        ]},
+      { id:'opts', title:'마감 업그레이드 할까요?', sub:'',
+        kind:'multi', options:[
+          {name:'도어 마감 업그레이드', desc:'무광 PET·도장 도어', d:[8,15]},
+        ]},
+    ]},
+  full: { name:'주방 전체 시공', desc:'철거부터 마감까지', base:[0,0],
+    icon:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ff385c" stroke-width="1.8" stroke-linecap="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9 21v-6h6v6"/></svg>',
+    steps:[ PLACE_STEP,
+      { id:'size', title:'주방 크기가 어느 정도인가요?', sub:'대략적인 평수예요. 잘 모르면 아파트 평수로 짐작하셔도 돼요 (20평대 아파트 = 보통 2~3평 주방)',
+        kind:'single', options:[
+          {name:'3평 이하', desc:'20평대 아파트 수준', d:[350,550]},
+          {name:'3~5평', desc:'30평대 아파트 수준', d:[500,800]},
+          {name:'5평 이상', desc:'대면형 · 아일랜드', d:[750,1200]},
+        ]},
+      { id:'grade', title:'자재 등급을 골라주세요', sub:'',
+        kind:'single', options:[
+          {name:'기본형', desc:'PET 도어 + 인조대리석', d:[0,0]},
+          {name:'프리미엄', desc:'도장 도어 + 엔지니어드 스톤', d:[150,300]},
+        ]},
+      { id:'opts', title:'함께 하실 공사가 있나요?', sub:'',
+        kind:'multi', options:[
+          {name:'주방 타일 시공', d:[40,80]},
+          {name:'철거 · 폐기물 처리', d:[30,50]},
+        ]},
+    ]},
+  etc: { name:'타일 · 목공 · 도배 등', desc:'기타 공사 상담', etc:true,
+    icon:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ff385c" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>' },
+};
+
+/* ========================= 엔진 ========================= */
+let state = { typeId:null, stepIdx:-1, answers:{} };
+const $ = id => document.getElementById(id);
+
+function fmt(n){ return n.toLocaleString('ko-KR'); }
+
+function calcPrice(){
+  const t = TYPES[state.typeId];
+  if(!t || t.etc) return null;
+  let min = t.base[0], max = t.base[1];
+  let perM = null, meters = null;
+  t.steps.forEach(st=>{
+    const a = state.answers[st.id];
+    if(a === undefined) return;
+    if(st.kind==='single'){
+      const o = st.options[a];
+      if(o.d){ min+=o.d[0]; max+=o.d[1]; }
+      if(o.perM){ perM = o.perM; }
+    } else if(st.kind==='multi'){
+      a.forEach(i=>{ min+=st.options[i].d[0]; max+=st.options[i].d[1]; });
+    } else if(st.kind==='chips'){
+      meters = a;
+    }
+  });
+  if(perM && meters){ min += perM[0]*meters; max += perM[1]*meters; }
+  else if(meters && !perM){ /* 길이만 고르고 등급 아직 → 표시 보류 */ }
+  return [Math.round(min), Math.round(max)];
+}
+
+function answeredCount(){
+  const t = TYPES[state.typeId];
+  if(!t||!t.steps) return 0;
+  return t.steps.filter(s=>state.answers[s.id]!==undefined).length;
+}
+
+function updateProgress(){
+  const t = TYPES[state.typeId];
+  const wrap = $('progressWrap');
+  if(!t || t.etc){ wrap.classList.remove('show'); return; }
+  wrap.classList.add('show');
+  const total = t.steps.length;
+  const done = Math.min(state.stepIdx, total);
+  const pct = Math.round(done/total*100);
+  $('progLabel').textContent = state.stepIdx>=total ? '완료!' : `단계 ${state.stepIdx+1} / ${total}`;
+  $('progPct').textContent = pct+'%';
+  $('progFill').style.width = pct+'%';
+}
+
+function updateSummary(){
+  const rows = $('sumRows');
+  const t = TYPES[state.typeId];
+  if(!t){ rows.innerHTML = '<div class="sum-empty">공사 유형을 선택하면 여기에 표시됩니다</div>'; $('sumPrice').innerHTML='— <small>만원</small>'; syncMobile(); return; }
+  let h = `<div class="sum-row"><span class="s-label">공사</span><span class="s-val">${t.name}<span class="s-edit" onclick="restart()">변경</span></span></div>`;
+  (t.steps||[]).forEach((st,si)=>{
+    const a = state.answers[st.id];
+    if(a===undefined) return;
+    let val='';
+    if(st.kind==='single') val = st.options[a].name;
+    else if(st.kind==='multi') val = a.length? a.map(i=>st.options[i].name).join(', ') : '없음';
+    else if(st.kind==='chips') val = a+st.unit;
+    const label = st.id==='place'?'현장': st.id==='opts'?'추가 작업': st.id==='len'?'길이': st.id==='size'?'크기': st.id==='kind'?'종류': st.id==='scope'?'범위': st.id==='grade'?'자재': st.id==='width'?'폭':'선택';
+    h += `<div class="sum-row"><span class="s-label">${label}</span><span class="s-val">${val}<span class="s-edit" onclick="goStep(${si})">수정</span></span></div>`;
+  });
+  rows.innerHTML = h;
+  const p = calcPrice();
+  $('sumPrice').innerHTML = p ? `${fmt(p[0])} ~ ${fmt(p[1])} <small>만원</small>` : '— <small>만원</small>';
+  syncMobile();
+}
+
+function syncMobile(){
+  const bar = $('mSumbar');
+  const t = TYPES[state.typeId];
+  if(!t || t.etc || state.stepIdx >= (t.steps||[]).length){ bar.style.display='none'; return; }
+  bar.style.display='flex';
+  const p = calcPrice();
+  $('msPrice').textContent = p ? `${fmt(p[0])}~${fmt(p[1])}만원` : '선택 중';
+  const st = t.steps[state.stepIdx];
+  $('msNext').style.visibility = (st && st.kind==='multi') ? 'visible' : 'hidden';
+}
+
+function mobileNext(){ nextStep(); }
+
+/* ---------- 화면 렌더 ---------- */
+function renderTypeSelect(){
+  state = { typeId:null, stepIdx:-1, answers:{} };
+  $('headTitle').textContent = '어떤 공사가 필요하세요?';
+  $('headSub').textContent = '버튼만 누르면 30초 안에 예상 견적이 나옵니다 — 연락처 입력 없이';
+  updateProgress(); updateSummary();
+  let h = '<div class="type-grid">';
+  for(const [id,t] of Object.entries(TYPES)){
+    h += `<div class="type-card" onclick="pickType('${id}')"><div class="t-ico">${t.icon}</div><h3>${t.name}</h3><p>${t.desc}</p></div>`;
+  }
+  h += '</div>';
+  $('stage').innerHTML = h;
+}
+
+function pickType(id){
+  const t = TYPES[id];
+  state = { typeId:id, stepIdx:0, answers:{} };
+  if(t.etc){ renderEtc(); return; }
+  $('headTitle').textContent = t.name + ' 예상 견적';
+  $('headSub').textContent = '몇 가지만 골라주시면 바로 계산해 드려요';
+  renderStep();
+}
+
+function renderEtc(){
+  $('headTitle').textContent = '타일 · 목공 · 도배 · 욕실 공사';
+  $('headSub').textContent = '';
+  updateProgress(); updateSummary();
+  $('stage').innerHTML = `
+    <div class="etc-card">
+      <h3>이 공사들은 사진 상담이 더 정확해요</h3>
+      <p>타일·목공·도배·욕실 공사는 현장 상태에 따라 금액 차이가 커서<br>계산기보다 사진을 보고 안내드리는 게 훨씬 정확합니다.<br>사진 2~3장이면 예상 견적을 바로 받아보실 수 있어요.</p>
+      <div class="result-cta" style="margin-top:24px">
+        <button class="btn-kakao">카카오톡으로 사진 보내기</button>
+        <a class="btn-outline" href="상담문의.html">사진 첨부 문의하기</a>
+      </div>
+      <button class="btn-restart" onclick="restart()">← 다른 공사 견적 내보기</button>
+    </div>`;
+}
+
+function renderStep(){
+  const t = TYPES[state.typeId];
+  if(state.stepIdx >= t.steps.length){ renderResult(); return; }
+  const st = t.steps[state.stepIdx];
+  updateProgress(); updateSummary();
+  let h = `<div class="step-title">${st.title}</div><div class="step-sub">${st.sub||''}</div>`;
+
+  if(st.kind==='single' || st.kind==='multi'){
+    h += '<div class="opt-list">';
+    st.options.forEach((o,i)=>{
+      const sel = st.kind==='single'
+        ? state.answers[st.id]===i
+        : (state.answers[st.id]||[]).includes(i);
+      let priceTxt='';
+      if(o.perM) priceTxt = `${o.perM[0]}~${o.perM[1]}만원/m`;
+      else if(o.d && (o.d[0]||o.d[1])) priceTxt = `+${o.d[0]}~${o.d[1]}만원`;
+      else priceTxt = '기본 포함';
+      const check = st.kind==='multi' ? `<span class="o-check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>` : '';
+      h += `<div class="opt-card${sel?' sel':''}" onclick="pickOpt(${i})">
+        ${check}
+        <div style="flex:1"><div class="o-name">${o.name}</div>${o.desc?`<div class="o-desc">${o.desc}</div>`:''}</div>
+        <div class="o-price${priceTxt==='기본 포함'?' zero':''}">${priceTxt}</div>
+      </div>`;
+    });
+    h += '</div>';
+  } else if(st.kind==='chips'){
+    const cur = state.answers[st.id];
+    h += '<div class="chip-row">';
+    st.chips.forEach(c=>{
+      h += `<button class="chip${cur===c?' sel':''}" onclick="pickChip(${c})">${c}${st.unit}</button>`;
+    });
+    if(st.allowCustom) h += `<button class="chip" onclick="customChip()">직접 입력</button>`;
+    h += '</div><div class="chip-hint">1m = 성인 걸음 한 걸음 반 정도예요</div>';
+  }
+
+  h += `<div class="step-nav">
+    <button class="btn-back" onclick="prevStep()">‹ 이전</button>
+    ${st.kind==='multi' ? '<button class="btn-next" onclick="nextStep()">다음 ›</button>' : '<span></span>'}
+  </div>`;
+  $('stage').innerHTML = h;
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function pickOpt(i){
+  const t = TYPES[state.typeId];
+  const st = t.steps[state.stepIdx];
+  if(st.kind==='single'){
+    state.answers[st.id]=i;
+    updateSummary();
+    setTimeout(()=>{ state.stepIdx++; renderStep(); }, 180); // 자동 진행
+  } else {
+    const arr = state.answers[st.id] || [];
+    const idx = arr.indexOf(i);
+    if(idx>=0) arr.splice(idx,1); else arr.push(i);
+    state.answers[st.id]=arr;
+    renderStep(); // 선택 상태 갱신 (다음 버튼으로 진행)
+  }
+}
+function pickChip(v){
+  const t = TYPES[state.typeId];
+  const st = t.steps[state.stepIdx];
+  state.answers[st.id]=v;
+  updateSummary();
+  setTimeout(()=>{ state.stepIdx++; renderStep(); }, 180);
+}
+function customChip(){
+  const v = parseFloat(prompt('길이를 미터(m) 단위로 입력해 주세요 (예: 3.2)'));
+  if(!isNaN(v) && v>0 && v<30) pickChip(Math.round(v*10)/10);
+}
+function nextStep(){
+  const t = TYPES[state.typeId];
+  const st = t.steps[state.stepIdx];
+  if(st.kind==='multi' && state.answers[st.id]===undefined) state.answers[st.id]=[];
+  state.stepIdx++; renderStep();
+}
+function prevStep(){
+  if(state.stepIdx<=0){ renderTypeSelect(); return; }
+  state.stepIdx--; renderStep();
+}
+function goStep(si){ state.stepIdx=si; renderStep(); }
+function restart(){ renderTypeSelect(); }
+
+function renderResult(){
+  const t = TYPES[state.typeId];
+  const p = calcPrice();
+  updateProgress(); updateSummary(); syncMobile();
+  let bd = `<div class="bd-row"><span class="b-label">${t.name} 기본</span><span class="b-val">${t.base[0]||t.base[1] ? t.base[0]+'~'+t.base[1]+'만원' : '선택 항목 기준'}</span></div>`;
+  t.steps.forEach(st=>{
+    const a = state.answers[st.id];
+    if(a===undefined) return;
+    if(st.kind==='single'){
+      const o = st.options[a];
+      if(o.perM){ const m = state.answers['len']; bd += `<div class="bd-row"><span class="b-label">${o.name} ${m?m+'m':''}</span><span class="b-val">${m?fmt(o.perM[0]*m)+'~'+fmt(o.perM[1]*m)+'만원':''}</span></div>`; }
+      else if(o.d && (o.d[0]||o.d[1])) bd += `<div class="bd-row"><span class="b-label">${o.name}</span><span class="b-val">+${o.d[0]}~${o.d[1]}만원</span></div>`;
+    } else if(st.kind==='multi'){
+      a.forEach(i=>{ const o=st.options[i]; bd += `<div class="bd-row"><span class="b-label">${o.name}</span><span class="b-val">+${o.d[0]}~${o.d[1]}만원</span></div>`; });
+    }
+  });
+  const isFull = state.typeId==='full';
+  $('headTitle').textContent = '예상 견적이 나왔어요';
+  $('headSub').textContent = '';
+  $('stage').innerHTML = `
+    <div class="result-card">
+      <div class="r-eyebrow">${t.name} 예상 견적</div>
+      <div class="result-price">${fmt(p[0])} ~ ${fmt(p[1])}<small> 만원</small></div>
+      <div class="result-range-note">${isFull ? '전체 시공은 범위가 넓어요 — 실측하면 정확해집니다' : '실측 후 확정되며, 추가 비용은 실측 때 모두 안내드려요'}</div>
+      <div class="breakdown">${bd}</div>
+      <div class="result-disclaimer">
+        <strong>이 금액에서 달라질 수 있는 경우</strong><br>
+        · 현장 상태(배관·벽 상태 등)에 따라 부속 작업이 생길 수 있어요<br>
+        · 제품·자재를 상급으로 바꾸면 그만큼 올라가요<br>
+        · 실측에서 안내한 금액 외 현장 추가 비용은 청구하지 않아요<br>
+        <span style="color:#929292">※ 싱크볼 교체는 실제 견적표 단가 기준 · 그 외 공사는 예시 단가 (정식 오픈 전 교체 예정)</span>
+      </div>
+      <div class="result-cta">
+        <button class="btn-kakao">카카오톡으로 정확한 견적 받기</button>
+        <a class="btn-outline" href="상담문의.html">사진 첨부 문의하기</a>
+      </div>
+      <button class="btn-restart" onclick="restart()">← 처음부터 다시 계산하기</button>
+    </div>`;
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+renderTypeSelect();
+</script>
+</body>
+</html>

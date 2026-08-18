@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- TODO 배포 시 DOMAIN 교체. 제품상세는 배포 단계에서 제품별 URL 68개 자동 생성 예정 -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://DOMAIN/</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://DOMAIN/서비스.html</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://DOMAIN/씽크대견적.html</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://DOMAIN/시공사례.html</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://DOMAIN/교육.html</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://DOMAIN/자료실.html</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://DOMAIN/계산기.html</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://DOMAIN/상담문의.html</loc><changefreq>weekly</changefreq></url>
+</urlset>
