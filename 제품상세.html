@@ -79,6 +79,27 @@ section{padding:var(--sp-section) 0}
 .price-include{margin-top:var(--sp-md);padding-top:var(--sp-md);border-top:1px solid var(--hairline-soft);font-size:13.5px;color:var(--body);line-height:1.7}
 .price-include b{font-weight:700}
 .btn-kakao{display:flex;align-items:center;justify-content:center;gap:8px;background:#FEE500;color:#191919;font-size:16px;font-weight:700;height:52px;border-radius:var(--r-sm);border:none;cursor:pointer;width:100%;margin-top:var(--sp-base)}
+
+/* 옵션 추가 */
+.opt-area{border:1px solid var(--hairline);border-radius:var(--r-lg);padding:var(--sp-lg);margin-top:var(--sp-base)}
+.opt-area h3{font-size:15px;font-weight:700;margin-bottom:2px}
+.opt-hint{font-size:12px;font-weight:400;color:var(--muted);margin-left:6px}
+.opt-row{display:flex;align-items:flex-start;gap:12px;padding:13px 0;border-bottom:1px solid var(--hairline);cursor:pointer}
+.opt-row.no-check{cursor:default;display:block}
+.opt-row:last-child{border-bottom:none}
+.opt-row input[type=checkbox]{width:18px;height:18px;accent-color:#ff385c;flex:none;cursor:pointer;margin-top:2px}
+.opt-row input[type=checkbox]:disabled{opacity:.35;cursor:not-allowed}
+.opt-info{flex:1;min-width:0}
+.o-name{font-size:14px;font-weight:600}
+.o-desc{font-size:12px;color:var(--muted);margin-top:2px;line-height:1.5}
+.o-price{font-size:13px;font-weight:700;white-space:nowrap;margin-top:2px}
+.o-price.quote{color:var(--muted);font-weight:500}
+.opt-select{width:100%;margin-top:8px;padding:9px 10px;border:1px solid var(--hairline);border-radius:8px;font-size:13px;background:#fff;color:inherit}
+.opt-summary{background:#f8f9fb;border-radius:var(--r-sm);padding:14px;margin-top:14px}
+.sum-line{display:flex;justify-content:space-between;gap:12px;font-size:13px;color:#444;padding:3px 0}
+.sum-total{display:flex;justify-content:space-between;align-items:center;font-size:15px;font-weight:700;border-top:1px solid var(--hairline);margin-top:8px;padding-top:10px}
+.sum-total .v{color:#ff385c;font-size:21px}
+.sum-note{font-size:11.5px;color:var(--muted);margin-top:8px;line-height:1.5}
 .btn-outline{display:flex;align-items:center;justify-content:center;background:#fff;color:var(--ink);border:1px solid var(--ink);font-size:15px;font-weight:500;height:48px;border-radius:var(--r-sm);cursor:pointer;width:100%;margin-top:var(--sp-sm)}
 .trust-row{display:flex;gap:6px;margin-top:var(--sp-base);flex-wrap:wrap}
 .trust-item{font-size:13px;color:var(--muted)}
@@ -196,6 +217,17 @@ footer{border-top:1px solid var(--hairline);padding:var(--sp-xxl) 0 0;margin-top
             <span class="t-val" id="priceVal">—</span>
           </div>
           <div class="price-include" id="priceInclude"></div>
+        </div>
+
+        <div class="opt-area" id="optArea" style="display:none">
+          <h3>옵션 추가 <span class="opt-hint">필요한 것만 선택하세요</span></h3>
+          <div id="optList"></div>
+          <div class="opt-summary">
+            <div id="optBreakdown"></div>
+            <div class="sum-total"><span>예상 합계</span><span class="v" id="optTotal">—</span></div>
+            <div class="sum-note" id="optQuoteNote" style="display:none"></div>
+            <div class="sum-note">현장 구조·오염도·작업 난이도에 따라 최종 견적은 실측 후 확정됩니다</div>
+          </div>
         </div>
 
         <button class="btn-kakao">
@@ -378,6 +410,89 @@ if (isSink) {
   document.getElementById('priceLabel').textContent = '추가 가격 (싱크볼 시공 시)';
   document.getElementById('priceVal').textContent = P.addPrice===0 ? '기본 제공' : (P.addPrice==null ? '상담 문의' : '+' + won(P.addPrice));
   document.getElementById('priceInclude').innerHTML = `<b>${GG_META.faucetNote}</b>`;
+}
+
+// 3-1. 옵션 추가 (싱크볼 전용) — 선택하면 예상 합계 자동 계산
+if (isSink && window.GG_SERVICES) {
+  const SVC = GG_SERVICES;
+  const faucets = GG_PRODUCTS.filter(p => p.cat === 'faucet' && p.id !== 'faucet-하츠페달');
+  const pedal = GG_PRODUCTS.find(p => p.id === 'faucet-하츠페달');
+  const sandPrice = m => SVC.sanding.base + Math.max(0, m - SVC.sanding.baseLen) * SVC.sanding.perM;
+  const area = document.getElementById('optArea');
+  area.style.display = 'block';
+
+  document.getElementById('optList').innerHTML = `
+    <div class="opt-row no-check">
+      <div class="opt-info"><div class="o-name">수전 업그레이드</div><div class="o-desc">기본 3WAY 폭포수전은 무료 포함 — 바꾸실 때만 선택하세요</div>
+        <select id="optFaucet" class="opt-select">
+          <option value="">기본 3WAY 폭포수전 (무료 포함)</option>
+          ${faucets.map(f => `<option value="${f.id}">${f.name} ${f.addPrice == null ? '— 상담 문의' : (f.addPrice === 0 ? '— 기본 제공' : '+' + won(f.addPrice))}</option>`).join('')}
+        </select>
+      </div>
+    </div>
+    <label class="opt-row"><input type="checkbox" id="optPedal">
+      <div class="opt-info"><div class="o-name">절수 페달 추가</div><div class="o-desc">${pedal ? pedal.name : '하츠 페달수전'} · 발로 눌러 물을 아껴요</div></div>
+      <span class="o-price quote">상담 문의</span>
+    </label>
+    <label class="opt-row"><input type="checkbox" id="optSand">
+      <div class="opt-info"><div class="o-name">${SVC.sanding.name}</div><div class="o-desc">미세 스크래치·착색 제거 · 4m 기준 ${won(SVC.sanding.base)}, 1m 추가마다 +${won(SVC.sanding.perM)}</div>
+        <select id="optSandLen" class="opt-select" style="display:none">
+          ${[4,5,6,7,8].map(m => `<option value="${m}">상판 길이 약 ${m}m — ${won(sandPrice(m))}</option>`).join('')}
+        </select>
+      </div>
+      <span class="o-price" id="optSandPrice">+${won(SVC.sanding.base)}</span>
+    </label>
+    <label class="opt-row"><input type="checkbox" id="optCrack" disabled>
+      <div class="opt-info"><div class="o-name">${SVC.crack.name}</div><div class="o-desc">샌딩과 함께 시공 시 · ${SVC.crack.standalone}</div></div>
+      <span class="o-price">+${won(SVC.crack.addPrice)}</span>
+    </label>
+    <label class="opt-row"><input type="checkbox" id="optUv">
+      <div class="opt-info"><div class="o-name">${SVC.uv.name}</div><div class="o-desc">광택 보호 · 오염 방지 코팅</div></div>
+      <span class="o-price ${SVC.uv.addPrice == null ? 'quote' : ''}">${SVC.uv.addPrice == null ? '상담 문의' : '+' + won(SVC.uv.addPrice)}</span>
+    </label>
+    <label class="opt-row"><input type="checkbox" id="optSil">
+      <div class="opt-info"><div class="o-name">${SVC.silicone.name}</div><div class="o-desc">${SVC.silicone.note}</div></div>
+      <span class="o-price">+${won(SVC.silicone.addPrice)}</span>
+    </label>`;
+
+  const $id = s => document.getElementById(s);
+  function recalc() {
+    let total = P.price;
+    const lines = [['제품 + 시공 일체', won(P.price)]];
+    const quotes = [];
+    const fid = $id('optFaucet').value;
+    if (fid) {
+      const f = GG_PRODUCTS.find(p => p.id === fid);
+      if (f.addPrice == null) quotes.push(f.name);
+      else if (f.addPrice > 0) { total += f.addPrice; lines.push([f.name, '+' + won(f.addPrice)]); }
+      else lines.push([f.name, '기본 제공']);
+    }
+    if ($id('optPedal').checked) quotes.push('절수 페달');
+    const sandOn = $id('optSand').checked;
+    $id('optSandLen').style.display = sandOn ? 'block' : 'none';
+    $id('optCrack').disabled = !sandOn;
+    if (!sandOn && $id('optCrack').checked) $id('optCrack').checked = false;
+    if (sandOn) {
+      const m = +$id('optSandLen').value;
+      const pr = sandPrice(m);
+      $id('optSandPrice').textContent = '+' + won(pr);
+      total += pr; lines.push([SVC.sanding.name + ' ' + m + 'm', '+' + won(pr)]);
+      if ($id('optCrack').checked) { total += SVC.crack.addPrice; lines.push([SVC.crack.name, '+' + won(SVC.crack.addPrice)]); }
+    } else { $id('optSandPrice').textContent = '+' + won(SVC.sanding.base); }
+    if ($id('optUv').checked) {
+      if (SVC.uv.addPrice == null) quotes.push(SVC.uv.name);
+      else { total += SVC.uv.addPrice; lines.push([SVC.uv.name, '+' + won(SVC.uv.addPrice)]); }
+    }
+    if ($id('optSil').checked) { total += SVC.silicone.addPrice; lines.push([SVC.silicone.name, '+' + won(SVC.silicone.addPrice)]); }
+
+    $id('optBreakdown').innerHTML = lines.map(([k, v]) => `<div class="sum-line"><span>${k}</span><span>${v}</span></div>`).join('');
+    $id('optTotal').textContent = won(total);
+    const qn = $id('optQuoteNote');
+    if (quotes.length) { qn.style.display = 'block'; qn.textContent = '💬 상담 문의 항목(합계 미포함): ' + quotes.join(', ') + ' — 카톡으로 함께 문의해 주세요'; }
+    else qn.style.display = 'none';
+  }
+  area.addEventListener('change', recalc);
+  recalc();
 }
 
 // 4. 규격 표

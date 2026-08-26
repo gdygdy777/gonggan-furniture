@@ -1175,6 +1175,14 @@ window.GG_PRODUCTS = [
  }
 ];
 
+// 추가 서비스 (제품상세 옵션 합산용) — 가격표 2026-08-26 기준
+window.GG_SERVICES = {
+  sanding:  { name: '대리석 샌딩 + 광택', base: 200000, baseLen: 4, perM: 40000 },
+  crack:    { name: '크랙(균열) 보수', addPrice: 50000, standalone: '단독 진행 시 1라인 150,000원~ · 2라인 250,000원~' },
+  uv:       { name: '대리석 UV 코팅', addPrice: null },   // TODO: 가격 확정 시 숫자 입력 (원 단위, 예: 100000)
+  silicone: { name: '실리콘 재시공', addPrice: 50000, note: '양에 따라 변동' }
+};
+
 // 관리자 수정사항(localStorage) 덮어쓰기
 (function(){
   try {
