@@ -362,7 +362,19 @@ footer{border-top:1px solid var(--hairline);padding:var(--sp-xxl) 0 0}
         </details>
       </div>
 
-      <button class="btn-primary" type="button">문의 보내기</button>
+      <button class="btn-primary" type="button" id="sendBtn">문의 내용 만들기</button>
+      <p style="font-size:12px;color:#888;margin-top:8px">카카오톡 채널 오픈 전이라 문자·전화로 접수하고 있어요. 버튼을 누르면 보낼 내용을 만들어 드립니다.</p>
+
+      <div id="sendPanel" style="display:none;margin-top:16px;border:1.5px solid #ff385c;border-radius:14px;padding:18px;background:#fff8f9">
+        <div style="font-size:15px;font-weight:700;margin-bottom:8px">✅ 문의 내용이 준비됐어요</div>
+        <textarea id="sendText" readonly style="width:100%;height:130px;border:1px solid #ddd;border-radius:8px;padding:10px;font-size:13px;line-height:1.6;background:#fff;resize:none"></textarea>
+        <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
+          <a id="sendSms" href="#" style="flex:1;min-width:120px;text-align:center;background:#111;color:#fff;border-radius:8px;padding:13px 0;font-size:14px;font-weight:700">📱 문자로 보내기</a>
+          <a href="tel:01087268288" style="flex:1;min-width:120px;text-align:center;border:1px solid #111;border-radius:8px;padding:13px 0;font-size:14px;font-weight:700">📞 바로 전화하기</a>
+          <button id="copyBtn" type="button" style="flex:1;min-width:120px;border:1px solid #ddd;background:#fff;border-radius:8px;padding:13px 0;font-size:14px;cursor:pointer">내용 복사</button>
+        </div>
+        <p style="font-size:12px;color:#888;margin-top:10px">사진은 문자에 함께 첨부해 주시면 견적이 더 정확해져요 · 010-8726-8288</p>
+      </div>
     </div>
   </div>
 </section>
@@ -481,6 +493,41 @@ footer{border-top:1px solid var(--hairline);padding:var(--sp-xxl) 0 0}
   <a href="계산기.html" class="m-quote">예상 견적</a>
 </div>
 
-<script src="데이터/config.js" defer></script>
+<script>
+(function(){
+  var $ = function(id){ return document.getElementById(id); };
+  function buildInquiry(){
+    var name = $('f-name').value.trim();
+    var tel  = $('f-tel').value.trim();
+    var area = $('f-area').value.trim();
+    var type = $('f-type').value; if (!type || type.indexOf('선택') >= 0) type = '';
+    var msg  = $('f-msg').value.trim();
+    if (!name && !tel) { alert('성함과 연락처를 적어주시면 상담이 빨라요!'); $('f-name').focus(); return; }
+    if (!$('f-agree').checked) { alert('개인정보 수집·이용에 동의해 주세요.'); return; }
+    var text = '[공간가구연구소 견적 문의]\n'
+      + '이름: ' + (name || '-') + '\n'
+      + '연락처: ' + (tel || '-') + '\n'
+      + '지역: ' + (area || '-') + '\n'
+      + '공사 유형: ' + (type || '-') + '\n'
+      + '내용: ' + (msg || '-');
+    $('sendText').value = text;
+    var body = encodeURIComponent(text);
+    var ios = /iPhone|iPad|iPod/.test(navigator.userAgent);
+    $('sendSms').href = 'sms:01087268288' + (ios ? '&' : '?') + 'body=' + body;
+    $('sendPanel').style.display = 'block';
+    $('sendPanel').scrollIntoView({behavior:'smooth', block:'center'});
+  }
+  document.addEventListener('DOMContentLoaded', function(){
+    $('sendBtn').addEventListener('click', buildInquiry);
+    $('copyBtn').addEventListener('click', function(){
+      var ta = $('sendText'); ta.select();
+      try { navigator.clipboard.writeText(ta.value); } catch(e) { document.execCommand('copy'); }
+      $('copyBtn').textContent = '복사 완료!';
+      setTimeout(function(){ $('copyBtn').textContent = '내용 복사'; }, 1500);
+    });
+  });
+})();
+</script>
+<script src="데이터/config.js?v=2" defer></script>
 </body>
 </html>

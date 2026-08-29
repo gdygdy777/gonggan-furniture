@@ -304,6 +304,12 @@ footer{border-top:1px solid var(--hairline);padding:var(--sp-xxl) 0 0;margin-top
     </div>
   </div>
 </footer>
+<div class="mobile-bar">
+  <a href="tel:01087268288">전화</a>
+  <a href="#">카톡 상담</a>
+  <a href="계산기.html?type=cabinet" class="m-quote">예상 견적</a>
+</div>
+
 <script src="데이터/cabinet-data.js"></script>
 <script>
 const won = n => n.toLocaleString('ko-KR');
@@ -362,6 +368,6 @@ document.getElementById('caseGrid').innerHTML = C.cases.map(c=>`
     <div class="c-body"><div class="c-title">${c.title}</div><div class="c-date">${c.date || '네이버 블로그'} · 시공기 보기 ›</div></div>
   </a>`).join('');
 </script>
-<script src="데이터/config.js" defer></script>
+<script src="데이터/config.js?v=2" defer></script>
 </body>
 </html>
