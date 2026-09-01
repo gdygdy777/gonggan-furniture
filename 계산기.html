@@ -346,6 +346,20 @@ const TYPES = {
     icon:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ff385c" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>' },
 };
 
+
+/* 이모지 아이콘 */
+const TYPE_EMOJI = { sink:'🚰', faucet:'💧', hood:'🌬️', counter:'🪨', reform:'🚪', cabinet:'🪚', full:'🏠', etc:'🧱' };
+const OPT_EMOJI = {
+  '아파트':'🏢','빌라 · 연립':'🏘️','단독주택':'🏡','오피스텔 · 상가':'🏬',
+  '소형':'🤏','중형':'👌','대형':'🙌','잘 모르겠어요':'🤷',
+  '수전 업그레이드':'🚿','배수구 부속 교체':'🪠','추가 요청 작업':'➕',
+  '일반 수전':'🚰','풀아웃(코브라) 수전':'🐍','벽붙이 수전':'🧱','상판 타공':'🕳️','앵글밸브 교체':'🔩',
+  '슬라이드형':'📥','침니형':'🗼','아일랜드형':'🏝️','덕트(배기관) 연장':'🌀','기존 후드 폐기':'🗑️',
+  '인조대리석':'🪨','엔지니어드 스톤':'💎','싱크볼 재설치':'🔄','기존 상판 철거·폐기':'🗑️',
+  '필름 리폼':'🎞️','도어 + 손잡이 교체':'🚪','도어 + 몸통 보수':'🛠️',
+  '냉장고장':'🧊','다용도장':'🧺','키큰장':'🗄️','수납장 · 기타':'📦','도어 마감 업그레이드':'✨'
+};
+
 /* ========================= 엔진 ========================= */
 let state = { typeId:null, stepIdx:-1, answers:{} };
 const $ = id => document.getElementById(id);
@@ -436,7 +450,7 @@ function renderTypeSelect(){
   updateProgress(); updateSummary();
   let h = '<div class="type-grid">';
   for(const [id,t] of Object.entries(TYPES)){
-    h += `<div class="type-card" onclick="pickType('${id}')"><div class="t-ico">${t.icon}</div><h3>${t.name}</h3><p>${t.desc}</p></div>`;
+    h += `<div class="type-card" onclick="pickType('${id}')"><div class="t-ico"><span style="font-size:30px;line-height:1">${TYPE_EMOJI[id]||''}</span></div><h3>${t.name}</h3><p>${t.desc}</p></div>`;
   }
   h += '</div>';
   $('stage').innerHTML = h;
@@ -487,7 +501,7 @@ function renderStep(){
       const check = st.kind==='multi' ? `<span class="o-check"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>` : '';
       h += `<div class="opt-card${sel?' sel':''}" onclick="pickOpt(${i})">
         ${check}
-        <div style="flex:1"><div class="o-name">${o.name}</div>${o.desc?`<div class="o-desc">${o.desc}</div>`:''}</div>
+        <div style="flex:1"><div class="o-name">${OPT_EMOJI[o.name]?OPT_EMOJI[o.name]+' ':''}${o.name}</div>${o.desc?`<div class="o-desc">${o.desc}</div>`:''}</div>
         <div class="o-price${priceTxt==='기본 포함'?' zero':''}">${priceTxt}</div>
       </div>`;
     });

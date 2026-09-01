@@ -340,12 +340,12 @@ function showImg(src){ mainImg.src = src; document.getElementById('lightbox').st
 // 견적 계산 (계산기와 동일 단가 — 예시 단가, 실측 후 확정)
 document.getElementById('optList').innerHTML = `
   <div class="opt-row no-check">
-    <div class="opt-info"><div class="o-name">폭 (설치할 자리 기준)</div><div class="o-desc">대략이면 돼요 — 실측 때 정확히 재드립니다</div>
+    <div class="opt-info"><div class="o-name">↔️ 폭 (설치할 자리 기준)</div><div class="o-desc">대략이면 돼요 — 실측 때 정확히 재드립니다</div>
       <select id="optWidth" class="opt-select">${C.width.map((w,i)=>`<option value="${i}">${w.name}${w.d[0]||w.d[1]?` +${w.d[0]}~${w.d[1]}만원`:''}</option>`).join('')}</select>
     </div>
   </div>
   <label class="opt-row"><input type="checkbox" id="optDoor">
-    <div class="opt-info"><div class="o-name">${C.door.name}</div><div class="o-desc">${C.door.desc}</div></div>
+    <div class="opt-info"><div class="o-name">✨ ${C.door.name}</div><div class="o-desc">${C.door.desc}</div></div>
     <span class="o-price">+${C.door.d[0]}~${C.door.d[1]}만원</span>
   </label>`;
 
