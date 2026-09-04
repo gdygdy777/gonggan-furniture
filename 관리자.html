@@ -155,6 +155,38 @@ button{font-family:inherit}
 </style>
 </head>
 <body>
+<!-- 관리자 로그인 게이트 -->
+<div id="ggLogin" style="position:fixed;inset:0;background:#f7f7f9;z-index:9999;display:flex;align-items:center;justify-content:center;font-family:'Pretendard Variable',Pretendard,-apple-system,sans-serif">
+  <div style="width:min(360px,90vw);background:#fff;border:1px solid #e5e5ea;border-radius:16px;padding:32px;box-shadow:0 8px 30px rgba(0,0,0,.06);text-align:center">
+    <img src="img/logo-mark.png" alt="공간가구연구소" style="width:64px;height:64px;margin-bottom:8px">
+    <div style="font-size:18px;font-weight:800;margin-bottom:2px">관리자 로그인</div>
+    <div style="font-size:12.5px;color:#888;margin-bottom:20px">공간가구연구소 제품·가격 관리</div>
+    <input id="ggId" type="text" placeholder="아이디" autocomplete="username" style="width:100%;padding:12px;border:1px solid #ddd;border-radius:8px;font-size:14px;margin-bottom:8px">
+    <input id="ggPw" type="password" placeholder="비밀번호" autocomplete="current-password" style="width:100%;padding:12px;border:1px solid #ddd;border-radius:8px;font-size:14px;margin-bottom:6px">
+    <div id="ggErr" style="display:none;font-size:12px;color:#e0344f;margin-bottom:4px">아이디 또는 비밀번호가 맞지 않아요</div>
+    <button id="ggEnter" style="width:100%;background:#ff385c;color:#fff;border:none;border-radius:8px;padding:13px;font-size:15px;font-weight:700;cursor:pointer;margin-top:6px">로그인</button>
+  </div>
+</div>
+<script>
+(function(){
+  var HASH = 'b015a639170bc9cfdcd1568f256b99652541b002e681ffad1cb04e6413115859';
+  var box = document.getElementById('ggLogin');
+  function unlock(){ box.style.display = 'none'; }
+  if (sessionStorage.getItem('gg_admin') === '1') { unlock(); }
+  async function tryLogin(){
+    var id = document.getElementById('ggId').value.trim();
+    var pw = document.getElementById('ggPw').value;
+    var buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(id + ':' + pw));
+    var hex = Array.from(new Uint8Array(buf)).map(function(b){ return b.toString(16).padStart(2,'0'); }).join('');
+    if (hex === HASH) { sessionStorage.setItem('gg_admin','1'); unlock(); }
+    else { document.getElementById('ggErr').style.display = 'block'; document.getElementById('ggPw').value=''; }
+  }
+  document.getElementById('ggEnter').addEventListener('click', tryLogin);
+  [document.getElementById('ggId'), document.getElementById('ggPw')].forEach(function(el){
+    el.addEventListener('keydown', function(e){ if (e.key === 'Enter') tryLogin(); });
+  });
+})();
+</script>
 
 <!-- 상단 바 -->
 <header class="admin-bar">
