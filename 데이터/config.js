@@ -15,6 +15,10 @@ window.SITE_CONFIG = {
   var CFG = window.SITE_CONFIG;
   var telHref = 'tel:' + CFG.phone.replace(/-/g, '');
 
+  function ggTrack(name, label) {
+    try { if (typeof gtag === 'function') gtag('event', name, { event_label: label || location.pathname }); } catch (e) {}
+  }
+
   function kakaoFallback() {
     alert('카카오톡 채널 준비 중입니다.\n전화로 문의해 주세요: ' + CFG.phone);
   }
@@ -25,6 +29,7 @@ window.SITE_CONFIG = {
     // ── 1) 노란 카카오톡 버튼 전부 ──
     document.querySelectorAll('.btn-kakao').forEach(function (b) {
       b.addEventListener('click', function () {
+        ggTrack('카톡문의_클릭', b.textContent.trim());
         if (url) { window.open(url, '_blank'); }
         else { kakaoFallback(); }
       });
@@ -44,7 +49,7 @@ window.SITE_CONFIG = {
       }
 
       // '전화' 링크 → 실제 발신
-      if (t === '전화') { a.href = telHref; }
+      if (t === '전화') { a.href = telHref; a.addEventListener('click', function(){ ggTrack('전화_클릭'); }); }
 
       // 약관류 빈 링크 → 준비 중 안내
       if (href === '#' && (t === '이용약관' || t === '개인정보처리방침')) {
@@ -117,6 +122,13 @@ window.SITE_CONFIG = {
         else { e.preventDefault(); kakaoFallback(); }
       });
     }
+
+    // 주요 버튼 클릭 추적
+    document.querySelectorAll('a').forEach(function (a) {
+      var t = a.textContent.trim();
+      if (/온라인 견적 요청/.test(t)) a.addEventListener('click', function(){ ggTrack('견적요청_클릭'); });
+      if (/예상 견적|견적 계산/.test(t)) a.addEventListener('click', function(){ ggTrack('계산기_이동'); });
+    });
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bind);
