@@ -520,6 +520,21 @@ footer{border-top:1px solid var(--hairline);padding:var(--sp-xxl) 0 0}
     var ios = /iPhone|iPad|iPod/.test(navigator.userAgent);
     $('sendSms').href = 'sms:01087268288' + (ios ? '&' : '?') + 'body=' + body;
     $('sendPanel').style.display = 'block';
+    // 문의 내용을 접수함(DB)에도 저장 (실패해도 문자 흐름은 유지)
+    try {
+      fetch('https://hxdidstojcundfehtkuz.supabase.co/rest/v1/inquiries', {
+        method: 'POST',
+        headers: { apikey: 'sb_publishable_XeO6hA57cUdatFaBvaDpXA_eQLx5jxg', Authorization: 'Bearer sb_publishable_XeO6hA57cUdatFaBvaDpXA_eQLx5jxg', 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: name, phone: tel, area: area, work_type: type, message: msg })
+      }).then(function(r){
+        if (r.ok) {
+          var p = document.createElement('p');
+          p.style.cssText = 'font-size:12px;color:#1a8917;margin-top:8px;font-weight:600';
+          p.textContent = '✅ 문의가 접수함에 저장됐어요 — 문자까지 보내주시면 더 빨리 연락드립니다';
+          $('sendPanel').appendChild(p);
+        }
+      }).catch(function(){});
+    } catch(e) {}
     $('sendPanel').scrollIntoView({behavior:'smooth', block:'center'});
   }
   document.addEventListener('DOMContentLoaded', function(){

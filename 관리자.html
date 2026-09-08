@@ -170,6 +170,7 @@ button{font-family:inherit}
 <script>
 (function(){
   var HASH = 'b015a639170bc9cfdcd1568f256b99652541b002e681ffad1cb04e6413115859';
+  window.GG_SUPA = { url: 'https://hxdidstojcundfehtkuz.supabase.co', key: 'sb_publishable_XeO6hA57cUdatFaBvaDpXA_eQLx5jxg', email: 'gdygdy777+admin@gmail.com' };
   var box = document.getElementById('ggLogin');
   function unlock(){ box.style.display = 'none'; }
   if (sessionStorage.getItem('gg_admin') === '1') { unlock(); }
@@ -178,7 +179,20 @@ button{font-family:inherit}
     var pw = document.getElementById('ggPw').value;
     var buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(id + ':' + pw));
     var hex = Array.from(new Uint8Array(buf)).map(function(b){ return b.toString(16).padStart(2,'0'); }).join('');
-    if (hex === HASH) { sessionStorage.setItem('gg_admin','1'); unlock(); }
+    if (hex === HASH) {
+      sessionStorage.setItem('gg_admin','1');
+      try {
+        var res = await fetch(GG_SUPA.url + '/auth/v1/token?grant_type=password', {
+          method: 'POST',
+          headers: { apikey: GG_SUPA.key, 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: GG_SUPA.email, password: pw })
+        });
+        var tok = await res.json();
+        if (tok.access_token) { sessionStorage.setItem('gg_tok', tok.access_token); }
+        else { sessionStorage.removeItem('gg_tok'); }
+      } catch (e) { sessionStorage.removeItem('gg_tok'); }
+      unlock();
+    }
     else { document.getElementById('ggErr').style.display = 'block'; document.getElementById('ggPw').value=''; }
   }
   document.getElementById('ggEnter').addEventListener('click', tryLogin);
@@ -306,7 +320,37 @@ if (window.__ovBackup !== null) localStorage.setItem('gg_products_override', win
     if (Object.keys(ov).length === 0) localStorage.removeItem(KEY);
     else localStorage.setItem(KEY, JSON.stringify(ov));
     updateSaveState();
+    cloudPush(ov);
   }
+  var cloudTimer = null;
+  function cloudPush(ov){
+    var tok = sessionStorage.getItem('gg_tok');
+    var st = document.getElementById('saveState');
+    if (!tok) { if (st) st.querySelector('.txt').textContent = '로컬 저장됨 (클라우드 미연결)'; return; }
+    clearTimeout(cloudTimer);
+    cloudTimer = setTimeout(function(){
+      fetch(GG_SUPA.url + '/rest/v1/site_data', {
+        method: 'POST',
+        headers: { apikey: GG_SUPA.key, Authorization: 'Bearer ' + tok,
+                   'Content-Type': 'application/json', Prefer: 'resolution=merge-duplicates' },
+        body: JSON.stringify([{ key: 'products_override', data: ov, updated_at: new Date().toISOString() }])
+      }).then(function(r){
+        if (st) st.querySelector('.txt').textContent = r.ok ? '☁️ 클라우드 저장됨 — 사이트 전체 반영' : '클라우드 저장 실패 (로컬만)';
+      }).catch(function(){ if (st) st.querySelector('.txt').textContent = '클라우드 저장 실패 (로컬만)'; });
+    }, 600);
+  }
+  // 시작 시 클라우드 최신본 불러오기
+  (function cloudPull(){
+    fetch(GG_SUPA.url + '/rest/v1/site_data?key=eq.products_override&select=data', {
+      headers: { apikey: GG_SUPA.key, Authorization: 'Bearer ' + GG_SUPA.key }
+    }).then(function(r){ return r.json(); }).then(function(rows){
+      if (rows && rows[0] && rows[0].data && Object.keys(rows[0].data).length) {
+        localStorage.setItem(KEY, JSON.stringify(rows[0].data));
+        updateSaveState();
+        if (typeof renderList === 'function') renderList();
+      }
+    }).catch(function(){});
+  })();
   function merged(p){
     var ov = getOv();
     return ov[p.id] ? Object.assign({}, p, ov[p.id]) : Object.assign({}, p);

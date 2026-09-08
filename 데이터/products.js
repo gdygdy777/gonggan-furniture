@@ -1192,3 +1192,21 @@ window.GG_SERVICES = {
     });
   } catch(e) {}
 })();
+
+// GG_CLOUD_SYNC — Supabase(개인 계정)에서 최신 제품 수정본을 받아 반영
+(function(){
+  if (location.pathname.indexOf('%EA%B4%80%EB%A6%AC%EC%9E%90') >= 0 || location.pathname.indexOf('관리자') >= 0) return;
+  try {
+    fetch('https://hxdidstojcundfehtkuz.supabase.co/rest/v1/site_data?key=eq.products_override&select=data', {
+      headers: { apikey: 'sb_publishable_XeO6hA57cUdatFaBvaDpXA_eQLx5jxg', Authorization: 'Bearer sb_publishable_XeO6hA57cUdatFaBvaDpXA_eQLx5jxg' }
+    }).then(function(r){ return r.json(); }).then(function(rows){
+      var fresh = (rows && rows[0] && rows[0].data) ? JSON.stringify(rows[0].data) : '{}';
+      var cur = localStorage.getItem('gg_products_override') || '{}';
+      if (fresh !== cur) {
+        if (fresh === '{}') localStorage.removeItem('gg_products_override');
+        else localStorage.setItem('gg_products_override', fresh);
+        if (!sessionStorage.getItem('gg_synced')) { sessionStorage.setItem('gg_synced', '1'); location.reload(); }
+      } else { sessionStorage.removeItem('gg_synced'); }
+    }).catch(function(){});
+  } catch(e) {}
+})();
