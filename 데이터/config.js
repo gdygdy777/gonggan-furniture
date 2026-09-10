@@ -95,7 +95,7 @@ window.SITE_CONFIG = {
       drawer.innerHTML =
         '<a href="index.html">홈</a>' +
         '<a href="서비스.html">서비스</a>' +
-        '<a href="씽크대견적.html">씽크대 견적 <span class="m-sub">제품별 가격 공개</span></a>' +
+        '<a href="씽크대견적.html">씽크볼 견적 <span class="m-sub">제품별 가격 공개</span></a>' +
         '<a href="장제작상세.html">장 제작 <span class="m-sub">붙박이장·냉장고장·키큰장</span></a>' +
         '<a href="계산기.html">견적 계산기 <span class="m-sub">30초 예상 견적</span></a>' +
         '<a href="시공사례.html">시공사례</a>' +

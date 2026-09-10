@@ -171,7 +171,11 @@ window.GG_PRODUCTS = [
   "config": "스텐배수구 + 바스켓 + 수세미망 + 엠보커버",
   "price": 560000,
   "img": "img/싱크볼/small_벨라고_ESQL858.webp",
-  "popular": false
+  "popular": false,
+  "detailImgs": [
+   "img/상세/sink-small-esql858_1.webp",
+   "img/상세/sink-small-esql858_2.webp"
+  ]
  },
  {
   "id": "sink-small-세리니티858",
@@ -231,7 +235,12 @@ window.GG_PRODUCTS = [
   "config": "스텐배수구 + 바스켓 + 수세미망 + 엠보커버",
   "price": 650000,
   "img": "img/싱크볼/small_아티잔_PEDU858.webp",
-  "popular": false
+  "popular": false,
+  "detailImgs": [
+   "img/상세/sink-small-pedu858_1.webp",
+   "img/상세/sink-small-pedu858_2.webp",
+   "img/상세/sink-small-pedu858_3.webp"
+  ]
  },
  {
   "id": "sink-small-sqj850eec",
@@ -286,7 +295,11 @@ window.GG_PRODUCTS = [
   "config": "스텐배수구 + 바구니 + 엠보커버",
   "price": 500000,
   "img": "img/싱크볼/mid_백조_고니_ECNRW8630_복제.webp",
-  "popular": false
+  "popular": false,
+  "detailImgs": [
+   "img/상세/sink-mid-ecnrw8830_1.webp",
+   "img/상세/sink-mid-ecnrw8830_2.webp"
+  ]
  },
  {
   "id": "sink-mid-ceswsr8835",
@@ -372,7 +385,16 @@ window.GG_PRODUCTS = [
   "config": "스텐배수구 + 바스켓 + 수세미망 + 엠보커버 + 우드도마 + 수전",
   "price": 770000,
   "img": "img/싱크볼/mid_벨라고_세레니티_880.webp",
-  "popular": false
+  "popular": false,
+  "detailImgs": [
+   "img/상세/sink-mid-세리니티880_1.webp",
+   "img/상세/sink-mid-세리니티880_2.webp",
+   "img/상세/sink-mid-세리니티880_3.webp",
+   "img/상세/sink-mid-세리니티880_4.webp",
+   "img/상세/sink-mid-세리니티880_5.webp",
+   "img/상세/sink-mid-세리니티880_6.webp",
+   "img/상세/sink-mid-세리니티880_7.webp"
+  ]
  },
  {
   "id": "sink-mid-edu882",
@@ -409,7 +431,10 @@ window.GG_PRODUCTS = [
   "config": "스텐배수구 + 바스켓 + 수세미망 + 엠보커버",
   "price": 690000,
   "img": "img/싱크볼/mid_PEDU882.webp",
-  "popular": false
+  "popular": false,
+  "detailImgs": [
+   "img/상세/sink-mid-pedu882_1.webp"
+  ]
  },
  {
   "id": "sink-mid-sqj870",
@@ -445,7 +470,10 @@ window.GG_PRODUCTS = [
   "config": "스텐배수구 + 바스켓 + 수세미망 + 엠보커버",
   "price": 470000,
   "img": "img/싱크볼/large_AK_STEADY_Steady9052.webp",
-  "popular": false
+  "popular": false,
+  "detailImgs": [
+   "img/상세/sink-large-steady9052_1.webp"
+  ]
  },
  {
   "id": "sink-large-steady9552",
@@ -461,7 +489,10 @@ window.GG_PRODUCTS = [
   "config": "스텐배수구 + 바스켓 + 수세미망 + 엠보커버",
   "price": 480000,
   "img": "img/싱크볼/large_AK_STEADY_Steady9552.webp",
-  "popular": false
+  "popular": false,
+  "detailImgs": [
+   "img/상세/sink-large-steady9552_1.webp"
+  ]
  },
  {
   "id": "sink-large-steady9952",
@@ -477,7 +508,10 @@ window.GG_PRODUCTS = [
   "config": "스텐배수구 + 바스켓 + 수세미망 + 엠보커버",
   "price": 500000,
   "img": "img/싱크볼/large_AK_STEADY_Steady9952.webp",
-  "popular": false
+  "popular": false,
+  "detailImgs": [
+   "img/상세/sink-large-steady9952_1.webp"
+  ]
  },
  {
   "id": "sink-large-ecnrw9030",
@@ -594,7 +628,10 @@ window.GG_PRODUCTS = [
   "config": "스텐배수구 + 바구니 + 수세미망 + 엠보커버 + 캄포도마",
   "price": 910000,
   "img": "img/싱크볼/large_백조_깜보르떼9035.webp",
-  "popular": false
+  "popular": false,
+  "detailImgs": [
+   "img/상세/sink-large-깜뽀르테9035_1.webp"
+  ]
  },
  {
   "id": "sink-large-깜뽀르테9535",
@@ -610,7 +647,10 @@ window.GG_PRODUCTS = [
   "config": "스텐배수구 + 바구니 + 수세미망 + 엠보커버 + 캄포도마",
   "price": 940000,
   "img": "img/싱크볼/large_백조_깜보르떼9535.webp",
-  "popular": false
+  "popular": false,
+  "detailImgs": [
+   "img/상세/sink-large-깜뽀르테9535_1.webp"
+  ]
  },
  {
   "id": "sink-large-깜뽀르테9835",
@@ -626,7 +666,10 @@ window.GG_PRODUCTS = [
   "config": "스텐배수구 + 바구니 + 수세미망 + 엠보커버 + 캄포도마",
   "price": 940000,
   "img": "img/싱크볼/large_백조_깜보르떼9835.webp",
-  "popular": false
+  "popular": false,
+  "detailImgs": [
+   "img/상세/sink-large-깜뽀르테9835_1.webp"
+  ]
  },
  {
   "id": "sink-large-esql905",
@@ -642,7 +685,10 @@ window.GG_PRODUCTS = [
   "config": "스텐배수구 + 바스켓 + 수세미망 + 엠보커버",
   "price": 590000,
   "img": "img/싱크볼/large_벨라고_ESQL_905.webp",
-  "popular": false
+  "popular": false,
+  "detailImgs": [
+   "img/상세/sink-large-esql905_1.webp"
+  ]
  },
  {
   "id": "sink-large-esql940",
@@ -658,7 +704,10 @@ window.GG_PRODUCTS = [
   "config": "스텐배수구 + 바스켓 + 수세미망 + 엠보커버",
   "price": 620000,
   "img": "img/싱크볼/large_벨라고_ESQL_940.webp",
-  "popular": false
+  "popular": false,
+  "detailImgs": [
+   "img/상세/sink-large-esql940_1.webp"
+  ]
  },
  {
   "id": "sink-large-esql955",
@@ -674,7 +723,10 @@ window.GG_PRODUCTS = [
   "config": "스텐배수구 + 바스켓 + 수세미망 + 엠보커버",
   "price": 620000,
   "img": "img/싱크볼/large_벨라고_ESQL_955.webp",
-  "popular": false
+  "popular": false,
+  "detailImgs": [
+   "img/상세/sink-large-esql955_1.webp"
+  ]
  },
  {
   "id": "sink-large-esql990",
@@ -690,7 +742,10 @@ window.GG_PRODUCTS = [
   "config": "스텐배수구 + 바스켓 + 수세미망 + 엠보커버",
   "price": 630000,
   "img": "img/싱크볼/large_벨라고_ESQL_990.webp",
-  "popular": false
+  "popular": false,
+  "detailImgs": [
+   "img/상세/sink-large-esql990_1.webp"
+  ]
  },
  {
   "id": "sink-large-세리니티990",
@@ -782,7 +837,10 @@ window.GG_PRODUCTS = [
   "config": "스텐배수구 + 바스켓 + 수세미망 + 엠보커버",
   "price": 710000,
   "img": "img/싱크볼/large_PEDU_900.webp",
-  "popular": false
+  "popular": false,
+  "detailImgs": [
+   "img/상세/sink-large-pedu900_1.webp"
+  ]
  },
  {
   "id": "sink-large-pedu953",
@@ -798,7 +856,10 @@ window.GG_PRODUCTS = [
   "config": "스텐배수구 + 바스켓 + 수세미망 + 엠보커버",
   "price": 730000,
   "img": "img/싱크볼/large_PEDU_953.webp",
-  "popular": false
+  "popular": false,
+  "detailImgs": [
+   "img/상세/sink-large-pedu953_1.webp"
+  ]
  },
  {
   "id": "sink-large-pedu982",
@@ -814,7 +875,10 @@ window.GG_PRODUCTS = [
   "config": "스텐배수구 + 바스켓 + 수세미망 + 엠보커버",
   "price": 740000,
   "img": "img/싱크볼/large_PEDU_982.webp",
-  "popular": false
+  "popular": false,
+  "detailImgs": [
+   "img/상세/sink-large-pedu982_1.webp"
+  ]
  },
  {
   "id": "sink-large-sqj980eec",
