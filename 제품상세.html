@@ -430,9 +430,9 @@ if (isSink && window.GG_SERVICES) {
 
   document.getElementById('optList').innerHTML = `
     <div class="opt-row no-check">
-      <div class="opt-info"><div class="o-name">🚿 수전 업그레이드</div><div class="o-desc">기본 3WAY 폭포수전은 무료 포함 — 바꾸실 때만 선택하세요</div>
+      <div class="opt-info"><div class="o-name">🚿 수전 업그레이드</div><div class="o-desc">기본으로 크라운 S-3000 3WAY 폭포수전이 무료 포함 — 바꾸실 때만 선택하세요</div>
         <select id="optFaucet" class="opt-select">
-          <option value="">기본 3WAY 폭포수전 (무료 포함)</option>
+          <option value="">크라운 S-3000 3WAY 폭포수전 (기본 무료 포함)</option>
           ${faucets.map(f => `<option value="${f.id}">${f.name} ${f.addPrice == null ? '— 상담 문의' : (f.addPrice === 0 ? '— 기본 제공' : '+' + won(f.addPrice))}</option>`).join('')}
         </select>
       </div>
@@ -520,7 +520,7 @@ document.getElementById('specRows').innerHTML = rows.map(([k,v])=>`<tr><th>${k}<
 // 포함 리스트
 const OK = `<span class="ic ok"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-6" stroke="#ff385c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>`;
 const incItems = isSink
-  ? [P.config, '기본 수전 (3WAY 폭포수전)', '기존 싱크볼 철거 + 폐기물 처리', '시공비 · 실리콘 마감']
+  ? [P.config, '기본 수전 (크라운 S-3000 3WAY 폭포수전)', '기존 싱크볼 철거 + 폐기물 처리', '시공비 · 실리콘 마감']
   : ['제품 + 교체 시공', '기존 수전 철거', '누수 점검'];
 document.getElementById('incList').innerHTML = incItems.map(t=>`<li>${OK}<span>${t}</span></li>`).join('');
 

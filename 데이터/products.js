@@ -1,6 +1,6 @@
 // 공간가구연구소 제품 데이터 — 관리자 페이지에서 수정한 값이 있으면 그 값이 우선 적용됨
 window.GG_META = {
- "baseInclude": "싱크볼 + 기본 수전(3WAY 폭포수전) + 싱크망 + 올스텐 배수구 + 스텐 커버",
+ "baseInclude": "싱크볼 + 기본 수전(크라운 S-3000 3WAY 폭포수전) + 싱크망 + 올스텐 배수구 + 스텐 커버",
  "priceNote": "철거 + 폐기물 + 시공비 모두 포함된 가격입니다",
  "faucetNote": "수전은 싱크볼 시공 시 추가 옵션입니다 (단품 판매 안 함)",
  "blog": "https://blog.naver.com/furniture81"
