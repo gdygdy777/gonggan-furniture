@@ -23,7 +23,12 @@ window.GG_PRODUCTS = [
   "popular": true,
   "detailImgs": [
    "img/상세/sink-small-steady8652_1.webp",
-   "img/상세/sink-small-steady8652_2.webp"
+   "img/상세/sink-small-steady8652_2.webp",
+   "img/상세/ak_common_ak1.webp",
+   "img/상세/ak_common_ak2.webp",
+   "img/상세/ak_common_ak3.webp",
+   "img/상세/ak_common_ak4.webp",
+   "img/상세/ak_common_ak5.webp"
   ]
  },
  {
@@ -52,7 +57,12 @@ window.GG_PRODUCTS = [
    "img/상세/sink-small-steady6548_8.webp",
    "img/상세/sink-small-steady6548_9.webp",
    "img/상세/sink-small-steady6548_10.webp",
-   "img/상세/sink-small-steady6548_11.webp"
+   "img/상세/sink-small-steady6548_11.webp",
+   "img/상세/ak_common_ak1.webp",
+   "img/상세/ak_common_ak2.webp",
+   "img/상세/ak_common_ak3.webp",
+   "img/상세/ak_common_ak4.webp",
+   "img/상세/ak_common_ak5.webp"
   ]
  },
  {
@@ -278,7 +288,12 @@ window.GG_PRODUCTS = [
   "img": "img/싱크볼/mid_AK_STEADY_Steady8852.webp",
   "popular": false,
   "detailImgs": [
-   "img/상세/sink-mid-steady8852_1.png"
+   "img/상세/sink-mid-steady8852_1.png",
+   "img/상세/ak_common_ak1.webp",
+   "img/상세/ak_common_ak2.webp",
+   "img/상세/ak_common_ak3.webp",
+   "img/상세/ak_common_ak4.webp",
+   "img/상세/ak_common_ak5.webp"
   ]
  },
  {
@@ -472,7 +487,12 @@ window.GG_PRODUCTS = [
   "img": "img/싱크볼/large_AK_STEADY_Steady9052.webp",
   "popular": false,
   "detailImgs": [
-   "img/상세/sink-large-steady9052_1.webp"
+   "img/상세/sink-large-steady9052_1.webp",
+   "img/상세/ak_common_ak1.webp",
+   "img/상세/ak_common_ak2.webp",
+   "img/상세/ak_common_ak3.webp",
+   "img/상세/ak_common_ak4.webp",
+   "img/상세/ak_common_ak5.webp"
   ]
  },
  {
@@ -491,7 +511,12 @@ window.GG_PRODUCTS = [
   "img": "img/싱크볼/large_AK_STEADY_Steady9552.webp",
   "popular": false,
   "detailImgs": [
-   "img/상세/sink-large-steady9552_1.webp"
+   "img/상세/sink-large-steady9552_1.webp",
+   "img/상세/ak_common_ak1.webp",
+   "img/상세/ak_common_ak2.webp",
+   "img/상세/ak_common_ak3.webp",
+   "img/상세/ak_common_ak4.webp",
+   "img/상세/ak_common_ak5.webp"
   ]
  },
  {
@@ -510,7 +535,12 @@ window.GG_PRODUCTS = [
   "img": "img/싱크볼/large_AK_STEADY_Steady9952.webp",
   "popular": false,
   "detailImgs": [
-   "img/상세/sink-large-steady9952_1.webp"
+   "img/상세/sink-large-steady9952_1.webp",
+   "img/상세/ak_common_ak1.webp",
+   "img/상세/ak_common_ak2.webp",
+   "img/상세/ak_common_ak3.webp",
+   "img/상세/ak_common_ak4.webp",
+   "img/상세/ak_common_ak5.webp"
   ]
  },
  {
