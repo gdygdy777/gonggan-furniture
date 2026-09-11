@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 Disallow: /%EA%B4%80%EB%A6%AC%EC%9E%90.html
-Sitemap: https://gdygdy777.github.io/gonggan-furniture/sitemap.xml
+Sitemap: https://gongganlab.co.kr/sitemap.xml
