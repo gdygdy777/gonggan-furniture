@@ -284,11 +284,6 @@ footer{border-top:1px solid var(--hairline);padding:var(--sp-xxl) 0 0}
     <p class="center-sub">카카오톡이 어려우시면 아래 폼으로 남겨주세요 — 확인 후 순서대로 연락드립니다</p>
 
     <div class="form-wrap">
-      <div class="mock-note">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ff385c" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4.5M12 16h.01"/></svg>
-        목업 화면입니다 — 입력·전송 기능은 아직 동작하지 않습니다.
-      </div>
-
       <div class="field-row">
         <div class="field">
           <label for="f-name">성함</label>
@@ -326,12 +321,14 @@ footer{border-top:1px solid var(--hairline);padding:var(--sp-xxl) 0 0}
       </div>
 
       <div class="field">
-        <label>사진 첨부</label>
-        <div class="dropzone">
+        <label>사진 첨부 <span class="opt">선택 — 있으면 견적이 더 정확해요</span></label>
+        <label class="dropzone" for="f-photos" id="dzLabel" style="cursor:pointer;display:block">
           <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#ff385c" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M8.5 6 10 3.5h4L15.5 6"/><circle cx="12" cy="13" r="3.5"/></svg>
           <div class="dz-title">주방 전체가 나온 사진 2~3장을 올려주세요</div>
-          <div class="dz-sub">여기를 눌러 선택하거나, 사진을 끌어다 놓으세요 (목업 — 업로드 미동작)</div>
-        </div>
+          <div class="dz-sub">여기를 눌러 사진을 선택하세요 · 여러 장 가능 (휴대폰 앨범/카메라)</div>
+        </label>
+        <input type="file" id="f-photos" accept="image/*" multiple style="display:none">
+        <div id="photoPreview" style="display:none;gap:10px;flex-wrap:wrap;margin-top:12px"></div>
         <div class="photo-tips">
           <div class="tip">
             <div class="t-num">TIP 1</div>
@@ -367,8 +364,8 @@ footer{border-top:1px solid var(--hairline);padding:var(--sp-xxl) 0 0}
         </details>
       </div>
 
-      <button class="btn-primary" type="button" id="sendBtn">문의 내용 만들기</button>
-      <p style="font-size:12px;color:#888;margin-top:8px">카카오톡 채널 오픈 전이라 문자·전화로 접수하고 있어요. 버튼을 누르면 보낼 내용을 만들어 드립니다.</p>
+      <button class="btn-primary" type="button" id="sendBtn">문의 접수하기</button>
+      <p style="font-size:12px;color:#888;margin-top:8px">접수하시면 담당자에게 사진과 함께 바로 전달되고, 확인 후 순서대로 연락드립니다. 문자·전화로도 접수하실 수 있어요.</p>
 
       <div id="sendPanel" style="display:none;margin-top:16px;border:1.5px solid #ff385c;border-radius:14px;padding:18px;background:#fff8f9">
         <div style="font-size:15px;font-weight:700;margin-bottom:8px">✅ 문의 내용이 준비됐어요</div>
@@ -501,6 +498,82 @@ footer{border-top:1px solid var(--hairline);padding:var(--sp-xxl) 0 0}
 <script>
 (function(){
   var $ = function(id){ return document.getElementById(id); };
+  // 문의 알림 이메일 발송용 공개키 (Web3Forms) — 클라이언트 노출 안전, 수신: gdygdy777@gmail.com
+  var FORM_KEY = 'b43a6499-345d-4c59-9c84-48b97d8c0018';
+  // Supabase (개인계정 덕영프로젝트) — 사진은 inquiry-photos 버킷에 올리고 이메일엔 링크를 넣는다
+  var SUPA_URL = 'https://hxdidstojcundfehtkuz.supabase.co';
+  var SB_KEY = 'sb_publishable_XeO6hA57cUdatFaBvaDpXA_eQLx5jxg';
+  var selectedFiles = [];
+
+  // 압축한 사진 1장을 Storage에 올리고 공개 URL을 돌려준다 (실패 시 null)
+  function uploadPhoto(blob, i){
+    var path = Date.now() + '_' + i + '.jpg';
+    return fetch(SUPA_URL + '/storage/v1/object/inquiry-photos/' + path, {
+      method: 'POST',
+      headers: { apikey: SB_KEY, Authorization: 'Bearer ' + SB_KEY, 'Content-Type': 'image/jpeg' },
+      body: blob
+    }).then(function(r){ return r.ok ? (SUPA_URL + '/storage/v1/object/public/inquiry-photos/' + path) : null; })
+      .catch(function(){ return null; });
+  }
+
+  // 사진을 가로 1600px·JPEG로 압축해 이메일 첨부 용량을 줄인다 (장당 수백 KB)
+  function compressImage(file){
+    return new Promise(function(resolve){
+      if (!/^image\//.test(file.type)) { resolve(file); return; }
+      var img = new Image();
+      var url = URL.createObjectURL(file);
+      img.onload = function(){
+        var MAX = 1600;
+        var w = img.width, h = img.height;
+        if (w > MAX || h > MAX){ var r = Math.min(MAX/w, MAX/h); w = Math.round(w*r); h = Math.round(h*r); }
+        var c = document.createElement('canvas'); c.width = w; c.height = h;
+        c.getContext('2d').drawImage(img, 0, 0, w, h);
+        URL.revokeObjectURL(url);
+        c.toBlob(function(blob){ resolve(blob || file); }, 'image/jpeg', 0.82);
+      };
+      img.onerror = function(){ URL.revokeObjectURL(url); resolve(file); };
+      img.src = url;
+    });
+  }
+
+  function renderPreviews(){
+    var box = $('photoPreview');
+    box.innerHTML = '';
+    if (!selectedFiles.length){ box.style.display = 'none'; return; }
+    box.style.display = 'flex';
+    selectedFiles.forEach(function(f, i){
+      var wrap = document.createElement('div');
+      wrap.style.cssText = 'position:relative;width:84px;height:84px;border-radius:10px;overflow:hidden;border:1px solid #eee';
+      var im = document.createElement('img');
+      im.style.cssText = 'width:100%;height:100%;object-fit:cover';
+      im.src = URL.createObjectURL(f);
+      var del = document.createElement('button');
+      del.type = 'button'; del.textContent = '×';
+      del.style.cssText = 'position:absolute;top:2px;right:2px;width:22px;height:22px;border:none;border-radius:50%;background:rgba(0,0,0,.6);color:#fff;font-size:15px;line-height:1;cursor:pointer';
+      del.addEventListener('click', function(){ selectedFiles.splice(i,1); renderPreviews(); });
+      wrap.appendChild(im); wrap.appendChild(del);
+      box.appendChild(wrap);
+    });
+  }
+
+  function onPick(e){
+    var files = Array.prototype.slice.call(e.target.files || []);
+    files.forEach(function(f){ if (/^image\//.test(f.type)) selectedFiles.push(f); });
+    if (selectedFiles.length > 6) selectedFiles = selectedFiles.slice(0, 6);
+    e.target.value = '';
+    renderPreviews();
+    var sub = document.querySelector('#dzLabel .dz-sub');
+    if (sub) sub.textContent = selectedFiles.length ? ('사진 ' + selectedFiles.length + '장 선택됨 · 더 추가하려면 다시 누르세요') : '여기를 눌러 사진을 선택하세요 · 여러 장 가능 (휴대폰 앨범/카메라)';
+  }
+
+  function appendStatus(msg, color){
+    var p = document.createElement('p');
+    p.style.cssText = 'font-size:12px;color:' + (color||'#1a8917') + ';margin-top:8px;font-weight:600';
+    p.textContent = msg;
+    $('sendPanel').appendChild(p);
+    return p;
+  }
+
   function buildInquiry(){
     var name = $('f-name').value.trim();
     var tel  = $('f-tel').value.trim();
@@ -509,36 +582,80 @@ footer{border-top:1px solid var(--hairline);padding:var(--sp-xxl) 0 0}
     var msg  = $('f-msg').value.trim();
     if (!name && !tel) { alert('성함과 연락처를 적어주시면 상담이 빨라요!'); $('f-name').focus(); return; }
     if (!$('f-agree').checked) { alert('개인정보 수집·이용에 동의해 주세요.'); return; }
+    var photoNote = selectedFiles.length ? ('\n첨부 사진: ' + selectedFiles.length + '장 (이메일로 전송)') : '';
     var text = '[공간가구연구소 견적 문의]\n'
       + '이름: ' + (name || '-') + '\n'
       + '연락처: ' + (tel || '-') + '\n'
       + '지역: ' + (area || '-') + '\n'
       + '공사 유형: ' + (type || '-') + '\n'
-      + '내용: ' + (msg || '-');
+      + '내용: ' + (msg || '-')
+      + photoNote;
     $('sendText').value = text;
     var body = encodeURIComponent(text);
     var ios = /iPhone|iPad|iPod/.test(navigator.userAgent);
     $('sendSms').href = 'sms:01087268288' + (ios ? '&' : '?') + 'body=' + body;
     $('sendPanel').style.display = 'block';
-    // 문의 내용을 접수함(DB)에도 저장 (실패해도 문자 흐름은 유지)
-    try {
-      fetch('https://hxdidstojcundfehtkuz.supabase.co/rest/v1/inquiries', {
-        method: 'POST',
-        headers: { apikey: 'sb_publishable_XeO6hA57cUdatFaBvaDpXA_eQLx5jxg', Authorization: 'Bearer sb_publishable_XeO6hA57cUdatFaBvaDpXA_eQLx5jxg', 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: name, phone: tel, area: area, work_type: type, message: msg })
-      }).then(function(r){
-        if (r.ok) {
-          var p = document.createElement('p');
-          p.style.cssText = 'font-size:12px;color:#1a8917;margin-top:8px;font-weight:600';
-          p.textContent = '✅ 문의가 접수함에 저장됐어요 — 문자까지 보내주시면 더 빨리 연락드립니다';
-          $('sendPanel').appendChild(p);
-        }
-      }).catch(function(){});
-    } catch(e) {}
+
+    var btn = $('sendBtn');
+    btn.disabled = true; btn.textContent = selectedFiles.length ? '사진 올리는 중…' : '접수하는 중…';
+    var sending = appendStatus('📤 접수 중입니다…', '#666');
     $('sendPanel').scrollIntoView({behavior:'smooth', block:'center'});
+
+    // 사진 압축 → Storage 업로드 → (접수함 저장 + 담당자 이메일 알림)
+    Promise.all(selectedFiles.map(compressImage))
+      .then(function(blobs){ return Promise.all(blobs.map(uploadPhoto)); })
+      .then(function(urls){
+        var okUrls = urls.filter(Boolean);
+        var photoFailed = selectedFiles.length && okUrls.length < selectedFiles.length;
+
+        // 1) 접수함(Supabase inquiries)에 저장 — 사진 링크 포함
+        try {
+          fetch(SUPA_URL + '/rest/v1/inquiries', {
+            method: 'POST',
+            headers: { apikey: SB_KEY, Authorization: 'Bearer ' + SB_KEY, 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name: name, phone: tel, area: area, work_type: type,
+              message: (msg || '') + (okUrls.length ? ('\n[사진] ' + okUrls.join(' ')) : '') })
+          }).catch(function(){});
+        } catch(e) {}
+
+        // 2) 담당자 이메일로 알림 (사진은 링크로) — JSON 전송으로 한글 항목명 유지
+        var payload = {
+          access_key: FORM_KEY,
+          subject: '[공간가구연구소] 새 견적 문의 · ' + (name || '무기명') + (tel ? (' / ' + tel) : ''),
+          from_name: '공간가구연구소 홈페이지',
+          '성함': name || '-',
+          '연락처': tel || '-',
+          '시공지역': area || '-',
+          '공사유형': type || '-',
+          '문의내용': msg || '-',
+          '사진': okUrls.length ? okUrls.join('\n') : (selectedFiles.length ? '업로드 실패 — 문자로 확인 요망' : '없음')
+        };
+        return fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(payload)
+        }).then(function(r){ return r.json(); })
+          .then(function(res){ return { emailed: !!(res && res.success), photoFailed: photoFailed, hadPhoto: selectedFiles.length > 0 }; });
+      })
+      .then(function(st){
+        sending.remove();
+        if (st.emailed){
+          appendStatus('✅ 접수 완료 — 담당자에게 ' + (st.hadPhoto && !st.photoFailed ? '사진과 함께 ' : '') + '알림이 전송됐어요. 확인 후 순서대로 연락드립니다.', '#1a8917');
+          if (st.photoFailed) appendStatus('⚠️ 사진 일부가 안 올라갔어요. 아래 문자로 사진을 함께 보내주시면 확실합니다.', '#c0392b');
+        } else {
+          appendStatus('접수함에는 저장됐어요. 알림 전송이 안 됐으니 아래 문자로도 보내주시면 확실합니다.', '#c0392b');
+        }
+      })
+      .catch(function(){
+        sending.remove();
+        appendStatus('접수함에는 저장됐어요. 알림 전송이 안 됐으니 아래 문자로도 보내주시면 확실합니다.', '#c0392b');
+      })
+      .then(function(){ btn.disabled = false; btn.textContent = '문의 접수하기'; });
   }
+
   document.addEventListener('DOMContentLoaded', function(){
     $('sendBtn').addEventListener('click', buildInquiry);
+    $('f-photos').addEventListener('change', onPick);
     $('copyBtn').addEventListener('click', function(){
       var ta = $('sendText'); ta.select();
       try { navigator.clipboard.writeText(ta.value); } catch(e) { document.execCommand('copy'); }
