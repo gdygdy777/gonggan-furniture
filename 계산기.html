@@ -176,6 +176,7 @@ a{color:inherit;text-decoration:none}
       <a href="서비스.html">서비스</a>
       <a href="씽크대견적.html">씽크볼 견적</a>
       <a href="장제작상세.html">장 제작</a>
+      <a href="대리석케어.html?type=uv">대리석 리폼</a>
       <a href="계산기.html" class="active">견적 계산기</a>
       <a href="시공사례.html">시공사례</a>
       <a href="교육.html">교육</a>
@@ -227,6 +228,7 @@ const PLACE_STEP = { id:'place', title:'현장은 어떤 곳인가요?', sub:'�
   ]};
 
 const TYPES = {
+  careMarble: { name:'대리석 리폼', desc:'크랙 보수 · UV 코팅', link:'대리석케어.html?type=uv' },
   sink: { name:'싱크볼 교체', desc:'볼만 깔끔하게', base:[0,0],
     icon:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ff385c" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="9" width="18" height="9" rx="2"/><path d="M12 9V5m0 0h4"/><path d="M12 14v.01"/></svg>',
     steps:[ PLACE_STEP,
@@ -344,17 +346,14 @@ const TYPES = {
         ]},
       { id:'opts', title:'함께 하실 공사가 있나요?', sub:'',
         kind:'multi', options:[
-          {name:'주방 타일 시공', d:[40,80]},
           {name:'철거 · 폐기물 처리', d:[30,50]},
         ]},
     ]},
-  etc: { name:'타일 · 목공 · 도배 등', desc:'기타 공사 상담', etc:true,
-    icon:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ff385c" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>' },
 };
 
 
 /* 이모지 아이콘 */
-const TYPE_EMOJI = { sink:'🚰', faucet:'💧', hood:'🌬️', counter:'🪨', reform:'🚪', cabinet:'🪚', full:'🏠', etc:'🧱' };
+const TYPE_EMOJI = { careMarble:'💎', sink:'🚰', faucet:'💧', hood:'🌬️', counter:'🪨', reform:'🚪', cabinet:'🪚', full:'🏠' };
 const OPT_EMOJI = {
   '아파트':'🏢','빌라 · 연립':'🏘️','단독주택':'🏡','오피스텔 · 상가':'🏬',
   '소형':'🤏','중형':'👌','대형':'🙌','잘 모르겠어요':'🤷',
@@ -456,7 +455,10 @@ function renderTypeSelect(){
   updateProgress(); updateSummary();
   let h = '<div class="type-grid">';
   for(const [id,t] of Object.entries(TYPES)){
-    h += `<div class="type-card" onclick="pickType('${id}')"><div class="t-ico"><span style="font-size:30px;line-height:1">${TYPE_EMOJI[id]||''}</span></div><h3>${t.name}</h3><p>${t.desc}</p></div>`;
+    const ico = `<div class="t-ico"><span style="font-size:30px;line-height:1">${TYPE_EMOJI[id]||''}</span></div><h3>${t.name}</h3><p>${t.desc}</p>`;
+    h += t.link
+      ? `<a class="type-card" href="${t.link}">${ico}</a>`
+      : `<div class="type-card" onclick="pickType('${id}')">${ico}</div>`;
   }
   h += '</div>';
   $('stage').innerHTML = h;
@@ -465,26 +467,9 @@ function renderTypeSelect(){
 function pickType(id){
   const t = TYPES[id];
   state = { typeId:id, stepIdx:0, answers:{} };
-  if(t.etc){ renderEtc(); return; }
   $('headTitle').textContent = t.name + ' 예상 견적';
   $('headSub').textContent = '몇 가지만 골라주시면 바로 계산해 드려요';
   renderStep();
-}
-
-function renderEtc(){
-  $('headTitle').textContent = '타일 · 목공 · 도배 · 욕실 공사';
-  $('headSub').textContent = '';
-  updateProgress(); updateSummary();
-  $('stage').innerHTML = `
-    <div class="etc-card">
-      <h3>이 공사들은 사진 상담이 더 정확해요</h3>
-      <p>타일·목공·도배·욕실 공사는 현장 상태에 따라 금액 차이가 커서<br>계산기보다 사진을 보고 안내드리는 게 훨씬 정확합니다.<br>사진 2~3장이면 예상 견적을 바로 받아보실 수 있어요.</p>
-      <div class="result-cta" style="margin-top:24px">
-        <button class="btn-kakao">카카오톡으로 사진 보내기</button>
-        <a class="btn-outline" href="상담문의.html">사진 첨부 문의하기</a>
-      </div>
-      <button class="btn-restart" onclick="restart()">← 다른 공사 견적 내보기</button>
-    </div>`;
 }
 
 function renderStep(){
@@ -617,6 +602,6 @@ renderTypeSelect();
   if (t && TYPES[t]) pickType(t);
 })();
 </script>
-<script src="데이터/config.js?v=5" defer></script>
+<script src="데이터/config.js?v=6" defer></script>
 </body>
 </html>

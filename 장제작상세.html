@@ -215,6 +215,7 @@ footer{border-top:1px solid var(--hairline);padding:var(--sp-xxl) 0 0;margin-top
       <a href="서비스.html">서비스</a>
       <a href="씽크대견적.html">씽크볼 견적</a>
       <a href="장제작상세.html" class="active">장 제작</a>
+      <a href="대리석케어.html?type=uv">대리석 리폼</a>
       <a href="계산기.html">견적 계산기</a>
       <a href="시공사례.html">시공사례</a>
       <a href="교육.html">교육</a>
@@ -290,6 +291,7 @@ footer{border-top:1px solid var(--hairline);padding:var(--sp-xxl) 0 0;margin-top
         <a href="서비스.html">주방 부분 리폼</a>
         <a href="씽크대견적.html">씽크볼 견적</a>
       <a href="장제작상세.html">장 제작</a>
+      <a href="대리석케어.html?type=uv">대리석 리폼</a>
         <a href="시공사례.html">시공 사례</a>
       </div>
       <div class="f-col">
@@ -350,18 +352,13 @@ document.getElementById('optList').innerHTML = `
     <div class="opt-info"><div class="o-name">↔️ 폭 (설치할 자리 기준)</div><div class="o-desc">대략이면 돼요 — 실측 때 정확히 재드립니다</div>
       <select id="optWidth" class="opt-select">${C.width.map((w,i)=>`<option value="${i}">${w.name}${w.d[0]||w.d[1]?` +${w.d[0]}~${w.d[1]}만원`:''}</option>`).join('')}</select>
     </div>
-  </div>
-  <label class="opt-row"><input type="checkbox" id="optDoor">
-    <div class="opt-info"><div class="o-name">✨ ${C.door.name}</div><div class="o-desc">${C.door.desc}</div></div>
-    <span class="o-price">+${C.door.d[0]}~${C.door.d[1]}만원</span>
-  </label>`;
+  </div>`;
 
 function recalc(){
   let lo = C.base[0], hi = C.base[1];
   const lines = [[C.name + ' 기본 제작', man(C.base)]];
   const w = C.width[+document.getElementById('optWidth').value];
   if (w.d[0]||w.d[1]) { lo+=w.d[0]; hi+=w.d[1]; lines.push(['폭 ' + w.name, '+' + man(w.d)]); }
-  if (document.getElementById('optDoor').checked) { lo+=C.door.d[0]; hi+=C.door.d[1]; lines.push([C.door.name, '+' + man(C.door.d)]); }
   document.getElementById('optBreakdown').innerHTML = lines.map(([k,v])=>`<div class="sum-line"><span>${k}</span><span>${v}</span></div>`).join('');
   document.getElementById('optTotal').textContent = lo + '만원 부터~';
   document.getElementById('optMax').textContent = '선택 구성에 따라 최대 ' + hi + '만원 · 무료 실측 후 확정';
@@ -376,6 +373,6 @@ document.getElementById('caseGrid').innerHTML = C.cases.map(c=>`
     <div class="c-body"><div class="c-title">${c.title}</div><div class="c-date">${c.date || '네이버 블로그'} · 시공기 보기 ›</div></div>
   </a>`).join('');
 </script>
-<script src="데이터/config.js?v=5" defer></script>
+<script src="데이터/config.js?v=6" defer></script>
 </body>
 </html>

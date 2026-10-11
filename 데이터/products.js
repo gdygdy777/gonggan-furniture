@@ -7,62 +7,183 @@ window.GG_META = {
 };
 window.GG_PRODUCTS = [
  {
-  "id": "sink-small-steady8652",
-  "cat": "sink",
-  "size": "small",
-  "brand": "AK STEADY",
-  "model": "Steady8652",
-  "name": "AK STEADY Steady8652",
-  "embo": true,
-  "coating": true,
-  "bowl": "860 x 520",
-  "taphole": "860 x 520",
-  "config": "스텐배수구 + 바스켓 + 수세미망 + 엠보커버",
-  "price": 400000,
-  "img": "img/싱크볼/small_Steady8652.webp",
-  "popular": true,
-  "detailImgs": [
-   "img/상세/sink-small-steady8652_1.webp",
-   "img/상세/sink-small-steady8652_2.webp",
-   "img/상세/ak_common_ak1.webp",
-   "img/상세/ak_common_ak2.webp",
-   "img/상세/ak_common_ak3.webp",
-   "img/상세/ak_common_ak4.webp",
-   "img/상세/ak_common_ak5.webp"
-  ]
- },
- {
   "id": "sink-small-steady6548",
   "cat": "sink",
   "size": "small",
-  "brand": "AK STEADY",
+  "brand": "AK 스테디",
   "model": "Steady6548",
-  "name": "AK STEADY Steady6548",
+  "name": "AK 스테디 Steady6548",
   "embo": true,
   "coating": true,
-  "bowl": "650 x 480",
-  "taphole": "-",
-  "config": "스텐배수구 + 바스켓 + 수세미망 + 엠보커버",
+  "bowl": "≈ 650 × 480",
+  "taphole": "≈ 620 × 450",
+  "refSpec": true,
+  "config": "올올스텐 배수구 + 삼각 수세미망 + 엠보커버",
   "price": 400000,
-  "img": "img/싱크볼/small_Steady6548.webp",
-  "popular": false,
+  "img": "img/싱크볼/n_ak.webp",
   "detailImgs": [
-   "img/상세/sink-small-steady6548_1.webp",
-   "img/상세/sink-small-steady6548_2.webp",
-   "img/상세/sink-small-steady6548_3.webp",
-   "img/상세/sink-small-steady6548_4.webp",
-   "img/상세/sink-small-steady6548_5.webp",
-   "img/상세/sink-small-steady6548_6.webp",
-   "img/상세/sink-small-steady6548_7.webp",
-   "img/상세/sink-small-steady6548_8.webp",
-   "img/상세/sink-small-steady6548_9.webp",
-   "img/상세/sink-small-steady6548_10.webp",
-   "img/상세/sink-small-steady6548_11.webp",
-   "img/상세/ak_common_ak1.webp",
-   "img/상세/ak_common_ak2.webp",
-   "img/상세/ak_common_ak3.webp",
-   "img/상세/ak_common_ak4.webp",
-   "img/상세/ak_common_ak5.webp"
+   "img/상세/ak_line/ak_line_01.webp",
+   "img/상세/ak_line/ak_line_02.webp",
+   "img/상세/ak_line/ak_line_03.webp",
+   "img/상세/ak_line/ak_line_04.webp",
+   "img/상세/ak_line/ak_line_05.webp",
+   "img/상세/ak_line/ak_line_06.webp",
+   "img/상세/ak_line/ak_line_07.webp",
+   "img/상세/ak_line/ak_line_08.webp",
+   "img/상세/ak_line/ak_line_09.webp",
+   "img/상세/ak_line/ak_line_10.webp",
+   "img/상세/ak_line/ak_line_11.webp",
+   "img/상세/ak_line/ak_line_12.webp",
+   "img/상세/ak_line/ak_line_13.webp",
+   "img/상세/ak_line/ak_line_14.webp",
+   "img/상세/ak_line/ak_line_15.webp",
+   "img/상세/ak_line/ak_line_16.webp",
+   "img/상세/ak_line/ak_line_17.webp",
+   "img/상세/ak_line/ak_line_18.webp",
+   "img/상세/ak_line/ak_line_19.webp",
+   "img/상세/ak_line/ak_line_20.webp",
+   "img/상세/ak_line/ak_line_21.webp",
+   "img/상세/ak_line/ak_line_22.webp",
+   "img/상세/ak_line/ak_line_23.webp",
+   "img/상세/ak_line/ak_line_24.webp",
+   "img/상세/ak_line/ak_line_25.webp",
+   "img/상세/ak_line/ak_line_26.webp"
+  ]
+ },
+ {
+  "id": "sink-small-steady7552",
+  "cat": "sink",
+  "size": "small",
+  "brand": "AK 스테디",
+  "model": "Steady7552",
+  "name": "AK 스테디 Steady7552",
+  "embo": true,
+  "coating": true,
+  "bowl": "≈ 750 × 520",
+  "taphole": "≈ 720 × 490",
+  "refSpec": true,
+  "config": "올올스텐 배수구 + 바구니 + 삼각 수세미망 + 엠보커버",
+  "price": 400000,
+  "img": "img/싱크볼/n_ak.webp",
+  "detailImgs": [
+   "img/상세/ak_line/ak_line_01.webp",
+   "img/상세/ak_line/ak_line_02.webp",
+   "img/상세/ak_line/ak_line_03.webp",
+   "img/상세/ak_line/ak_line_04.webp",
+   "img/상세/ak_line/ak_line_05.webp",
+   "img/상세/ak_line/ak_line_06.webp",
+   "img/상세/ak_line/ak_line_07.webp",
+   "img/상세/ak_line/ak_line_08.webp",
+   "img/상세/ak_line/ak_line_09.webp",
+   "img/상세/ak_line/ak_line_10.webp",
+   "img/상세/ak_line/ak_line_11.webp",
+   "img/상세/ak_line/ak_line_12.webp",
+   "img/상세/ak_line/ak_line_13.webp",
+   "img/상세/ak_line/ak_line_14.webp",
+   "img/상세/ak_line/ak_line_15.webp",
+   "img/상세/ak_line/ak_line_16.webp",
+   "img/상세/ak_line/ak_line_17.webp",
+   "img/상세/ak_line/ak_line_18.webp",
+   "img/상세/ak_line/ak_line_19.webp",
+   "img/상세/ak_line/ak_line_20.webp",
+   "img/상세/ak_line/ak_line_21.webp",
+   "img/상세/ak_line/ak_line_22.webp",
+   "img/상세/ak_line/ak_line_23.webp",
+   "img/상세/ak_line/ak_line_24.webp",
+   "img/상세/ak_line/ak_line_25.webp",
+   "img/상세/ak_line/ak_line_26.webp"
+  ]
+ },
+ {
+  "id": "sink-small-steady8652",
+  "cat": "sink",
+  "size": "small",
+  "brand": "AK 스테디",
+  "model": "Steady8652",
+  "name": "AK 스테디 Steady8652",
+  "embo": true,
+  "coating": true,
+  "bowl": "860 x 520",
+  "taphole": "≈ 830 × 490",
+  "refSpec": true,
+  "config": "올올스텐 배수구 + 바스켓 + 수세미망 + 엠보커버",
+  "price": 400000,
+  "img": "img/싱크볼/n_ak.webp",
+  "popular": true,
+  "detailImgs": [
+   "img/상세/ak_line/ak_line_01.webp",
+   "img/상세/ak_line/ak_line_02.webp",
+   "img/상세/ak_line/ak_line_03.webp",
+   "img/상세/ak_line/ak_line_04.webp",
+   "img/상세/ak_line/ak_line_05.webp",
+   "img/상세/ak_line/ak_line_06.webp",
+   "img/상세/ak_line/ak_line_07.webp",
+   "img/상세/ak_line/ak_line_08.webp",
+   "img/상세/ak_line/ak_line_09.webp",
+   "img/상세/ak_line/ak_line_10.webp",
+   "img/상세/ak_line/ak_line_11.webp",
+   "img/상세/ak_line/ak_line_12.webp",
+   "img/상세/ak_line/ak_line_13.webp",
+   "img/상세/ak_line/ak_line_14.webp",
+   "img/상세/ak_line/ak_line_15.webp",
+   "img/상세/ak_line/ak_line_16.webp",
+   "img/상세/ak_line/ak_line_17.webp",
+   "img/상세/ak_line/ak_line_18.webp",
+   "img/상세/ak_line/ak_line_19.webp",
+   "img/상세/ak_line/ak_line_20.webp",
+   "img/상세/ak_line/ak_line_21.webp",
+   "img/상세/ak_line/ak_line_22.webp",
+   "img/상세/ak_line/ak_line_23.webp",
+   "img/상세/ak_line/ak_line_24.webp",
+   "img/상세/ak_line/ak_line_25.webp",
+   "img/상세/ak_line/ak_line_26.webp"
+  ]
+ },
+ {
+  "id": "sink-small-steady-waterfall8652",
+  "cat": "sink",
+  "size": "small",
+  "brand": "AK 스테디",
+  "model": "Steady 워터폴8652",
+  "name": "AK 스테디 Steady 워터폴8652",
+  "embo": true,
+  "coating": true,
+  "bowl": "≈ 860 × 520",
+  "taphole": "≈ 830 × 490",
+  "refSpec": true,
+  "config": "올스텐 배수구 + 드레인보드 + 채소받이 + 물매트 + 엠보커버",
+  "price": 770000,
+  "img": "img/싱크볼/n_ak.webp",
+  "detailImgs": [
+   "img/상세/ak_line/ak_wf_1.webp",
+   "img/상세/ak_line/ak_wf_2.webp",
+   "img/상세/ak_line/ak_wf_3.webp",
+   "img/상세/ak_line/ak_line_01.webp",
+   "img/상세/ak_line/ak_line_02.webp",
+   "img/상세/ak_line/ak_line_03.webp",
+   "img/상세/ak_line/ak_line_04.webp",
+   "img/상세/ak_line/ak_line_05.webp",
+   "img/상세/ak_line/ak_line_06.webp",
+   "img/상세/ak_line/ak_line_07.webp",
+   "img/상세/ak_line/ak_line_08.webp",
+   "img/상세/ak_line/ak_line_09.webp",
+   "img/상세/ak_line/ak_line_10.webp",
+   "img/상세/ak_line/ak_line_11.webp",
+   "img/상세/ak_line/ak_line_12.webp",
+   "img/상세/ak_line/ak_line_13.webp",
+   "img/상세/ak_line/ak_line_14.webp",
+   "img/상세/ak_line/ak_line_15.webp",
+   "img/상세/ak_line/ak_line_16.webp",
+   "img/상세/ak_line/ak_line_17.webp",
+   "img/상세/ak_line/ak_line_18.webp",
+   "img/상세/ak_line/ak_line_19.webp",
+   "img/상세/ak_line/ak_line_20.webp",
+   "img/상세/ak_line/ak_line_21.webp",
+   "img/상세/ak_line/ak_line_22.webp",
+   "img/상세/ak_line/ak_line_23.webp",
+   "img/상세/ak_line/ak_line_24.webp",
+   "img/상세/ak_line/ak_line_25.webp",
+   "img/상세/ak_line/ak_line_26.webp"
   ]
  },
  {
@@ -76,10 +197,10 @@ window.GG_PRODUCTS = [
   "coating": false,
   "bowl": "860 x 520",
   "taphole": "800~840 x 430~500",
-  "config": "스텐배수구 + 바구니 + 엠보커버",
-  "price": 450000,
-  "img": "img/싱크볼/small_백조_고니_ECNRW8630.webp",
-  "popular": false,
+  "refSpec": false,
+  "config": "올올스텐 배수구 + 바구니 + 엠보커버",
+  "price": 400000,
+  "img": "img/싱크볼/n_ecnrw.webp",
   "detailImgs": [
    "img/상세/sink-small-ecnrw8630_1.webp"
   ]
@@ -93,16 +214,35 @@ window.GG_PRODUCTS = [
   "name": "백조 CESWSR8635",
   "embo": true,
   "coating": true,
-  "bowl": "860 x 515",
-  "taphole": "800~840 x 430~500",
-  "config": "스텐배수구 + 바구니 + 엠보커버",
-  "price": 570000,
-  "img": "img/싱크볼/small_백조_CESWSR8635.webp",
-  "popular": false,
+  "bowl": "860 × 520 × 230",
+  "taphole": "832 × 492 × R9",
+  "refSpec": false,
+  "config": "올올스텐 배수구 + 바구니 + 엠보커버",
+  "price": 590000,
+  "img": "img/싱크볼/n_ceswsr.webp",
   "detailImgs": [
    "img/상세/sink-small-ceswsr8635_1.webp",
    "img/상세/sink-small-ceswsr8635_2.webp",
    "img/상세/sink-small-ceswsr8635_3.webp"
+  ]
+ },
+ {
+  "id": "sink-small-belbote8635",
+  "cat": "sink",
+  "size": "small",
+  "brand": "백조",
+  "model": "벨뽀르테8635",
+  "name": "백조 벨뽀르테8635",
+  "embo": true,
+  "coating": true,
+  "bowl": "860 × 520 × 230",
+  "taphole": "≈ 832 × 492",
+  "refSpec": true,
+  "config": "올스텐 배수구 + 바구니 + 수세미망 + 엠보커버 + 도마",
+  "price": 890000,
+  "img": "img/싱크볼/n_belbote.webp",
+  "detailImgs": [
+   "img/상세/belbote_detail.webp"
   ]
  },
  {
@@ -116,15 +256,31 @@ window.GG_PRODUCTS = [
   "coating": true,
   "bowl": "850 x 520 x 230",
   "taphole": "822 x 487 x R41",
-  "config": "스텐배수구 + 드레인커버 + 보드 + 도마 + 백수전",
-  "price": 840000,
-  "img": "img/싱크볼/small_백조_RECO85W.webp",
-  "popular": false,
+  "refSpec": false,
+  "config": "올올스텐 배수구 + 드레인커버 + 보드 + 도마 + 백수전",
+  "price": 890000,
+  "img": "img/싱크볼/n_reco85w.webp",
   "detailImgs": [
-   "img/상세/sink-small-reco85w_1.webp",
-   "img/상세/sink-small-reco85w_2.webp",
-   "img/상세/sink-small-reco85w_3.webp",
-   "img/상세/sink-small-reco85w_4.webp"
+   "img/상세/reco85w_detail.webp"
+  ]
+ },
+ {
+  "id": "sink-small-reco85w-embo",
+  "cat": "sink",
+  "size": "small",
+  "brand": "백조",
+  "model": "RECO85W(엠보)",
+  "name": "백조 RECO85W(엠보)",
+  "embo": false,
+  "coating": false,
+  "bowl": "≈ 850 × 520 × 230",
+  "taphole": "≈ 822 × 487",
+  "refSpec": true,
+  "config": "올스텐 배수구 + 드레인커버 + 보드 + 도마 + 백수전",
+  "price": 990000,
+  "img": "img/싱크볼/n_reco85w.webp",
+  "detailImgs": [
+   "img/상세/reco85w_embo_detail.webp"
   ]
  },
  {
@@ -132,18 +288,62 @@ window.GG_PRODUCTS = [
   "cat": "sink",
   "size": "small",
   "brand": "백조",
-  "model": "깜뽀르테8535",
-  "name": "백조 깜뽀르테8535",
+  "model": "깜뽀르테8535+",
+  "name": "백조 깜뽀르테8535+",
   "embo": true,
   "coating": true,
-  "bowl": "850 x 515",
-  "taphole": "800~840 x 430~500",
-  "config": "스텐배수구 + 바구니 + 수세미망 + 엠보커버 + 캄포도마",
-  "price": 870000,
-  "img": "img/싱크볼/small_백조_깜보르떼8535.webp",
-  "popular": false,
+  "bowl": "850 × 515 × 230",
+  "taphole": "826 × 496",
+  "refSpec": false,
+  "config": "올스텐 배수구 + 바구니 + 수세미망 + 엠보커버 + 캄포도마",
+  "price": 1250000,
+  "img": "img/싱크볼/n_kkampo.webp",
   "detailImgs": [
    "img/상세/sink-small-깜뽀르테8535_1.webp"
+  ]
+ },
+ {
+  "id": "sink-small-belita560",
+  "cat": "sink",
+  "size": "small",
+  "brand": "벨라고",
+  "model": "BELITA560",
+  "name": "벨라고 BELITA560",
+  "embo": true,
+  "coating": true,
+  "bowl": "≈ 560 × 518",
+  "taphole": "≈ 530 × 488",
+  "refSpec": true,
+  "config": "올올스텐 배수구 + 바구니 + 삼각 수세미망 + 엠보커버",
+  "price": 450000,
+  "img": "img/싱크볼/n_belita.webp",
+  "detailImgs": [
+   "img/상세/belita_detail_1.webp",
+   "img/상세/belita_detail_2.webp",
+   "img/상세/belita_detail_3.webp",
+   "img/상세/belita_detail_4.webp"
+  ]
+ },
+ {
+  "id": "sink-small-belita670",
+  "cat": "sink",
+  "size": "small",
+  "brand": "벨라고",
+  "model": "BELITA670",
+  "name": "벨라고 BELITA670",
+  "embo": true,
+  "coating": true,
+  "bowl": "≈ 670 × 518",
+  "taphole": "≈ 640 × 488",
+  "refSpec": true,
+  "config": "올올스텐 배수구 + 바구니 + 삼각 수세미망 + 엠보커버",
+  "price": 460000,
+  "img": "img/싱크볼/n_belita.webp",
+  "detailImgs": [
+   "img/상세/belita_detail_1.webp",
+   "img/상세/belita_detail_2.webp",
+   "img/상세/belita_detail_3.webp",
+   "img/상세/belita_detail_4.webp"
   ]
  },
  {
@@ -157,14 +357,15 @@ window.GG_PRODUCTS = [
   "coating": true,
   "bowl": "858 x 518",
   "taphole": "800~840 x 430~500",
-  "config": "스텐배수구 + 바스켓 + 삼각수세미망 + 엠보커버",
-  "price": 450000,
-  "img": "img/싱크볼/small_벨라고_벨리타_BLE_858.webp",
-  "popular": false,
+  "refSpec": false,
+  "config": "올올스텐 배수구 + 바스켓 + 삼각수세미망 + 엠보커버",
+  "price": 470000,
+  "img": "img/싱크볼/n_belita.webp",
   "detailImgs": [
-   "img/상세/sink-small-belita858_1.webp",
-   "img/상세/sink-small-belita858_2.webp",
-   "img/상세/sink-small-belita858_3.webp"
+   "img/상세/belita_detail_1.webp",
+   "img/상세/belita_detail_2.webp",
+   "img/상세/belita_detail_3.webp",
+   "img/상세/belita_detail_4.webp"
   ]
  },
  {
@@ -178,14 +379,11 @@ window.GG_PRODUCTS = [
   "coating": true,
   "bowl": "858 x 518",
   "taphole": "800~840 x 430~500",
-  "config": "스텐배수구 + 바스켓 + 수세미망 + 엠보커버",
+  "refSpec": false,
+  "config": "올올스텐 배수구 + 바스켓 + 수세미망 + 엠보커버",
   "price": 560000,
-  "img": "img/싱크볼/small_벨라고_ESQL858.webp",
-  "popular": false,
-  "detailImgs": [
-   "img/상세/sink-small-esql858_1.webp",
-   "img/상세/sink-small-esql858_2.webp"
-  ]
+  "img": "img/싱크볼/n_esql.webp",
+  "detailImgs": []
  },
  {
   "id": "sink-small-세리니티858",
@@ -198,10 +396,10 @@ window.GG_PRODUCTS = [
   "coating": true,
   "bowl": "858 x 518",
   "taphole": "800~840 x 430~500",
-  "config": "스텐배수구 + 바스켓 + 수세미망 + 엠보커버 + 우드도마 + 수전",
+  "refSpec": false,
+  "config": "올올스텐 배수구 + 바스켓 + 수세미망 + 엠보커버 + 우드도마 + 수전",
   "price": 770000,
-  "img": "img/싱크볼/small_벨라고_세레니티.webp",
-  "popular": false,
+  "img": "img/싱크볼/n_serenity.webp",
   "detailImgs": [
    "img/상세/sink-small-세리니티858_1.webp",
    "img/상세/sink-small-세리니티858_2.webp",
@@ -222,10 +420,10 @@ window.GG_PRODUCTS = [
   "coating": true,
   "bowl": "850 x 517",
   "taphole": "800~840 x 430~500",
-  "config": "스텐배수구 + 바스켓 + 수세미망 + 엠보커버",
+  "refSpec": false,
+  "config": "올올스텐 배수구 + 바스켓 + 수세미망 + 엠보커버",
   "price": 600000,
-  "img": "img/싱크볼/small_아티잔_EDU858.webp",
-  "popular": false,
+  "img": "img/싱크볼/n_edu.webp",
   "detailImgs": [
    "img/상세/sink-small-edu858_1.webp",
    "img/상세/sink-small-edu858_2.webp"
@@ -242,58 +440,103 @@ window.GG_PRODUCTS = [
   "coating": true,
   "bowl": "850 x 517",
   "taphole": "800~840 x 430~500",
-  "config": "스텐배수구 + 바스켓 + 수세미망 + 엠보커버",
+  "refSpec": false,
+  "config": "올올스텐 배수구 + 바스켓 + 수세미망 + 엠보커버",
   "price": 650000,
-  "img": "img/싱크볼/small_아티잔_PEDU858.webp",
-  "popular": false,
+  "img": "img/싱크볼/n_pedu.webp",
   "detailImgs": [
-   "img/상세/sink-small-pedu858_1.webp",
-   "img/상세/sink-small-pedu858_2.webp",
    "img/상세/sink-small-pedu858_3.webp"
-  ]
- },
- {
-  "id": "sink-small-sqj850eec",
-  "cat": "sink",
-  "size": "small",
-  "brand": "한스",
-  "model": "SQJ850EEC",
-  "name": "한스 SQJ850EEC",
-  "embo": true,
-  "coating": true,
-  "bowl": "850 x 515",
-  "taphole": "800~840 x 430~500",
-  "config": "스텐배수구 + 바스켓 + 수세미망 + 반달엠보커버",
-  "price": 510000,
-  "img": "img/싱크볼/small_한스_SQJ850EEC.webp",
-  "popular": false,
-  "detailImgs": [
-   "img/상세/sink-small-sqj850eec_1.webp",
-   "img/상세/sink-small-sqj850eec_2.webp"
   ]
  },
  {
   "id": "sink-mid-steady8852",
   "cat": "sink",
   "size": "mid",
-  "brand": "AK STEADY",
+  "brand": "AK 스테디",
   "model": "Steady8852",
-  "name": "AK STEADY Steady8852",
+  "name": "AK 스테디 Steady8852",
   "embo": true,
   "coating": true,
   "bowl": "880 x 525",
-  "taphole": "880 x 525",
-  "config": "스텐배수구 + 바스켓 + 수세미망 + 엠보커버",
-  "price": 450000,
-  "img": "img/싱크볼/mid_AK_STEADY_Steady8852.webp",
-  "popular": false,
+  "taphole": "≈ 850 × 495",
+  "refSpec": true,
+  "config": "올올스텐 배수구 + 바스켓 + 수세미망 + 엠보커버",
+  "price": 460000,
+  "img": "img/싱크볼/n_ak.webp",
   "detailImgs": [
-   "img/상세/sink-mid-steady8852_1.png",
-   "img/상세/ak_common_ak1.webp",
-   "img/상세/ak_common_ak2.webp",
-   "img/상세/ak_common_ak3.webp",
-   "img/상세/ak_common_ak4.webp",
-   "img/상세/ak_common_ak5.webp"
+   "img/상세/ak_line/ak_line_01.webp",
+   "img/상세/ak_line/ak_line_02.webp",
+   "img/상세/ak_line/ak_line_03.webp",
+   "img/상세/ak_line/ak_line_04.webp",
+   "img/상세/ak_line/ak_line_05.webp",
+   "img/상세/ak_line/ak_line_06.webp",
+   "img/상세/ak_line/ak_line_07.webp",
+   "img/상세/ak_line/ak_line_08.webp",
+   "img/상세/ak_line/ak_line_09.webp",
+   "img/상세/ak_line/ak_line_10.webp",
+   "img/상세/ak_line/ak_line_11.webp",
+   "img/상세/ak_line/ak_line_12.webp",
+   "img/상세/ak_line/ak_line_13.webp",
+   "img/상세/ak_line/ak_line_14.webp",
+   "img/상세/ak_line/ak_line_15.webp",
+   "img/상세/ak_line/ak_line_16.webp",
+   "img/상세/ak_line/ak_line_17.webp",
+   "img/상세/ak_line/ak_line_18.webp",
+   "img/상세/ak_line/ak_line_19.webp",
+   "img/상세/ak_line/ak_line_20.webp",
+   "img/상세/ak_line/ak_line_21.webp",
+   "img/상세/ak_line/ak_line_22.webp",
+   "img/상세/ak_line/ak_line_23.webp",
+   "img/상세/ak_line/ak_line_24.webp",
+   "img/상세/ak_line/ak_line_25.webp",
+   "img/상세/ak_line/ak_line_26.webp"
+  ]
+ },
+ {
+  "id": "sink-mid-steady-waterfall8852",
+  "cat": "sink",
+  "size": "mid",
+  "brand": "AK 스테디",
+  "model": "Steady 워터폴8852",
+  "name": "AK 스테디 Steady 워터폴8852",
+  "embo": true,
+  "coating": true,
+  "bowl": "≈ 880 × 525",
+  "taphole": "≈ 850 × 495",
+  "refSpec": true,
+  "config": "올스텐 배수구 + 드레인보드 + 채소받이 + 물매트 + 엠보커버",
+  "price": 790000,
+  "img": "img/싱크볼/n_ak.webp",
+  "detailImgs": [
+   "img/상세/ak_line/ak_wf_1.webp",
+   "img/상세/ak_line/ak_wf_2.webp",
+   "img/상세/ak_line/ak_wf_3.webp",
+   "img/상세/ak_line/ak_line_01.webp",
+   "img/상세/ak_line/ak_line_02.webp",
+   "img/상세/ak_line/ak_line_03.webp",
+   "img/상세/ak_line/ak_line_04.webp",
+   "img/상세/ak_line/ak_line_05.webp",
+   "img/상세/ak_line/ak_line_06.webp",
+   "img/상세/ak_line/ak_line_07.webp",
+   "img/상세/ak_line/ak_line_08.webp",
+   "img/상세/ak_line/ak_line_09.webp",
+   "img/상세/ak_line/ak_line_10.webp",
+   "img/상세/ak_line/ak_line_11.webp",
+   "img/상세/ak_line/ak_line_12.webp",
+   "img/상세/ak_line/ak_line_13.webp",
+   "img/상세/ak_line/ak_line_14.webp",
+   "img/상세/ak_line/ak_line_15.webp",
+   "img/상세/ak_line/ak_line_16.webp",
+   "img/상세/ak_line/ak_line_17.webp",
+   "img/상세/ak_line/ak_line_18.webp",
+   "img/상세/ak_line/ak_line_19.webp",
+   "img/상세/ak_line/ak_line_20.webp",
+   "img/상세/ak_line/ak_line_21.webp",
+   "img/상세/ak_line/ak_line_22.webp",
+   "img/상세/ak_line/ak_line_23.webp",
+   "img/상세/ak_line/ak_line_24.webp",
+   "img/상세/ak_line/ak_line_25.webp",
+   "img/상세/ak_line/ak_line_26.webp"
   ]
  },
  {
@@ -307,12 +550,11 @@ window.GG_PRODUCTS = [
   "coating": false,
   "bowl": "880 x 520 x 230",
   "taphole": "852 x 492 x R9",
-  "config": "스텐배수구 + 바구니 + 엠보커버",
-  "price": 500000,
-  "img": "img/싱크볼/mid_백조_고니_ECNRW8630_복제.webp",
-  "popular": false,
+  "refSpec": false,
+  "config": "올올스텐 배수구 + 바구니 + 엠보커버",
+  "price": 490000,
+  "img": "img/싱크볼/n_ecnrw.webp",
   "detailImgs": [
-   "img/상세/sink-mid-ecnrw8830_1.webp",
    "img/상세/sink-mid-ecnrw8830_2.webp"
   ]
  },
@@ -327,10 +569,10 @@ window.GG_PRODUCTS = [
   "coating": true,
   "bowl": "883 x 515",
   "taphole": "840~860 x 430~510",
-  "config": "스텐배수구 + 바구니 + 엠보커버",
+  "refSpec": false,
+  "config": "올올스텐 배수구 + 바구니 + 엠보커버",
   "price": 630000,
-  "img": "img/싱크볼/mid_CESWSR8835.webp",
-  "popular": false,
+  "img": "img/싱크볼/n_ceswsr.webp",
   "detailImgs": [
    "img/상세/sink-mid-ceswsr8835_1.webp",
    "img/상세/sink-mid-ceswsr8835_2.webp",
@@ -347,17 +589,57 @@ window.GG_PRODUCTS = [
   "name": "백조 CESWSR9035",
   "embo": true,
   "coating": true,
-  "bowl": "900 x 515",
-  "taphole": "840~860 x 430~510",
-  "config": "스텐배수구 + 바구니 + 엠보커버",
+  "bowl": "900 × 520 × 230",
+  "taphole": "872 × 492 × R9",
+  "refSpec": false,
+  "config": "올올스텐 배수구 + 바구니 + 엠보커버",
   "price": 640000,
-  "img": "img/싱크볼/mid_CESWSR9035.webp",
-  "popular": false,
+  "img": "img/싱크볼/n_ceswsr.webp",
   "detailImgs": [
-   "img/상세/sink-mid-ceswsr9035_1.webp",
    "img/상세/sink-mid-ceswsr9035_2.webp",
    "img/상세/sink-mid-ceswsr9035_3.webp",
    "img/상세/sink-mid-ceswsr9035_4.webp"
+  ]
+ },
+ {
+  "id": "sink-mid-belbote8835",
+  "cat": "sink",
+  "size": "mid",
+  "brand": "백조",
+  "model": "벨뽀르테8835",
+  "name": "백조 벨뽀르테8835",
+  "embo": true,
+  "coating": true,
+  "bowl": "880 × 520 × 230",
+  "taphole": "852 × 492 × R9",
+  "refSpec": false,
+  "config": "올스텐 배수구 + 바구니 + 수세미망 + 엠보커버 + 도마",
+  "price": 920000,
+  "img": "img/싱크볼/n_belbote.webp",
+  "detailImgs": [
+   "img/상세/belbote_detail.webp"
+  ]
+ },
+ {
+  "id": "sink-mid-belita880",
+  "cat": "sink",
+  "size": "mid",
+  "brand": "벨라고",
+  "model": "BELITA880",
+  "name": "벨라고 BELITA880",
+  "embo": true,
+  "coating": true,
+  "bowl": "≈ 880 × 518",
+  "taphole": "≈ 850 × 488",
+  "refSpec": true,
+  "config": "올올스텐 배수구 + 바구니 + 삼각 수세미망 + 엠보커버",
+  "price": 480000,
+  "img": "img/싱크볼/n_belita.webp",
+  "detailImgs": [
+   "img/상세/belita_detail_1.webp",
+   "img/상세/belita_detail_2.webp",
+   "img/상세/belita_detail_3.webp",
+   "img/상세/belita_detail_4.webp"
   ]
  },
  {
@@ -371,13 +653,11 @@ window.GG_PRODUCTS = [
   "coating": true,
   "bowl": "880 x 525",
   "taphole": "840~860 x 430~510",
-  "config": "스텐배수구 + 바스켓 + 수세미망 + 엠보커버",
+  "refSpec": false,
+  "config": "올올스텐 배수구 + 바스켓 + 수세미망 + 엠보커버",
   "price": 580000,
-  "img": "img/싱크볼/mid_벨라고_ESQL880.webp",
-  "popular": false,
+  "img": "img/싱크볼/n_esql.webp",
   "detailImgs": [
-   "img/상세/sink-mid-esql880_1.png",
-   "img/상세/sink-mid-esql880_2.webp",
    "img/상세/sink-mid-esql880_3.webp",
    "img/상세/sink-mid-esql880_4.webp",
    "img/상세/sink-mid-esql880_5.webp",
@@ -397,12 +677,11 @@ window.GG_PRODUCTS = [
   "coating": true,
   "bowl": "880 x 525",
   "taphole": "840~860 x 430~510",
-  "config": "스텐배수구 + 바스켓 + 수세미망 + 엠보커버 + 우드도마 + 수전",
-  "price": 770000,
-  "img": "img/싱크볼/mid_벨라고_세레니티_880.webp",
-  "popular": false,
+  "refSpec": false,
+  "config": "올올스텐 배수구 + 바스켓 + 수세미망 + 엠보커버 + 우드도마 + 수전",
+  "price": 780000,
+  "img": "img/싱크볼/n_serenity.webp",
   "detailImgs": [
-   "img/상세/sink-mid-세리니티880_1.webp",
    "img/상세/sink-mid-세리니티880_2.webp",
    "img/상세/sink-mid-세리니티880_3.webp",
    "img/상세/sink-mid-세리니티880_4.webp",
@@ -422,12 +701,11 @@ window.GG_PRODUCTS = [
   "coating": true,
   "bowl": "882 x 527",
   "taphole": "840~860 x 430~510",
-  "config": "스텐배수구 + 바스켓 + 수세미망 + 엠보커버",
+  "refSpec": false,
+  "config": "올올스텐 배수구 + 바스켓 + 수세미망 + 엠보커버",
   "price": 650000,
-  "img": "img/싱크볼/mid_EDU882.webp",
-  "popular": false,
+  "img": "img/싱크볼/n_edu.webp",
   "detailImgs": [
-   "img/상세/sink-mid-edu882_1.png",
    "img/상세/sink-mid-edu882_2.webp",
    "img/상세/sink-mid-edu882_3.webp"
   ]
@@ -443,104 +721,98 @@ window.GG_PRODUCTS = [
   "coating": true,
   "bowl": "882 x 527",
   "taphole": "840~860 x 430~510",
-  "config": "스텐배수구 + 바스켓 + 수세미망 + 엠보커버",
+  "refSpec": false,
+  "config": "올올스텐 배수구 + 바스켓 + 수세미망 + 엠보커버",
   "price": 690000,
-  "img": "img/싱크볼/mid_PEDU882.webp",
-  "popular": false,
-  "detailImgs": [
-   "img/상세/sink-mid-pedu882_1.webp"
-  ]
- },
- {
-  "id": "sink-mid-sqj870",
-  "cat": "sink",
-  "size": "mid",
-  "brand": "한스",
-  "model": "SQJ870",
-  "name": "한스 SQJ870",
-  "embo": false,
-  "coating": false,
-  "bowl": "870 x 480",
-  "taphole": "840~860 x 430~510",
-  "config": "스텐배수구 + 바스켓 + 수세미망 + 반달엠보커버",
-  "price": 560000,
-  "img": "img/싱크볼/mid_한스_SQJ870.webp",
-  "popular": false,
-  "detailImgs": [
-   "img/상세/sink-mid-sqj870_1.png",
-   "img/상세/sink-mid-sqj870_2.webp"
-  ]
+  "img": "img/싱크볼/n_pedu.webp",
+  "detailImgs": []
  },
  {
   "id": "sink-large-steady9052",
   "cat": "sink",
   "size": "large",
-  "brand": "AK STEADY",
+  "brand": "AK 스테디",
   "model": "Steady9052",
-  "name": "AK STEADY Steady9052",
+  "name": "AK 스테디 Steady9052",
   "embo": true,
   "coating": true,
   "bowl": "905 x 527",
   "taphole": "840~885 x 470~505",
-  "config": "스텐배수구 + 바스켓 + 수세미망 + 엠보커버",
-  "price": 470000,
-  "img": "img/싱크볼/large_AK_STEADY_Steady9052.webp",
-  "popular": false,
+  "refSpec": false,
+  "config": "올올스텐 배수구 + 바스켓 + 수세미망 + 엠보커버",
+  "price": 480000,
+  "img": "img/싱크볼/n_ak.webp",
   "detailImgs": [
-   "img/상세/sink-large-steady9052_1.webp",
-   "img/상세/ak_common_ak1.webp",
-   "img/상세/ak_common_ak2.webp",
-   "img/상세/ak_common_ak3.webp",
-   "img/상세/ak_common_ak4.webp",
-   "img/상세/ak_common_ak5.webp"
+   "img/상세/ak_line/ak_line_01.webp",
+   "img/상세/ak_line/ak_line_02.webp",
+   "img/상세/ak_line/ak_line_03.webp",
+   "img/상세/ak_line/ak_line_04.webp",
+   "img/상세/ak_line/ak_line_05.webp",
+   "img/상세/ak_line/ak_line_06.webp",
+   "img/상세/ak_line/ak_line_07.webp",
+   "img/상세/ak_line/ak_line_08.webp",
+   "img/상세/ak_line/ak_line_09.webp",
+   "img/상세/ak_line/ak_line_10.webp",
+   "img/상세/ak_line/ak_line_11.webp",
+   "img/상세/ak_line/ak_line_12.webp",
+   "img/상세/ak_line/ak_line_13.webp",
+   "img/상세/ak_line/ak_line_14.webp",
+   "img/상세/ak_line/ak_line_15.webp",
+   "img/상세/ak_line/ak_line_16.webp",
+   "img/상세/ak_line/ak_line_17.webp",
+   "img/상세/ak_line/ak_line_18.webp",
+   "img/상세/ak_line/ak_line_19.webp",
+   "img/상세/ak_line/ak_line_20.webp",
+   "img/상세/ak_line/ak_line_21.webp",
+   "img/상세/ak_line/ak_line_22.webp",
+   "img/상세/ak_line/ak_line_23.webp",
+   "img/상세/ak_line/ak_line_24.webp",
+   "img/상세/ak_line/ak_line_25.webp",
+   "img/상세/ak_line/ak_line_26.webp"
   ]
  },
  {
   "id": "sink-large-steady9552",
   "cat": "sink",
   "size": "large",
-  "brand": "AK STEADY",
+  "brand": "AK 스테디",
   "model": "Steady9552",
-  "name": "AK STEADY Steady9552",
+  "name": "AK 스테디 Steady9552",
   "embo": true,
   "coating": true,
   "bowl": "955 x 527",
   "taphole": "890~935 x 470~505",
-  "config": "스텐배수구 + 바스켓 + 수세미망 + 엠보커버",
-  "price": 480000,
-  "img": "img/싱크볼/large_AK_STEADY_Steady9552.webp",
-  "popular": false,
+  "refSpec": false,
+  "config": "올올스텐 배수구 + 바스켓 + 수세미망 + 엠보커버",
+  "price": 490000,
+  "img": "img/싱크볼/n_ak.webp",
   "detailImgs": [
-   "img/상세/sink-large-steady9552_1.webp",
-   "img/상세/ak_common_ak1.webp",
-   "img/상세/ak_common_ak2.webp",
-   "img/상세/ak_common_ak3.webp",
-   "img/상세/ak_common_ak4.webp",
-   "img/상세/ak_common_ak5.webp"
-  ]
- },
- {
-  "id": "sink-large-steady9952",
-  "cat": "sink",
-  "size": "large",
-  "brand": "AK STEADY",
-  "model": "Steady9952",
-  "name": "AK STEADY Steady9952",
-  "embo": true,
-  "coating": true,
-  "bowl": "995 x 527",
-  "taphole": "940~975 x 270~505",
-  "config": "스텐배수구 + 바스켓 + 수세미망 + 엠보커버",
-  "price": 500000,
-  "img": "img/싱크볼/large_AK_STEADY_Steady9952.webp",
-  "popular": false,
-  "detailImgs": [
-   "img/상세/sink-large-steady9952_1.webp",
-   "img/상세/ak_common_ak1.webp",
-   "img/상세/ak_common_ak2.webp",
-   "img/상세/ak_common_ak3.webp",
-   "img/상세/ak_common_ak4.webp",
-   "img/상세/ak_common_ak5.webp"
+   "img/상세/ak_line/ak_line_01.webp",
+   "img/상세/ak_line/ak_line_02.webp",
+   "img/상세/ak_line/ak_line_03.webp",
+   "img/상세/ak_line/ak_line_04.webp",
+   "img/상세/ak_line/ak_line_05.webp",
+   "img/상세/ak_line/ak_line_06.webp",
+   "img/상세/ak_line/ak_line_07.webp",
+   "img/상세/ak_line/ak_line_08.webp",
+   "img/상세/ak_line/ak_line_09.webp",
+   "img/상세/ak_line/ak_line_10.webp",
+   "img/상세/ak_line/ak_line_11.webp",
+   "img/상세/ak_line/ak_line_12.webp",
+   "img/상세/ak_line/ak_line_13.webp",
+   "img/상세/ak_line/ak_line_14.webp",
+   "img/상세/ak_line/ak_line_15.webp",
+   "img/상세/ak_line/ak_line_16.webp",
+   "img/상세/ak_line/ak_line_17.webp",
+   "img/상세/ak_line/ak_line_18.webp",
+   "img/상세/ak_line/ak_line_19.webp",
+   "img/상세/ak_line/ak_line_20.webp",
+   "img/상세/ak_line/ak_line_21.webp",
+   "img/상세/ak_line/ak_line_22.webp",
+   "img/상세/ak_line/ak_line_23.webp",
+   "img/상세/ak_line/ak_line_24.webp",
+   "img/상세/ak_line/ak_line_25.webp",
+   "img/상세/ak_line/ak_line_26.webp"
   ]
  },
  {
@@ -554,10 +826,10 @@ window.GG_PRODUCTS = [
   "coating": false,
   "bowl": "900 x 520 x 230",
   "taphole": "872 x 492 x R9",
-  "config": "스텐배수구 + 바구니 + 엠보커버",
-  "price": 500000,
-  "img": "img/싱크볼/large_고_ECNRW9030.webp",
-  "popular": false,
+  "refSpec": false,
+  "config": "올올스텐 배수구 + 바구니 + 엠보커버",
+  "price": 510000,
+  "img": "img/싱크볼/n_ecnrw.webp",
   "detailImgs": [
    "img/상세/sink-large-ecnrw9030_1.webp"
   ]
@@ -573,10 +845,10 @@ window.GG_PRODUCTS = [
   "coating": false,
   "bowl": "950 x 520 x 230",
   "taphole": "922 x 492 x R9",
-  "config": "스텐배수구 + 바구니 + 엠보커버",
-  "price": 520000,
-  "img": "img/싱크볼/large_고_ECNRW9530.webp",
-  "popular": false,
+  "refSpec": false,
+  "config": "올올스텐 배수구 + 바구니 + 엠보커버",
+  "price": 550000,
+  "img": "img/싱크볼/n_ecnrw.webp",
   "detailImgs": [
    "img/상세/sink-large-ecnrw9530_1.webp"
   ]
@@ -592,10 +864,10 @@ window.GG_PRODUCTS = [
   "coating": false,
   "bowl": "980 x 520 x 230",
   "taphole": "952 x 492 x R9",
-  "config": "스텐배수구 + 바구니 + 엠보커버",
-  "price": 520000,
-  "img": "img/싱크볼/large_고_ECNRW9830.webp",
-  "popular": false,
+  "refSpec": false,
+  "config": "올올스텐 배수구 + 바구니 + 엠보커버",
+  "price": 550000,
+  "img": "img/싱크볼/n_ecnrw.webp",
   "detailImgs": [
    "img/상세/sink-large-ecnrw9830_1.webp"
   ]
@@ -611,12 +883,11 @@ window.GG_PRODUCTS = [
   "coating": true,
   "bowl": "950 x 520",
   "taphole": "890~980 x 430~510",
-  "config": "스텐배수구 + 바구니 + 엠보커버",
+  "refSpec": false,
+  "config": "올올스텐 배수구 + 바구니 + 엠보커버",
   "price": 660000,
-  "img": "img/싱크볼/large_백조_CESWSR9535.webp",
-  "popular": false,
+  "img": "img/싱크볼/n_ceswsr.webp",
   "detailImgs": [
-   "img/상세/sink-large-ceswsr9535_1.webp",
    "img/상세/sink-large-ceswsr9535_2.webp",
    "img/상세/sink-large-ceswsr9535_3.webp",
    "img/상세/sink-large-ceswsr9535_4.webp"
@@ -633,15 +904,71 @@ window.GG_PRODUCTS = [
   "coating": true,
   "bowl": "980 x 520",
   "taphole": "890~980 x 430~510",
-  "config": "스텐배수구 + 바구니 + 엠보커버",
+  "refSpec": false,
+  "config": "올올스텐 배수구 + 바구니 + 엠보커버",
   "price": 680000,
-  "img": "img/싱크볼/large_백조_CESWSR9835.webp",
-  "popular": false,
+  "img": "img/싱크볼/n_ceswsr.webp",
   "detailImgs": [
-   "img/상세/sink-large-ceswsr9835_1.webp",
    "img/상세/sink-large-ceswsr9835_2.webp",
    "img/상세/sink-large-ceswsr9835_3.webp",
    "img/상세/sink-large-ceswsr9835_4.webp"
+  ]
+ },
+ {
+  "id": "sink-large-belbote9035",
+  "cat": "sink",
+  "size": "large",
+  "brand": "백조",
+  "model": "벨뽀르테9035",
+  "name": "백조 벨뽀르테9035",
+  "embo": true,
+  "coating": true,
+  "bowl": "≈ 900 × 520 × 230",
+  "taphole": "≈ 872 × 492",
+  "refSpec": true,
+  "config": "올스텐 배수구 + 바구니 + 수세미망 + 엠보커버 + 도마",
+  "price": 950000,
+  "img": "img/싱크볼/n_belbote.webp",
+  "detailImgs": [
+   "img/상세/belbote_detail.webp"
+  ]
+ },
+ {
+  "id": "sink-large-belbote9535",
+  "cat": "sink",
+  "size": "large",
+  "brand": "백조",
+  "model": "벨뽀르테9535",
+  "name": "백조 벨뽀르테9535",
+  "embo": true,
+  "coating": true,
+  "bowl": "≈ 950 × 520 × 230",
+  "taphole": "≈ 922 × 492",
+  "refSpec": true,
+  "config": "올스텐 배수구 + 바구니 + 수세미망 + 엠보커버 + 도마",
+  "price": 980000,
+  "img": "img/싱크볼/n_belbote.webp",
+  "detailImgs": [
+   "img/상세/belbote_detail.webp"
+  ]
+ },
+ {
+  "id": "sink-large-belbote9835",
+  "cat": "sink",
+  "size": "large",
+  "brand": "백조",
+  "model": "벨뽀르테9835",
+  "name": "백조 벨뽀르테9835",
+  "embo": true,
+  "coating": true,
+  "bowl": "≈ 980 × 520 × 230",
+  "taphole": "≈ 952 × 492",
+  "refSpec": true,
+  "config": "올스텐 배수구 + 바구니 + 수세미망 + 엠보커버 + 도마",
+  "price": 1010000,
+  "img": "img/싱크볼/n_belbote.webp",
+  "detailImgs": [
+   "img/상세/belbote_detail.webp"
   ]
  },
  {
@@ -649,56 +976,55 @@ window.GG_PRODUCTS = [
   "cat": "sink",
   "size": "large",
   "brand": "백조",
-  "model": "깜뽀르테9035",
-  "name": "백조 깜뽀르테9035",
+  "model": "깜뽀르테9035+",
+  "name": "백조 깜뽀르테9035+",
   "embo": true,
   "coating": true,
-  "bowl": "900 x 520 x 230",
-  "taphole": "872 x 492 x R9",
-  "config": "스텐배수구 + 바구니 + 수세미망 + 엠보커버 + 캄포도마",
-  "price": 910000,
-  "img": "img/싱크볼/large_백조_깜보르떼9035.webp",
-  "popular": false,
-  "detailImgs": [
-   "img/상세/sink-large-깜뽀르테9035_1.webp"
-  ]
- },
- {
-  "id": "sink-large-깜뽀르테9535",
-  "cat": "sink",
-  "size": "large",
-  "brand": "백조",
-  "model": "깜뽀르테9535",
-  "name": "백조 깜뽀르테9535",
-  "embo": true,
-  "coating": true,
-  "bowl": "950 x 520 x 230",
-  "taphole": "922 x 492 x R9",
-  "config": "스텐배수구 + 바구니 + 수세미망 + 엠보커버 + 캄포도마",
-  "price": 940000,
-  "img": "img/싱크볼/large_백조_깜보르떼9535.webp",
-  "popular": false,
-  "detailImgs": [
-   "img/상세/sink-large-깜뽀르테9535_1.webp"
-  ]
+  "bowl": "≈ 900 × 515 × 230",
+  "taphole": "≈ 876 × 496",
+  "refSpec": true,
+  "config": "올스텐 배수구 + 바구니 + 수세미망 + 엠보커버 + 캄포도마",
+  "price": 1280000,
+  "img": "img/싱크볼/n_kkampo.webp",
+  "detailImgs": []
  },
  {
   "id": "sink-large-깜뽀르테9835",
   "cat": "sink",
   "size": "large",
   "brand": "백조",
-  "model": "깜뽀르테9835",
-  "name": "백조 깜뽀르테9835",
+  "model": "깜뽀르테9835+",
+  "name": "백조 깜뽀르테9835+",
   "embo": true,
   "coating": true,
-  "bowl": "980 x 520",
-  "taphole": "920~970 x 430~510",
-  "config": "스텐배수구 + 바구니 + 수세미망 + 엠보커버 + 캄포도마",
-  "price": 940000,
-  "img": "img/싱크볼/large_백조_깜보르떼9835.webp",
-  "popular": false,
+  "bowl": "980 × 520 × 230",
+  "taphole": "956 × 496",
+  "refSpec": false,
+  "config": "올스텐 배수구 + 바구니 + 수세미망 + 엠보커버 + 캄포도마",
+  "price": 1380000,
+  "img": "img/싱크볼/n_kkampo.webp",
+  "detailImgs": []
+ },
+ {
+  "id": "sink-large-belita990",
+  "cat": "sink",
+  "size": "large",
+  "brand": "벨라고",
+  "model": "BELITA990",
+  "name": "벨라고 BELITA990",
+  "embo": true,
+  "coating": true,
+  "bowl": "≈ 990 × 530",
+  "taphole": "≈ 960 × 500",
+  "refSpec": true,
+  "config": "올올스텐 배수구 + 바구니 + 삼각 수세미망 + 엠보커버",
+  "price": 550000,
+  "img": "img/싱크볼/n_belita.webp",
   "detailImgs": [
-   "img/상세/sink-large-깜뽀르테9835_1.webp"
+   "img/상세/belita_detail_1.webp",
+   "img/상세/belita_detail_2.webp",
+   "img/상세/belita_detail_3.webp",
+   "img/상세/belita_detail_4.webp"
   ]
  },
  {
@@ -712,13 +1038,11 @@ window.GG_PRODUCTS = [
   "coating": true,
   "bowl": "905 x 527",
   "taphole": "885 x 507",
-  "config": "스텐배수구 + 바스켓 + 수세미망 + 엠보커버",
-  "price": 590000,
-  "img": "img/싱크볼/large_벨라고_ESQL_905.webp",
-  "popular": false,
-  "detailImgs": [
-   "img/상세/sink-large-esql905_1.webp"
-  ]
+  "refSpec": false,
+  "config": "올올스텐 배수구 + 바스켓 + 수세미망 + 엠보커버",
+  "price": 600000,
+  "img": "img/싱크볼/n_esql.webp",
+  "detailImgs": []
  },
  {
   "id": "sink-large-esql940",
@@ -731,13 +1055,11 @@ window.GG_PRODUCTS = [
   "coating": true,
   "bowl": "940~955 x 527",
   "taphole": "890~980 x 430~510",
-  "config": "스텐배수구 + 바스켓 + 수세미망 + 엠보커버",
+  "refSpec": false,
+  "config": "올올스텐 배수구 + 바스켓 + 수세미망 + 엠보커버",
   "price": 620000,
-  "img": "img/싱크볼/large_벨라고_ESQL_940.webp",
-  "popular": false,
-  "detailImgs": [
-   "img/상세/sink-large-esql940_1.webp"
-  ]
+  "img": "img/싱크볼/n_esql.webp",
+  "detailImgs": []
  },
  {
   "id": "sink-large-esql955",
@@ -750,13 +1072,11 @@ window.GG_PRODUCTS = [
   "coating": true,
   "bowl": "940~955 x 527",
   "taphole": "890~980 x 430~510",
-  "config": "스텐배수구 + 바스켓 + 수세미망 + 엠보커버",
+  "refSpec": false,
+  "config": "올올스텐 배수구 + 바스켓 + 수세미망 + 엠보커버",
   "price": 620000,
-  "img": "img/싱크볼/large_벨라고_ESQL_955.webp",
-  "popular": false,
-  "detailImgs": [
-   "img/상세/sink-large-esql955_1.webp"
-  ]
+  "img": "img/싱크볼/n_esql.webp",
+  "detailImgs": []
  },
  {
   "id": "sink-large-esql990",
@@ -769,13 +1089,11 @@ window.GG_PRODUCTS = [
   "coating": true,
   "bowl": "990 x 530",
   "taphole": "890~980 x 430~510",
-  "config": "스텐배수구 + 바스켓 + 수세미망 + 엠보커버",
+  "refSpec": false,
+  "config": "올올스텐 배수구 + 바스켓 + 수세미망 + 엠보커버",
   "price": 630000,
-  "img": "img/싱크볼/large_벨라고_ESQL_990.webp",
-  "popular": false,
-  "detailImgs": [
-   "img/상세/sink-large-esql990_1.webp"
-  ]
+  "img": "img/싱크볼/n_esql.webp",
+  "detailImgs": []
  },
  {
   "id": "sink-large-세리니티990",
@@ -787,11 +1105,11 @@ window.GG_PRODUCTS = [
   "embo": true,
   "coating": true,
   "bowl": "990 x 530",
-  "taphole": "-",
-  "config": "스텐배수구 + 바스켓 + 수세미망 + 엠보커버 + 우드도마 + 수전",
+  "taphole": "≈ 960 × 500",
+  "refSpec": true,
+  "config": "올올스텐 배수구 + 바스켓 + 수세미망 + 엠보커버 + 우드도마 + 수전",
   "price": 840000,
-  "img": null,
-  "popular": false
+  "img": "img/싱크볼/n_serenity.webp"
  },
  {
   "id": "sink-large-edu900",
@@ -804,10 +1122,10 @@ window.GG_PRODUCTS = [
   "coating": true,
   "bowl": "900 x 527",
   "taphole": "890~980 x 430~510",
-  "config": "스텐배수구 + 바스켓 + 수세미망 + 엠보커버",
+  "refSpec": false,
+  "config": "올올스텐 배수구 + 바스켓 + 수세미망 + 엠보커버",
   "price": 660000,
-  "img": "img/싱크볼/large_EDU900.webp",
-  "popular": false,
+  "img": "img/싱크볼/n_edu.webp",
   "detailImgs": [
    "img/상세/sink-large-edu900_1.webp",
    "img/상세/sink-large-edu900_2.webp"
@@ -824,10 +1142,10 @@ window.GG_PRODUCTS = [
   "coating": true,
   "bowl": "953 x 517",
   "taphole": "890~980 x 430~510",
-  "config": "스텐배수구 + 바스켓 + 수세미망 + 엠보커버",
+  "refSpec": false,
+  "config": "올올스텐 배수구 + 바스켓 + 수세미망 + 엠보커버",
   "price": 670000,
-  "img": "img/싱크볼/large_EDU_953.webp",
-  "popular": false,
+  "img": "img/싱크볼/n_edu.webp",
   "detailImgs": [
    "img/상세/sink-large-edu953_1.webp",
    "img/상세/sink-large-edu953_2.webp"
@@ -844,10 +1162,10 @@ window.GG_PRODUCTS = [
   "coating": true,
   "bowl": "982 x 527",
   "taphole": "890~980 x 430~510",
-  "config": "스텐배수구 + 바스켓 + 수세미망 + 엠보커버",
+  "refSpec": false,
+  "config": "올올스텐 배수구 + 바스켓 + 수세미망 + 엠보커버",
   "price": 680000,
-  "img": "img/싱크볼/large_EDU_982.webp",
-  "popular": false,
+  "img": "img/싱크볼/n_edu.webp",
   "detailImgs": [
    "img/상세/sink-large-edu982_1.webp",
    "img/상세/sink-large-edu982_2.webp"
@@ -864,13 +1182,11 @@ window.GG_PRODUCTS = [
   "coating": true,
   "bowl": "900 x 527 x 227",
   "taphole": "879 x 506 x 10R",
-  "config": "스텐배수구 + 바스켓 + 수세미망 + 엠보커버",
+  "refSpec": false,
+  "config": "올올스텐 배수구 + 바스켓 + 수세미망 + 엠보커버",
   "price": 710000,
-  "img": "img/싱크볼/large_PEDU_900.webp",
-  "popular": false,
-  "detailImgs": [
-   "img/상세/sink-large-pedu900_1.webp"
-  ]
+  "img": "img/싱크볼/n_pedu.webp",
+  "detailImgs": []
  },
  {
   "id": "sink-large-pedu953",
@@ -883,13 +1199,11 @@ window.GG_PRODUCTS = [
   "coating": true,
   "bowl": "953 x 517",
   "taphole": "890~980 x 430~510",
-  "config": "스텐배수구 + 바스켓 + 수세미망 + 엠보커버",
+  "refSpec": false,
+  "config": "올올스텐 배수구 + 바스켓 + 수세미망 + 엠보커버",
   "price": 730000,
-  "img": "img/싱크볼/large_PEDU_953.webp",
-  "popular": false,
-  "detailImgs": [
-   "img/상세/sink-large-pedu953_1.webp"
-  ]
+  "img": "img/싱크볼/n_pedu.webp",
+  "detailImgs": []
  },
  {
   "id": "sink-large-pedu982",
@@ -902,13 +1216,111 @@ window.GG_PRODUCTS = [
   "coating": true,
   "bowl": "982 x 527",
   "taphole": "890~980 x 430~510",
-  "config": "스텐배수구 + 바스켓 + 수세미망 + 엠보커버",
+  "refSpec": false,
+  "config": "올올스텐 배수구 + 바스켓 + 수세미망 + 엠보커버",
   "price": 740000,
-  "img": "img/싱크볼/large_PEDU_982.webp",
+  "img": "img/싱크볼/n_pedu.webp",
+  "detailImgs": []
+ },
+ {
+  "id": "sink-small-sqj850eec",
+  "cat": "sink",
+  "size": "small",
+  "brand": "한스",
+  "model": "SQJ850EEC",
+  "name": "한스 SQJ850EEC",
+  "embo": true,
+  "coating": true,
+  "bowl": "850 x 515",
+  "taphole": "800~840 x 430~500",
+  "config": "스텐배수구 + 바스켓 + 수세미망 + 반달엠보커버",
+  "price": 510000,
+  "img": "img/싱크볼/n_sqj850.webp",
   "popular": false,
   "detailImgs": [
-   "img/상세/sink-large-pedu982_1.webp"
+   "img/상세/sink-small-sqj850eec_1.webp",
+   "img/상세/sink-small-sqj850eec_2.webp"
   ]
+ },
+ {
+  "id": "sink-mid-sqj870",
+  "cat": "sink",
+  "size": "mid",
+  "brand": "한스",
+  "model": "SQJ870",
+  "name": "한스 SQJ870",
+  "embo": false,
+  "coating": false,
+  "bowl": "870 x 480",
+  "taphole": "840~860 x 430~510",
+  "config": "스텐배수구 + 바스켓 + 수세미망 + 반달엠보커버",
+  "price": 560000,
+  "img": "img/싱크볼/n_sqj870.webp",
+  "popular": false,
+  "detailImgs": [
+   "img/상세/sink-mid-sqj870_2.webp"
+  ]
+ },
+ {
+  "id": "sink-large-steady9952",
+  "cat": "sink",
+  "size": "large",
+  "brand": "AK 스테디",
+  "model": "Steady9952",
+  "name": "AK 스테디 Steady9952",
+  "embo": true,
+  "coating": true,
+  "bowl": "995 x 527",
+  "taphole": "940~975 x 270~505",
+  "config": "스텐배수구 + 바스켓 + 수세미망 + 엠보커버",
+  "price": 500000,
+  "img": "img/싱크볼/n_ak.webp",
+  "popular": false,
+  "detailImgs": [
+   "img/상세/ak_line/ak_line_01.webp",
+   "img/상세/ak_line/ak_line_02.webp",
+   "img/상세/ak_line/ak_line_03.webp",
+   "img/상세/ak_line/ak_line_04.webp",
+   "img/상세/ak_line/ak_line_05.webp",
+   "img/상세/ak_line/ak_line_06.webp",
+   "img/상세/ak_line/ak_line_07.webp",
+   "img/상세/ak_line/ak_line_08.webp",
+   "img/상세/ak_line/ak_line_09.webp",
+   "img/상세/ak_line/ak_line_10.webp",
+   "img/상세/ak_line/ak_line_11.webp",
+   "img/상세/ak_line/ak_line_12.webp",
+   "img/상세/ak_line/ak_line_13.webp",
+   "img/상세/ak_line/ak_line_14.webp",
+   "img/상세/ak_line/ak_line_15.webp",
+   "img/상세/ak_line/ak_line_16.webp",
+   "img/상세/ak_line/ak_line_17.webp",
+   "img/상세/ak_line/ak_line_18.webp",
+   "img/상세/ak_line/ak_line_19.webp",
+   "img/상세/ak_line/ak_line_20.webp",
+   "img/상세/ak_line/ak_line_21.webp",
+   "img/상세/ak_line/ak_line_22.webp",
+   "img/상세/ak_line/ak_line_23.webp",
+   "img/상세/ak_line/ak_line_24.webp",
+   "img/상세/ak_line/ak_line_25.webp",
+   "img/상세/ak_line/ak_line_26.webp"
+  ]
+ },
+ {
+  "id": "sink-large-깜뽀르테9535",
+  "cat": "sink",
+  "size": "large",
+  "brand": "백조",
+  "model": "깜뽀르테9535",
+  "name": "백조 깜뽀르테9535",
+  "embo": true,
+  "coating": true,
+  "bowl": "950 x 520 x 230",
+  "taphole": "922 x 492 x R9",
+  "config": "스텐배수구 + 바구니 + 수세미망 + 엠보커버 + 캄포도마",
+  "price": 940000,
+  "img": "img/싱크볼/n_kkampo.webp",
+  "popular": false,
+  "detailImgs": []
  },
  {
   "id": "sink-large-sqj980eec",
@@ -923,7 +1335,7 @@ window.GG_PRODUCTS = [
   "taphole": "890~980 x 430~510",
   "config": "스텐배수구 + 바스켓 + 수세미망 + 반달엠보커버",
   "price": 570000,
-  "img": null,
+  "img": "img/싱크볼/n_sqj980.webp",
   "popular": false
  },
  {
@@ -931,10 +1343,260 @@ window.GG_PRODUCTS = [
   "cat": "faucet",
   "grade": "기본",
   "brand": "크라운",
-  "model": "S-3000",
-  "name": "크라운 S-3000",
+  "model": "S-3000 (3WAY 폭포수)",
+  "name": "크라운 S-3000 (3WAY 폭포수)",
   "addPrice": 0,
-  "img": "img/수전/01_crown_s3000.webp"
+  "img": "img/수전/f_crown_s3000.webp"
+ },
+ {
+  "id": "faucet-대정워터스sk6002거위목",
+  "cat": "faucet",
+  "grade": "일반",
+  "brand": "대정워터스",
+  "model": "SK-6002(거위목)",
+  "name": "대정워터스 SK-6002(거위목)",
+  "addPrice": 30000,
+  "img": "img/수전/f_daejung_sk6002.webp"
+ },
+ {
+  "id": "faucet-대정워터스sk60046way",
+  "cat": "faucet",
+  "grade": "일반",
+  "brand": "대정워터스",
+  "model": "SK-6004(6WAY)",
+  "name": "대정워터스 SK-6004(6WAY)",
+  "addPrice": 40000,
+  "img": "img/수전/f_daejung_sk6004.webp"
+ },
+ {
+  "id": "faucet-트렌드dotta252",
+  "cat": "faucet",
+  "grade": "일반",
+  "brand": "트랜드(DOT)",
+  "model": "TA-252(3WAY)",
+  "name": "트랜드(DOT) TA-252(3WAY)",
+  "addPrice": 40000,
+  "img": "img/수전/f_trend_ta252.webp"
+ },
+ {
+  "id": "faucet-트랜드dotta2514way",
+  "cat": "faucet",
+  "grade": "일반",
+  "brand": "트랜드(DOT)",
+  "model": "TA251(4WAY)",
+  "name": "트랜드(DOT) TA251(4WAY)",
+  "addPrice": 40000,
+  "img": "img/수전/f_trend_ta251.webp"
+ },
+ {
+  "id": "faucet-트랜드dotva120거위목",
+  "cat": "faucet",
+  "grade": "일반",
+  "brand": "트랜드(DOT)",
+  "model": "VA-120(거위목)",
+  "name": "트랜드(DOT) VA-120(거위목)",
+  "addPrice": 50000,
+  "img": "img/수전/f_trend_va120.webp"
+ },
+ {
+  "id": "faucet-트렌드noahr3",
+  "cat": "faucet",
+  "grade": "프리미엄",
+  "brand": "트랜드(DOT)",
+  "model": "노아 R3(야채수전)",
+  "name": "트랜드(DOT) 노아 R3(야채수전)",
+  "addPrice": 170000,
+  "img": "img/수전/f_trend_noah_r3.webp"
+ },
+ {
+  "id": "faucet-트렌드noahr4",
+  "cat": "faucet",
+  "grade": "프리미엄",
+  "brand": "트랜드(DOT)",
+  "model": "노아 R4(야채수전)",
+  "name": "트랜드(DOT) 노아 R4(야채수전)",
+  "addPrice": 190000,
+  "img": "img/수전/f_trend_noah_r4.webp"
+ },
+ {
+  "id": "faucet-에떼르노ek30014way",
+  "cat": "faucet",
+  "grade": "일반",
+  "brand": "에떼르노",
+  "model": "EK-3001(4WAY)",
+  "name": "에떼르노 EK-3001(4WAY)",
+  "addPrice": 50000,
+  "img": "img/수전/f_eterno_ek3001.webp"
+ },
+ {
+  "id": "faucet-에떼르노ek4001엘리카4way",
+  "cat": "faucet",
+  "grade": "일반",
+  "brand": "에떼르노",
+  "model": "EK-4001(엘리카)",
+  "name": "에떼르노 EK-4001(엘리카)",
+  "addPrice": 60000,
+  "img": "img/수전/f_eterno_ek4001.webp"
+ },
+ {
+  "id": "faucet-에떼르노ek60016way",
+  "cat": "faucet",
+  "grade": "일반",
+  "brand": "에떼르노",
+  "model": "EK-6001(6WAY)",
+  "name": "에떼르노 EK-6001(6WAY)",
+  "addPrice": 60000,
+  "img": "img/수전/f_eterno_ek6001.webp"
+ },
+ {
+  "id": "faucet-msys한샘360l4way",
+  "cat": "faucet",
+  "grade": "일반",
+  "brand": "MSYS한샘",
+  "model": "360L(4WAY)",
+  "name": "MSYS한샘 360L(4WAY)",
+  "addPrice": 50000,
+  "img": "img/수전/f_msys_360l.webp"
+ },
+ {
+  "id": "faucet-루미노바lv1300",
+  "cat": "faucet",
+  "grade": "일반",
+  "brand": "루미노바",
+  "model": "LV-1300",
+  "name": "루미노바 LV-1300",
+  "addPrice": 80000,
+  "img": "img/수전/f_luminova_lv1300.webp"
+ },
+ {
+  "id": "faucet-루미노바lv16000",
+  "cat": "faucet",
+  "grade": "일반",
+  "brand": "루미노바",
+  "model": "LV-16000",
+  "name": "루미노바 LV-16000",
+  "addPrice": 90000,
+  "img": "img/수전/f_luminova_lv16000.webp"
+ },
+ {
+  "id": "faucet-루미노바lv16300",
+  "cat": "faucet",
+  "grade": "일반",
+  "brand": "루미노바",
+  "model": "LV-16300",
+  "name": "루미노바 LV-16300",
+  "addPrice": 90000,
+  "img": "img/수전/f_luminova_lv16300.webp"
+ },
+ {
+  "id": "faucet-루미노바lv16400",
+  "cat": "faucet",
+  "grade": "일반",
+  "brand": "루미노바",
+  "model": "LV-16400",
+  "name": "루미노바 LV-16400",
+  "addPrice": 90000,
+  "img": "img/수전/f_luminova_lv16400.webp"
+ },
+ {
+  "id": "faucet-루미노바lv18000",
+  "cat": "faucet",
+  "grade": "프리미엄",
+  "brand": "루미노바",
+  "model": "LV-18000",
+  "name": "루미노바 LV-18000",
+  "addPrice": 220000,
+  "img": "img/수전/f_luminova_lv18000.webp"
+ },
+ {
+  "id": "faucet-라우체아르띠자",
+  "cat": "faucet",
+  "grade": "프리미엄",
+  "brand": "라우체",
+  "model": "아르띠 ㄱ자 TM0028CN",
+  "name": "라우체 아르띠 ㄱ자 TM0028CN",
+  "addPrice": 200000,
+  "img": "img/수전/f_lauche_tm0028cn.webp"
+ },
+ {
+  "id": "faucet-라우체라우체아르띠u자형tm0028u",
+  "cat": "faucet",
+  "grade": "프리미엄",
+  "brand": "라우체",
+  "model": "아르띠 U자형 TM0028U",
+  "name": "라우체 아르띠 U자형 TM0028U",
+  "addPrice": 200000,
+  "img": "img/수전/f_lauche_tm0028u.webp"
+ },
+ {
+  "id": "faucet-라우체아르띠와이드",
+  "cat": "faucet",
+  "grade": "프리미엄",
+  "brand": "라우체",
+  "model": "아르띠 와이드 TM0028N",
+  "name": "라우체 아르띠 와이드 TM0028N",
+  "addPrice": 210000,
+  "img": "img/수전/f_lauche_tm0028n.webp"
+ },
+ {
+  "id": "faucet-라우체뉴피오tm0030n",
+  "cat": "faucet",
+  "grade": "프리미엄",
+  "brand": "라우체",
+  "model": "뉴피오",
+  "name": "라우체 뉴피오",
+  "addPrice": 360000,
+  "img": "img/수전/f_lauche_pio.webp"
+ },
+ {
+  "id": "faucet-백조fossz",
+  "cat": "faucet",
+  "grade": "프리미엄",
+  "brand": "백조",
+  "model": "FOSS-Z",
+  "name": "백조 FOSS-Z",
+  "addPrice": 230000,
+  "img": "img/수전/f_baekjo_fossz.webp"
+ },
+ {
+  "id": "faucet-에스티로fl2707야채수전",
+  "cat": "faucet",
+  "grade": "프리미엄",
+  "brand": "에스티로",
+  "model": "FL-2707(야채수전)",
+  "name": "에스티로 FL-2707(야채수전)",
+  "addPrice": 230000,
+  "img": "img/수전/f_estilo_fl2707.webp"
+ },
+ {
+  "id": "faucet-필로토슈티에8026",
+  "cat": "faucet",
+  "grade": "프리미엄",
+  "brand": "필로토",
+  "model": "슈티에8026",
+  "name": "필로토 슈티에8026",
+  "addPrice": 230000,
+  "img": "img/수전/f_piloto_8026.webp"
+ },
+ {
+  "id": "faucet-필로토슈티에80127",
+  "cat": "faucet",
+  "grade": "프리미엄",
+  "brand": "필로토",
+  "model": "슈티에80127",
+  "name": "필로토 슈티에80127",
+  "addPrice": 250000,
+  "img": "img/수전/f_piloto_80127.webp"
+ },
+ {
+  "id": "faucet-필로토슈티에80988",
+  "cat": "faucet",
+  "grade": "프리미엄",
+  "brand": "필로토",
+  "model": "슈티에80988",
+  "name": "필로토 슈티에80988",
+  "addPrice": 380000,
+  "img": "img/수전/f_piloto_80988.webp"
  },
  {
   "id": "faucet-하츠ts100",
@@ -944,7 +1606,7 @@ window.GG_PRODUCTS = [
   "model": "TS-100",
   "name": "하츠 TS-100",
   "addPrice": 20000,
-  "img": "img/수전/02_haatz_ts100.webp",
+  "img": "img/수전/f_haatz_ts100.webp",
   "detailImgs": [
    "img/상세/faucet-하츠ts100_1.webp"
   ]
@@ -990,20 +1652,6 @@ window.GG_PRODUCTS = [
   ]
  },
  {
-  "id": "faucet-에떼르노ek30014way",
-  "cat": "faucet",
-  "grade": "일반",
-  "brand": "에떼르노",
-  "model": "EK-3001 (4WAY)",
-  "name": "에떼르노 EK-3001 (4WAY)",
-  "addPrice": 50000,
-  "img": "img/수전/06_eterno_ek3001.webp",
-  "detailImgs": [
-   "img/상세/faucet-에떼르노ek30014way_1.webp",
-   "img/상세/faucet-에떼르노ek30014way_2.webp"
-  ]
- },
- {
   "id": "faucet-에떼르노에떼르노g7",
   "cat": "faucet",
   "grade": "일반",
@@ -1031,77 +1679,6 @@ window.GG_PRODUCTS = [
   ]
  },
  {
-  "id": "faucet-msys한샘360l4way",
-  "cat": "faucet",
-  "grade": "일반",
-  "brand": "MSYS한샘",
-  "model": "360L (4WAY)",
-  "name": "MSYS한샘 360L (4WAY)",
-  "addPrice": 50000,
-  "img": "img/수전/08_hanssem_360l.webp",
-  "detailImgs": [
-   "img/상세/faucet-msys한샘360l4way_1.webp",
-   "img/상세/faucet-msys한샘360l4way_2.webp"
-  ]
- },
- {
-  "id": "faucet-트렌드dotta252",
-  "cat": "faucet",
-  "grade": "일반",
-  "brand": "트렌드",
-  "model": "DOT TA-252",
-  "name": "트렌드 DOT TA-252",
-  "addPrice": 50000,
-  "img": "img/수전/09_trend_dot_ta252.webp",
-  "detailImgs": [
-   "img/상세/faucet-트렌드dotta252_1.webp"
-  ]
- },
- {
-  "id": "faucet-에떼르노ek60016way",
-  "cat": "faucet",
-  "grade": "일반",
-  "brand": "에떼르노",
-  "model": "EK-6001 (6WAY)",
-  "name": "에떼르노 EK-6001 (6WAY)",
-  "addPrice": 60000,
-  "img": "img/수전/10_eterno_ek6001.webp",
-  "detailImgs": [
-   "img/상세/faucet-에떼르노ek60016way_1.webp",
-   "img/상세/faucet-에떼르노ek60016way_2.webp",
-   "img/상세/faucet-에떼르노ek60016way_3.webp"
-  ]
- },
- {
-  "id": "faucet-에떼르노ek4001엘리카4way",
-  "cat": "faucet",
-  "grade": "일반",
-  "brand": "에떼르노",
-  "model": "EK-4001 엘리카 (4WAY)",
-  "name": "에떼르노 EK-4001 엘리카 (4WAY)",
-  "addPrice": 60000,
-  "img": "img/수전/11_eterno_ek4001.webp",
-  "detailImgs": [
-   "img/상세/faucet-에떼르노ek4001엘리카4way_1.webp",
-   "img/상세/faucet-에떼르노ek4001엘리카4way_2.webp"
-  ]
- },
- {
-  "id": "faucet-트렌드noahr3",
-  "cat": "faucet",
-  "grade": "프리미엄",
-  "brand": "트렌드",
-  "model": "NOAH R3",
-  "name": "트렌드 NOAH R3",
-  "addPrice": 170000,
-  "img": "img/수전/12_trend_noah_r3.webp",
-  "detailImgs": [
-   "img/상세/faucet-트렌드noahr3_1.webp",
-   "img/상세/faucet-트렌드noahr3_2.webp",
-   "img/상세/faucet-트렌드noahr3_3.webp"
-  ]
- },
- {
   "id": "faucet-라우체아르띠거위목",
   "cat": "faucet",
   "grade": "프리미엄",
@@ -1117,143 +1694,6 @@ window.GG_PRODUCTS = [
   ]
  },
  {
-  "id": "faucet-라우체아르띠자",
-  "cat": "faucet",
-  "grade": "프리미엄",
-  "brand": "라우체",
-  "model": "아르띠 ㄱ자",
-  "name": "라우체 아르띠 ㄱ자",
-  "addPrice": 180000,
-  "img": "img/수전/14_lauche_arti_l.webp",
-  "detailImgs": [
-   "img/상세/faucet-라우체아르띠자_1.webp",
-   "img/상세/faucet-라우체아르띠자_2.webp"
-  ]
- },
- {
-  "id": "faucet-트렌드noahr4",
-  "cat": "faucet",
-  "grade": "프리미엄",
-  "brand": "트렌드",
-  "model": "NOAH R4",
-  "name": "트렌드 NOAH R4",
-  "addPrice": 190000,
-  "img": "img/수전/15_trend_noah_r4.webp",
-  "detailImgs": [
-   "img/상세/faucet-트렌드noahr4_1.webp",
-   "img/상세/faucet-트렌드noahr4_2.webp",
-   "img/상세/faucet-트렌드noahr4_3.webp"
-  ]
- },
- {
-  "id": "faucet-라우체아르띠와이드",
-  "cat": "faucet",
-  "grade": "프리미엄",
-  "brand": "라우체",
-  "model": "아르띠 와이드",
-  "name": "라우체 아르띠 와이드",
-  "addPrice": 190000,
-  "img": "img/수전/16_lauche_arti_wide.webp",
-  "detailImgs": [
-   "img/상세/faucet-라우체아르띠와이드_1.webp",
-   "img/상세/faucet-라우체아르띠와이드_2.webp"
-  ]
- },
- {
-  "id": "faucet-필로토슈티에8026",
-  "cat": "faucet",
-  "grade": "프리미엄",
-  "brand": "필로토",
-  "model": "슈티에 8026",
-  "name": "필로토 슈티에 8026",
-  "addPrice": 210000,
-  "img": "img/수전/17_piloto_8026.webp",
-  "detailImgs": [
-   "img/상세/faucet-필로토슈티에8026_1.webp",
-   "img/상세/faucet-필로토슈티에8026_2.webp",
-   "img/상세/faucet-필로토슈티에8026_3.webp",
-   "img/상세/faucet-필로토슈티에8026_4.webp",
-   "img/상세/faucet-필로토슈티에8026_5.webp"
-  ]
- },
- {
-  "id": "faucet-백조fossz",
-  "cat": "faucet",
-  "grade": "프리미엄",
-  "brand": "백조",
-  "model": "FOSS-Z",
-  "name": "백조 FOSS-Z",
-  "addPrice": 220000,
-  "img": "img/수전/18_baekjo_foss_z.webp",
-  "detailImgs": [
-   "img/상세/faucet-백조fossz_1.webp",
-   "img/상세/faucet-백조fossz_2.webp"
-  ]
- },
- {
-  "id": "faucet-루미노바lv18000",
-  "cat": "faucet",
-  "grade": "프리미엄",
-  "brand": "루미노바",
-  "model": "LV-18000",
-  "name": "루미노바 LV-18000",
-  "addPrice": 220000,
-  "img": "img/수전/19_luminova_lv18000.webp",
-  "detailImgs": [
-   "img/상세/faucet-루미노바lv18000_1.webp",
-   "img/상세/faucet-루미노바lv18000_2.webp",
-   "img/상세/faucet-루미노바lv18000_3.webp"
-  ]
- },
- {
-  "id": "faucet-필로토슈티에80127",
-  "cat": "faucet",
-  "grade": "프리미엄",
-  "brand": "필로토",
-  "model": "슈티에 80127",
-  "name": "필로토 슈티에 80127",
-  "addPrice": 220000,
-  "img": "img/수전/20_piloto_80127.webp",
-  "detailImgs": [
-   "img/상세/faucet-필로토슈티에80127_1.webp",
-   "img/상세/faucet-필로토슈티에80127_2.webp",
-   "img/상세/faucet-필로토슈티에80127_3.webp",
-   "img/상세/faucet-필로토슈티에80127_4.webp"
-  ]
- },
- {
-  "id": "faucet-라우체뉴피오tm0030n",
-  "cat": "faucet",
-  "grade": "프리미엄",
-  "brand": "라우체",
-  "model": "뉴피오 TM0030N",
-  "name": "라우체 뉴피오 TM0030N",
-  "addPrice": 360000,
-  "img": "img/수전/21_lauche_pio.webp",
-  "detailImgs": [
-   "img/상세/faucet-라우체뉴피오tm0030n_1.webp",
-   "img/상세/faucet-라우체뉴피오tm0030n_2.webp",
-   "img/상세/faucet-라우체뉴피오tm0030n_3.webp",
-   "img/상세/faucet-라우체뉴피오tm0030n_4.webp"
-  ]
- },
- {
-  "id": "faucet-필로토슈티에80988",
-  "cat": "faucet",
-  "grade": "프리미엄",
-  "brand": "필로토",
-  "model": "슈티에 80988",
-  "name": "필로토 슈티에 80988",
-  "addPrice": 360000,
-  "img": "img/수전/22_piloto_80988.webp",
-  "detailImgs": [
-   "img/상세/faucet-필로토슈티에80988_1.webp",
-   "img/상세/faucet-필로토슈티에80988_2.webp",
-   "img/상세/faucet-필로토슈티에80988_3.webp",
-   "img/상세/faucet-필로토슈티에80988_4.webp"
-  ]
- },
- {
   "id": "faucet-하츠페달",
   "cat": "faucet",
   "grade": "기타",
@@ -1266,6 +1706,54 @@ window.GG_PRODUCTS = [
    "img/상세/faucet-하츠페달_1.webp",
    "img/상세/faucet-하츠페달_2.webp"
   ]
+ },
+ {
+  "id": "sink-small-kkampote8535",
+  "cat": "sink",
+  "size": "small",
+  "brand": "백조",
+  "model": "깜뽀르테8535",
+  "name": "백조 깜뽀르테8535",
+  "embo": true,
+  "coating": true,
+  "bowl": "850 x 515",
+  "taphole": "800~840 x 430~500",
+  "refSpec": false,
+  "config": "스텐배수구 + 바구니 + 수세미망 + 엠보커버 + 캄포도마",
+  "price": 870000,
+  "img": "img/싱크볼/n_kkampo.webp"
+ },
+ {
+  "id": "sink-large-kkampote9035",
+  "cat": "sink",
+  "size": "large",
+  "brand": "백조",
+  "model": "깜뽀르테9035",
+  "name": "백조 깜뽀르테9035",
+  "embo": true,
+  "coating": true,
+  "bowl": "900 x 520 x 230",
+  "taphole": "872 x 492 x R9",
+  "refSpec": false,
+  "config": "스텐배수구 + 바구니 + 수세미망 + 엠보커버 + 캄포도마",
+  "price": 910000,
+  "img": "img/싱크볼/n_kkampo.webp"
+ },
+ {
+  "id": "sink-large-kkampote9835",
+  "cat": "sink",
+  "size": "large",
+  "brand": "백조",
+  "model": "깜뽀르테9835",
+  "name": "백조 깜뽀르테9835",
+  "embo": true,
+  "coating": true,
+  "bowl": "980 x 520",
+  "taphole": "920~970 x 430~510",
+  "refSpec": false,
+  "config": "스텐배수구 + 바구니 + 수세미망 + 엠보커버 + 캄포도마",
+  "price": 940000,
+  "img": "img/싱크볼/n_kkampo.webp"
  }
 ];
 

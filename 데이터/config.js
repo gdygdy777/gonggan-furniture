@@ -5,7 +5,7 @@ window.SITE_CONFIG = {
   // ▼ 카카오톡 채널 개설 후 채팅 URL을 여기에 넣으세요.
   //   카카오톡 채널 예: 'https://pf.kakao.com/_xaBcDe/chat'
   //   오픈채팅을 쓸 경우: 'https://open.kakao.com/o/xxxxxxx'
-  kakaoChatUrl: '',
+  kakaoChatUrl: 'https://pf.kakao.com/_LHyxkn/chat',
 
   phone: '010-8726-8288',
   blog: 'https://blog.naver.com/furniture81'
@@ -97,6 +97,7 @@ window.SITE_CONFIG = {
         '<a href="서비스.html">서비스</a>' +
         '<a href="씽크대견적.html">씽크볼 견적 <span class="m-sub">제품별 가격 공개</span></a>' +
         '<a href="장제작상세.html">장 제작 <span class="m-sub">붙박이장·냉장고장·키큰장</span></a>' +
+        '<a href="대리석케어.html?type=uv">대리석 리폼 <span class="m-sub">UV 코팅·크랙 보수</span></a>' +
         '<a href="계산기.html">견적 계산기 <span class="m-sub">30초 예상 견적</span></a>' +
         '<a href="시공사례.html">시공사례</a>' +
         '<a href="교육.html">교육</a>' +

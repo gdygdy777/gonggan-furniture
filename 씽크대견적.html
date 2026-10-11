@@ -79,12 +79,26 @@ section{padding:var(--sp-section) 0}
 .nav-cta:active{background:var(--primary-active)}
 
 /* ============ 씽크볼 견적 (탭 + 카드) ============ */
-.sink-tabs{display:flex;gap:var(--sp-sm);justify-content:center;flex-wrap:wrap;margin-bottom:var(--sp-xl)}
+.sink-tabs{display:flex;gap:var(--sp-sm);justify-content:center;flex-wrap:wrap;margin-bottom:var(--sp-lg)}
 .sink-tab{border:1px solid var(--hairline);border-radius:var(--r-full);padding:10px 20px;font-size:14px;font-weight:500;cursor:pointer;background:#fff;color:var(--body);font-family:inherit}
 .sink-tab:hover{border-color:var(--ink)}
 .sink-tab.on{background:var(--ink);color:#fff;border-color:var(--ink);font-weight:600}
 .sink-tab span{color:var(--muted-soft);font-size:13px;margin-left:4px}
 .sink-tab.on span{color:#bbb}
+.sink-sort{display:flex;align-items:center;gap:8px;justify-content:center;flex-wrap:wrap;margin:0 0 var(--sp-lg)}
+.sink-sort .sort-label{font-size:13px;color:var(--muted-soft);margin-right:2px}
+.sort-btn{border:1px solid var(--hairline);border-radius:var(--r-full);padding:7px 15px;font-size:13px;cursor:pointer;background:#fff;color:var(--body);font-family:inherit}
+.sort-btn:hover{border-color:var(--ink)}
+.sort-btn.on{background:var(--primary);color:#fff;border-color:var(--primary);font-weight:600}
+.brand-filter{display:flex;align-items:center;gap:8px;justify-content:center;flex-wrap:wrap;margin:0 0 var(--sp-sm)}
+.brand-chip{border:1px solid var(--hairline);border-radius:var(--r-full);padding:8px 16px;font-size:13.5px;font-weight:600;cursor:pointer;background:#fff;color:var(--body);font-family:inherit}
+.brand-chip:hover{border-color:var(--ink)}
+.brand-chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.empty-note{grid-column:1/-1;text-align:center;color:var(--muted-soft);font-size:14px;padding:30px 0}
+.sink-search{display:flex;align-items:center;gap:8px;max-width:440px;margin:0 auto var(--sp-md);border:1px solid var(--hairline);border-radius:var(--r-full);padding:11px 18px;background:#fff}
+.sink-search:focus-within{border-color:var(--ink)}
+.sink-search input{flex:1;border:none;outline:none;font-size:14.5px;font-family:inherit;background:none;color:var(--ink)}
+.sink-search button{border:none;background:#eee;color:#666;width:20px;height:20px;border-radius:50%;cursor:pointer;font-size:11px;line-height:1;padding:0}
 .card-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-lg) var(--sp-base)}
 .tab-panel[hidden]{display:none}
 .p-card{cursor:pointer}
@@ -186,6 +200,7 @@ footer{border-top:1px solid var(--hairline);padding:var(--sp-xxl) 0 0}
       <a href="서비스.html">서비스</a>
       <a href="씽크대견적.html" class="active">씽크볼 견적</a>
       <a href="장제작상세.html">장 제작</a>
+      <a href="대리석케어.html?type=uv">대리석 리폼</a>
       <a href="계산기.html">견적 계산기</a>
       <a href="시공사례.html">시공사례</a>
       <a href="교육.html">교육</a>
@@ -209,7 +224,26 @@ footer{border-top:1px solid var(--hairline);padding:var(--sp-xxl) 0 0}
       <button class="sink-tab on" data-target="panel-small">소형 싱크볼 <span>12</span></button>
       <button class="sink-tab" data-target="panel-mid">중형 싱크볼 <span>9</span></button>
       <button class="sink-tab" data-target="panel-large">대형 싱크볼 <span>21</span></button>
+      <button class="sink-tab" data-target="panel-all">싱크볼 전체 <span>60</span></button>
       <button class="sink-tab" data-target="panel-faucet">수전 <span>26</span></button>
+    </div>
+
+    <!-- 검색 -->
+    <div class="sink-search" id="sinkSearch">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
+      <input type="text" id="searchInput" placeholder="브랜드·모델명 검색 (예: 백조, BELITA858, Steady8852)" autocomplete="off">
+      <button type="button" id="searchClear" aria-label="지우기" hidden>✕</button>
+    </div>
+
+    <!-- 브랜드 필터 -->
+    <div class="brand-filter" id="brandFilter"></div>
+
+    <!-- 정렬 -->
+    <div class="sink-sort" id="sinkSort">
+      <span class="sort-label">정렬</span>
+      <button class="sort-btn on" data-sort="brand">브랜드별</button>
+      <button class="sort-btn" data-sort="asc">가격 낮은순</button>
+      <button class="sort-btn" data-sort="desc">가격 높은순</button>
     </div>
 
     <div class="card-grid tab-panel" id="panel-small"></div>
@@ -221,6 +255,8 @@ footer{border-top:1px solid var(--hairline);padding:var(--sp-xxl) 0 0}
 
 
     <div class="card-grid tab-panel" id="panel-large" hidden></div>
+
+    <div class="card-grid tab-panel" id="panel-all" hidden></div>
 
 
 
@@ -261,6 +297,7 @@ footer{border-top:1px solid var(--hairline);padding:var(--sp-xxl) 0 0}
         <a href="서비스.html">주방 부분 리폼</a>
         <a href="씽크대견적.html">씽크볼 견적</a>
       <a href="장제작상세.html">장 제작</a>
+      <a href="대리석케어.html?type=uv">대리석 리폼</a>
         <a href="시공사례.html">시공 사례</a>
       </div>
       <div class="f-col">
@@ -328,15 +365,106 @@ document.querySelectorAll('.sink-tab').forEach(function(tab){
       + '<div class="p-price">'+price+'<span>싱크볼 시공 시</span></div>'
       + '<span class="p-link">자세히 보기 ›</span></div></a>';
   }
+  // 브랜드 등장 순서(그룹 정렬 기준) — 데이터 순서를 따름
+  var brandOrder = {};
+  GG_PRODUCTS.forEach(function(p){ if(p.cat==='sink' && !(p.brand in brandOrder)) brandOrder[p.brand]=Object.keys(brandOrder).length; });
+  function sortSinks(list, mode){
+    var a = list.slice();
+    if (mode==='asc')  a.sort(function(x,y){ return x.price-y.price; });
+    else if (mode==='desc') a.sort(function(x,y){ return y.price-x.price; });
+    else a.sort(function(x,y){ // 브랜드별: 같은 브랜드끼리 묶고, 브랜드 내 가격 낮은 순
+      var b=(brandOrder[x.brand]||0)-(brandOrder[y.brand]||0);
+      return b!==0 ? b : x.price-y.price;
+    });
+    return a;
+  }
+  var sortMode = 'brand';
+  var brandFilter = 'all';
+  var searchTerm = '';
+  function matchesSearch(p){
+    if (!searchTerm) return true;
+    var t = (p.brand+' '+p.model+' '+p.name).toLowerCase();
+    return t.indexOf(searchTerm) >= 0;
+  }
   var counts = {};
-  ['small','mid','large'].forEach(function(k){
-    var list = GG_PRODUCTS.filter(function(p){ return p.cat==='sink' && p.size===k; });
-    counts[k] = list.length;
-    document.getElementById('panel-'+k).innerHTML = list.map(sinkCard).join('');
+  function renderSinks(){
+    ['small','mid','large'].forEach(function(k){
+      var list = GG_PRODUCTS.filter(function(p){ return p.cat==='sink' && p.size===k && (brandFilter==='all' || p.brand===brandFilter) && matchesSearch(p); });
+      counts[k] = list.length;
+      document.getElementById('panel-'+k).innerHTML = list.length
+        ? sortSinks(list, sortMode).map(sinkCard).join('')
+        : '<p class="empty-note">이 크기에는 선택한 브랜드 제품이 없어요.</p>';
+    });
+    // 싱크볼 전체 패널 (소+중+대 통합)
+    var allList = GG_PRODUCTS.filter(function(p){ return p.cat==='sink' && (brandFilter==='all' || p.brand===brandFilter) && matchesSearch(p); });
+    counts['all'] = allList.length;
+    document.getElementById('panel-all').innerHTML = allList.length
+      ? sortSinks(allList, sortMode).map(sinkCard).join('')
+      : '<p class="empty-note">검색 결과가 없어요.</p>';
+    document.querySelectorAll('.sink-tab').forEach(function(t){
+      var kk = (t.dataset.target||'').replace('panel-','');
+      var sp = t.querySelector('span');
+      if (sp && counts[kk] != null) sp.textContent = counts[kk];
+    });
+  }
+  // 브랜드 필터 칩 생성
+  (function(){
+    var brands = [];
+    GG_PRODUCTS.forEach(function(p){ if (p.cat==='sink' && brands.indexOf(p.brand)<0) brands.push(p.brand); });
+    var bf = document.getElementById('brandFilter');
+    bf.innerHTML = '<button class="brand-chip on" data-brand="all">전체 브랜드</button>'
+      + brands.map(function(b){ return '<button class="brand-chip" data-brand="'+b+'">'+b+'</button>'; }).join('');
+    bf.querySelectorAll('.brand-chip').forEach(function(c){
+      c.addEventListener('click', function(){
+        bf.querySelectorAll('.brand-chip').forEach(function(x){ x.classList.remove('on'); });
+        c.classList.add('on'); brandFilter = c.dataset.brand; renderSinks();
+      });
+    });
+  })();
+  renderSinks();
+  // 정렬 버튼
+  document.querySelectorAll('#sinkSort .sort-btn').forEach(function(b){
+    b.addEventListener('click', function(){
+      document.querySelectorAll('#sinkSort .sort-btn').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on'); sortMode = b.dataset.sort; renderSinks();
+    });
   });
-  var fs = GG_PRODUCTS.filter(function(p){ return p.cat==='faucet'; });
-  counts['faucet'] = fs.length;
-  document.getElementById('panel-faucet').innerHTML = fs.map(faucetCard).join('');
+  // 수전 렌더 (검색 반영, 추가금 낮은 순)
+  function renderFaucets(){
+    var fs = GG_PRODUCTS.filter(function(p){ return p.cat==='faucet' && matchesSearch(p); })
+              .sort(function(x,y){ return (x.addPrice==null?1e9:x.addPrice)-(y.addPrice==null?1e9:y.addPrice); });
+    counts['faucet'] = fs.length;
+    document.getElementById('panel-faucet').innerHTML = fs.length
+      ? fs.map(faucetCard).join('')
+      : '<p class="empty-note">검색 결과가 없어요.</p>';
+    var ft = document.querySelector('.sink-tab[data-target="panel-faucet"] span');
+    if (ft) ft.textContent = counts['faucet'];
+  }
+  renderFaucets();
+  // 검색
+  (function(){
+    var inp = document.getElementById('searchInput');
+    var clr = document.getElementById('searchClear');
+    function apply(){
+      searchTerm = inp.value.trim().toLowerCase();
+      clr.hidden = !inp.value;
+      renderSinks(); renderFaucets();
+    }
+    inp.addEventListener('input', apply);
+    clr.addEventListener('click', function(){ inp.value=''; apply(); inp.focus(); });
+  })();
+  // 수전 탭일 때만 정렬바 숨김
+  (function(){
+    var sortBar=document.getElementById('sinkSort');
+    var brandBar=document.getElementById('brandFilter');
+    document.querySelectorAll('.sink-tab').forEach(function(t){
+      t.addEventListener('click', function(){
+        var isFaucet = (t.dataset.target==='panel-faucet');
+        sortBar.style.display = isFaucet?'none':'flex';
+        brandBar.style.display = isFaucet?'none':'flex';
+      });
+    });
+  })();
   // 탭 카운트 갱신
   document.querySelectorAll('.sink-tab').forEach(function(t){
     var k = (t.dataset.target||'').replace('panel-','');
@@ -345,6 +473,6 @@ document.querySelectorAll('.sink-tab').forEach(function(tab){
   });
 })();
 </script>
-<script src="데이터/config.js?v=5" defer></script>
+<script src="데이터/config.js?v=6" defer></script>
 </body>
 </html>
