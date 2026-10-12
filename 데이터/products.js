@@ -199,7 +199,7 @@ window.GG_PRODUCTS = [
   "taphole": "800~840 x 430~500",
   "refSpec": false,
   "config": "올올스텐 배수구 + 바구니 + 엠보커버",
-  "price": 400000,
+  "price": 470000,
   "img": "img/싱크볼/n_ecnrw.webp",
   "detailImgs": [
    "img/상세/sink-small-ecnrw8630_1.webp"
