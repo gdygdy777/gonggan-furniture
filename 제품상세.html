@@ -415,6 +415,37 @@ document.getElementById('infoName').textContent = P.name;
 document.getElementById('infoSize').textContent = isSink ? ('볼 사이즈 ' + P.bowl + ' mm' + (P.refSpec?' (참고)':'')) : '싱크볼 시공 시 추가 옵션';
 if (P.popular) document.getElementById('popularBadge').hidden = false;
 
+// SEO: 제품별 canonical 교정 + 제품별 메타설명 + Product(가격)·Breadcrumb 구조화데이터
+(function(){
+  try{
+    var base = location.origin;
+    var pageUrl = base + '/' + encodeURIComponent('제품상세.html') + '?id=' + encodeURIComponent(P.id);
+    var can = document.querySelector('link[rel="canonical"]'); if (can) can.setAttribute('href', pageUrl);
+    var imgAbs = P.img ? (base + '/' + P.img) : (base + '/img/logo.png');
+    var priceVal = (isSink && P.price != null && P.price > 0) ? P.price : null;
+    var desc = P.name + ' 교체' + (priceVal ? ' ' + won(priceVal) : '') + ' — 철거·폐기물·시공비 포함가. 서울·경기 방문 시공. 규격·구성·실제 시공사례 확인.';
+    var md = document.querySelector('meta[name="description"]'); if (md) md.setAttribute('content', desc);
+    var ogt = document.querySelector('meta[property="og:title"]'); if (ogt) ogt.setAttribute('content', P.name + ' — 공간가구연구소');
+    var ogd = document.querySelector('meta[property="og:description"]'); if (ogd) ogd.setAttribute('content', desc);
+    var ogu = document.querySelector('meta[property="og:url"]'); if (ogu) ogu.setAttribute('content', pageUrl);
+    var product = {
+      "@context":"https://schema.org/","@type":"Product","name":P.name,"image":[imgAbs],
+      "description":desc,"brand":{"@type":"Brand","name":P.brand||'공간가구연구소'},
+      "sku":P.id,"category":isSink?'주방 싱크볼':'주방 수전',"url":pageUrl
+    };
+    if (priceVal != null) product.offers = {
+      "@type":"Offer","priceCurrency":"KRW","price":priceVal,"availability":"https://schema.org/InStock",
+      "url":pageUrl,"seller":{"@type":"Organization","name":"공간가구연구소"},"areaServed":"서울·경기"
+    };
+    var crumb = {"@context":"https://schema.org/","@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"홈","item":base + '/'},
+      {"@type":"ListItem","position":2,"name":isSink?'싱크볼 견적':'수전',"item":base + '/' + encodeURIComponent('씬크대견적.html')},
+      {"@type":"ListItem","position":3,"name":P.name,"item":pageUrl}
+    ]};
+    [product, crumb].forEach(function(o){ var s=document.createElement('script'); s.type='application/ld+json'; s.textContent=JSON.stringify(o); document.head.appendChild(s); });
+  }catch(e){}
+})();
+
 const badges = [];
 if (isSink) { if (P.embo) badges.push('엠보'); if (P.coating) badges.push('나노코팅'); }
 else if (P.grade) badges.push(P.grade + ' 등급');
@@ -655,6 +686,6 @@ if (P.detailImgs && P.detailImgs.length) {
     P.detailImgs.map(src => `<img src="${src}" alt="${P.name} 상세 정보" loading="lazy">`).join('');
 }
 </script>
-<script src="데이터/config.js?v=6" defer></script>
+<script src="데이터/config.js?v=7" defer></script>
 </body>
 </html>

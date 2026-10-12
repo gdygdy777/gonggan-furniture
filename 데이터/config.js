@@ -135,3 +135,31 @@ window.SITE_CONFIG = {
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bind);
   else bind();
 })();
+
+
+// SEO: 페이지별 BreadcrumbList 자동 생성 (홈·제품상세 제외 — 제품상세는 자체 3단계 생성)
+(function () {
+  try {
+    var path = decodeURIComponent(location.pathname || '');
+    if (path.indexOf('제품상세') !== -1) return;
+    var isHome = path === '/' || path === '' || /\/index\.html$/.test(path);
+    if (isHome) return;
+    var canEl = document.querySelector('link[rel="canonical"]');
+    var url = canEl ? canEl.href : location.href;
+    var name = (document.title || '').split('|')[0].split('—')[0].trim();
+    if (!name) return;
+    var ld = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "홈", "item": location.origin + '/' },
+        { "@type": "ListItem", "position": 2, "name": name, "item": url }
+      ]
+    };
+    var s = document.createElement('script');
+    s.type = 'application/ld+json';
+    s.setAttribute('data-auto-bc', '1');
+    s.textContent = JSON.stringify(ld);
+    document.head.appendChild(s);
+  } catch (e) {}
+})();
