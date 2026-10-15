@@ -70,6 +70,10 @@ section{padding:var(--sp-section) 0}
 .gallery-main img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff;display:block}
 .gallery-main .photo-note{position:absolute;bottom:14px;left:0;right:0;text-align:center;font-size:12px;color:#8a8378}
 .badge{position:absolute;top:14px;left:14px;background:#fff;border-radius:var(--r-full);font-size:12px;font-weight:600;padding:6px 12px;box-shadow:var(--shadow);z-index:2}
+.badge-value{background:linear-gradient(135deg,#ff8aa8,#ff385c);color:#fff;border:none;box-shadow:0 3px 9px rgba(255,56,92,.4)}
+.badge-best{background:linear-gradient(135deg,#ffd36b,#ff8a00);color:#fff;letter-spacing:.3px;border:none;box-shadow:0 3px 9px rgba(255,138,0,.42)}
+.badge-stack{position:absolute;top:14px;left:14px;display:flex;flex-direction:column;gap:6px;align-items:flex-start;z-index:2}
+.badge-stack .badge{position:static;top:auto;left:auto}
 
 .info-cat{display:inline-block;background:var(--primary-tint);color:var(--primary);font-size:13px;font-weight:700;padding:6px 12px;border-radius:var(--r-full)}
 .info-name{font-size:28px;font-weight:800;letter-spacing:-0.5px;margin-top:var(--sp-md)}
@@ -212,6 +216,26 @@ footer{border-top:1px solid var(--hairline);padding:var(--sp-xxl) 0 0;margin-top
   </div>
 </nav>
 
+<!-- 상단 크로스셀 (싱크볼 상세 맨 위) -->
+<section class="sink-cross" id="kitchenCrossTop" hidden style="padding:18px 0 0">
+  <div class="container">
+    <div class="xsell-grid">
+      <a class="xcard" href="씽크대견적.html#kitchen" style="background:linear-gradient(135deg,#fff6f8,#ffffff)">
+        <span class="xcard-eyebrow">함께 교체하면 좋아요</span>
+        <h3>🔥 인덕션·후드 주방기기 보러 가기</h3>
+        <p>후드 · 인덕션 · 가스레인지 · 절수기 — 싱크볼 시공할 때 한 번에.</p>
+        <span class="xcard-btn">주방기기 견적 보기 ›</span>
+      </a>
+      <a class="xcard" href="대리석케어.html?type=uv" style="background:linear-gradient(135deg,#f2f7ff,#ffffff)">
+        <span class="xcard-eyebrow">상판도 새것처럼</span>
+        <h3>✨ 대리석 UV 코팅·크랙 보수 보러 가기</h3>
+        <p>흐려진 광택 복원, 갈라짐·스크래치 보수·연마까지.</p>
+        <span class="xcard-btn">대리석 케어 보기 ›</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 <div class="container">
   <div class="crumb"><a href="씽크대견적.html">씽크볼 견적</a> › <a href="씽크대견적.html" id="crumbCat">분류</a> › <b id="crumbName">제품</b></div>
 </div>
@@ -221,6 +245,7 @@ footer{border-top:1px solid var(--hairline);padding:var(--sp-xxl) 0 0;margin-top
   <div class="container">
     <div class="product-grid">
       <div class="gallery-main" id="galleryMain">
+        <div class="badge-stack" id="badgeStack" hidden><span class="badge badge-best">⭐ BEST</span><span class="badge badge-value">가성비</span></div>
         <span class="badge" id="popularBadge" hidden>인기</span>
         <span class="photo-note" id="photoNote" hidden>제품 사진 준비 중</span>
       </div>
@@ -341,6 +366,36 @@ footer{border-top:1px solid var(--hairline);padding:var(--sp-xxl) 0 0;margin-top
   </div>
 </section>
 
+<!-- 주방기기 크로스셀 (싱크볼 상세에서만 표시) -->
+<style>
+.xsell-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.xcard{display:flex;flex-direction:column;gap:7px;border:1px solid var(--hairline);border-radius:var(--r-lg);padding:20px 22px;text-decoration:none;transition:border-color .15s,transform .15s,box-shadow .15s}
+.xcard:hover{border-color:var(--primary);transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,.07)}
+.xcard-eyebrow{font-size:12px;font-weight:700;color:var(--primary);letter-spacing:.3px}
+.xcard h3{font-size:16.5px;font-weight:800;color:var(--ink);margin:1px 0;letter-spacing:-0.3px;line-height:1.35}
+.xcard p{font-size:13.5px;color:var(--body);margin:0 0 4px;line-height:1.55}
+.xcard-btn{margin-top:auto;align-self:flex-start;background:var(--primary);color:#fff;font-weight:700;font-size:13.5px;padding:10px 18px;border-radius:var(--r-full,999px)}
+@media(max-width:620px){.xsell-grid{grid-template-columns:1fr}}
+</style>
+<section class="sink-cross" style="padding-top:0" id="kitchenCross" hidden>
+  <div class="container">
+    <div class="xsell-grid">
+      <a class="xcard" href="씽크대견적.html#kitchen" style="background:linear-gradient(135deg,#fff6f8,#ffffff)">
+        <span class="xcard-eyebrow">함께 교체하면 좋아요</span>
+        <h3>🔥 인덕션·후드 주방기기 보러 가기</h3>
+        <p>후드 · 인덕션 · 가스레인지 · 절수기 — 싱크볼 시공할 때 한 번에.</p>
+        <span class="xcard-btn">주방기기 견적 보기 ›</span>
+      </a>
+      <a class="xcard" href="대리석케어.html?type=uv" style="background:linear-gradient(135deg,#f2f7ff,#ffffff)">
+        <span class="xcard-eyebrow">상판도 새것처럼</span>
+        <h3>✨ 대리석 UV 코팅·크랙 보수 보러 가기</h3>
+        <p>흐려진 광택 복원, 갈라짐·스크래치 보수·연마까지.</p>
+        <span class="xcard-btn">대리석 케어 보기 ›</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- 상담 배너 -->
 <section style="padding-top:0" id="contact">
   <div class="container">
@@ -405,6 +460,7 @@ const params = new URLSearchParams(location.search);
 const pid = params.get('id') || 'sink-small-steady8652';
 const P = GG_PRODUCTS.find(p => p.id === pid) || GG_PRODUCTS[0];
 const isSink = P.cat === 'sink';
+if (isSink) { document.querySelectorAll('.sink-cross').forEach(function(el){ el.hidden = false; }); }
 
 // 2. 기본 정보
 document.title = P.name + ' — 공간가구연구소';
@@ -413,7 +469,8 @@ document.getElementById('crumbName').textContent = P.name;
 document.getElementById('infoCat').textContent = isSink ? SIZE_LABEL[P.size] : ((P.grade||'') + ' 수전');
 document.getElementById('infoName').textContent = P.name;
 document.getElementById('infoSize').textContent = isSink ? ('볼 사이즈 ' + P.bowl + ' mm' + (P.refSpec?' (참고)':'')) : '싱크볼 시공 시 추가 옵션';
-if (P.popular) document.getElementById('popularBadge').hidden = false;
+if (P.value) document.getElementById('badgeStack').hidden = false;
+else if (P.popular) document.getElementById('popularBadge').hidden = false;
 
 // SEO: 제품별 canonical 교정 + 제품별 메타설명 + Product(가격)·Breadcrumb 구조화데이터
 (function(){
@@ -569,7 +626,7 @@ if (isSink && window.GG_SERVICES) {
     var normals = faucets.filter(function(f){ return f.grade==='일반'; });
     var prems = faucets.filter(function(f){ return f.grade==='프리미엄'; });
     var html = (baseF?fCard(baseF,'',''):'') + normals.map(function(f){return fCard(f,f.id,'');}).join('')
-             + prems.map(function(f){return fCard(f,f.id,'prem');}).join('');
+             + prems.map(function(f){return fCard(f,f.id,'');}).join('');
     picker.innerHTML = html;
     function selectFaucet(val){
       sel.value = val;
@@ -578,13 +635,10 @@ if (isSink && window.GG_SERVICES) {
     }
     picker.querySelectorAll('.fcard').forEach(function(c){ c.addEventListener('click', function(){ selectFaucet(c.dataset.val); }); });
     selectFaucet('');
+    // #10 수전 목록 통합: 일반·프리미엄 전부 한 번에 표시, '더 보기' 제거
+    picker.classList.add('show-prem');
     var moreBtn = document.getElementById('faucetMore');
-    if (prems.length && moreBtn){
-      moreBtn.addEventListener('click', function(){
-        var on = picker.classList.toggle('show-prem');
-        moreBtn.textContent = on ? '프리미엄 수전 접기 ▲' : '프리미엄 수전 더 보기 ▾';
-      });
-    } else if (moreBtn){ moreBtn.style.display='none'; }
+    if (moreBtn){ moreBtn.style.display='none'; }
   })();
 
   area.addEventListener('change', recalc);
