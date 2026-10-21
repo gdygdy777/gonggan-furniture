@@ -79,12 +79,14 @@ section{padding:var(--sp-section) 0}
 .nav-cta:active{background:var(--primary-active)}
 
 /* ============ 씽크볼 견적 (탭 + 카드) ============ */
-.sink-tabs{display:flex;gap:var(--sp-sm);justify-content:center;flex-wrap:wrap;margin-bottom:var(--sp-lg)}
+.sink-tabs{display:flex;gap:var(--sp-sm);justify-content:center;align-items:center;flex-wrap:wrap;margin-bottom:var(--sp-lg)}
 .sink-tab{border:1px solid var(--hairline);border-radius:var(--r-full);padding:10px 20px;font-size:14px;font-weight:500;cursor:pointer;background:#fff;color:var(--body);font-family:inherit}
 .sink-tab:hover{border-color:var(--ink)}
 .sink-tab.on{background:var(--ink);color:#fff;border-color:var(--ink);font-weight:600}
 .sink-tab span{color:var(--muted-soft);font-size:13px;margin-left:4px}
 .sink-tab.on span{color:#bbb}
+.sink-tab .tsz{display:block;font-size:11px;font-style:normal;font-weight:500;color:var(--muted);margin-top:2px}
+.sink-tab.on .tsz{color:#ccc}
 /* 주방기기 카테고리 */
 .kcat-group{margin-bottom:var(--sp-xl)}
 .kcat-title{font-size:17px;font-weight:700;color:var(--ink);margin:0 0 var(--sp-md);padding-bottom:9px;border-bottom:2px solid var(--ink)}
@@ -230,9 +232,9 @@ footer{border-top:1px solid var(--hairline);padding:var(--sp-xxl) 0 0}
 
     <!-- 카테고리 탭 -->
     <div class="sink-tabs">
-      <button class="sink-tab" data-target="panel-small">소형 싱크볼 <span>12</span></button>
-      <button class="sink-tab" data-target="panel-mid">중형 싱크볼 <span>9</span></button>
-      <button class="sink-tab" data-target="panel-large">대형 싱크볼 <span>21</span></button>
+      <button class="sink-tab" data-target="panel-small">소형 싱크볼 <span>12</span><i class="tsz">82~84cm</i></button>
+      <button class="sink-tab" data-target="panel-mid">중형 싱크볼 <span>9</span><i class="tsz">85~86cm</i></button>
+      <button class="sink-tab" data-target="panel-large">대형 싱크볼 <span>21</span><i class="tsz">87~97cm</i></button>
       <button class="sink-tab on" data-target="panel-all">싱크볼 전체 <span>60</span></button>
       <button class="sink-tab" data-target="panel-faucet">수전 <span>26</span></button>
       <button class="sink-tab" data-target="panel-kitchen">주방기기 <span>40</span></button>

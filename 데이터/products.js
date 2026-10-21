@@ -1802,7 +1802,7 @@ window.GG_PRODUCTS = [
   "brand": "하츠",
   "model": "페달수전 WSDF06WI",
   "name": "하츠 페달수전 WSDF06WI",
-  "addPrice": null,
+  "addPrice": 130000,
   "img": "img/수전/24_haatz_pedal_wsdf06wi.webp",
   "detailImgs": [
    "img/상세/faucet-하츠페달_1.webp",
@@ -1863,7 +1863,7 @@ window.GG_PRODUCTS = [
 window.GG_SERVICES = {
   sanding:  { name: '대리석 샌딩 + 광택', base: 200000, baseLen: 4, perM: 40000 },
   crack:    { name: '크랙(균열) 보수', addPrice: 50000, standalone: '단독 진행 시 1라인 150,000원~ · 2라인 250,000원~' },
-  uv:       { name: '대리석 UV 코팅', addPrice: null },   // TODO: 가격 확정 시 숫자 입력 (원 단위, 예: 100000)
+  uv:       { name: '대리석 UV 코팅', base: 350000, baseLen: 4, perM: 50000 },
   silicone: { name: '실리콘 재시공', addPrice: 50000, note: '양에 따라 변동' }
 };
 
