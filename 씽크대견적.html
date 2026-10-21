@@ -254,8 +254,8 @@ footer{border-top:1px solid var(--hairline);padding:var(--sp-xxl) 0 0}
     <!-- 정렬 -->
     <div class="sink-sort" id="sinkSort">
       <span class="sort-label">정렬</span>
-      <button class="sort-btn" data-sort="brand">브랜드별</button>
-      <button class="sort-btn on" data-sort="asc">가격 낮은순</button>
+      <button class="sort-btn on" data-sort="brand">브랜드별</button>
+      <button class="sort-btn" data-sort="asc">가격 낮은순</button>
       <button class="sort-btn" data-sort="desc">가격 높은순</button>
     </div>
 
@@ -381,20 +381,34 @@ document.querySelectorAll('.sink-tab').forEach(function(tab){
       + '<div class="p-price">'+price+'<span>싱크볼 시공 시</span></div>'
       + '<span class="p-link">자세히 보기 ›</span></div></a>';
   }
-  // 브랜드 등장 순서(그룹 정렬 기준) — 데이터 순서를 따름
-  var brandOrder = {};
-  GG_PRODUCTS.forEach(function(p){ if(p.cat==='sink' && !(p.brand in brandOrder)) brandOrder[p.brand]=Object.keys(brandOrder).length; });
+  // 브랜드·시리즈 그룹 정렬용 헬퍼
+  function parentBrand(p){ return String(p.brand).split(' ')[0]; }          // 대분류: 'AK 스테디'→'AK', '백조 고니'→'백조'
+  function seriesKey(p){                                                     // 시리즈: 브랜드 뒤 수식어(스테디·고니) 또는 모델 접두(CESWSR·깜뽀르테·BELITA)
+    var suffix = String(p.brand).split(' ').slice(1).join(' ').trim();
+    if (suffix) return suffix;
+    var m = String(p.model).match(/^(.*?)\s*\d/);
+    return (m ? m[1] : String(p.model)).trim();
+  }
+  // 브랜드 대분류 등장 순서(데이터 순서) — 신규 브랜드는 자동으로 뒤에 추가됨
+  var parentOrder = {};
+  GG_PRODUCTS.forEach(function(p){ if(p.cat==='sink'){ var pb=parentBrand(p); if(!(pb in parentOrder)) parentOrder[pb]=Object.keys(parentOrder).length; } });
   function sortSinks(list, mode){
     var a = list.slice();
-    if (mode==='asc')  a.sort(function(x,y){ return x.price-y.price; });
-    else if (mode==='desc') a.sort(function(x,y){ return y.price-x.price; });
-    else a.sort(function(x,y){ // 브랜드별: 같은 브랜드끼리 묶고, 브랜드 내 가격 낮은 순
-      var b=(brandOrder[x.brand]||0)-(brandOrder[y.brand]||0);
-      return b!==0 ? b : x.price-y.price;
+    if (mode==='asc')  { a.sort(function(x,y){ return (x.price-y.price) || x.model.localeCompare(y.model); }); return a; }
+    if (mode==='desc') { a.sort(function(x,y){ return (y.price-x.price) || x.model.localeCompare(y.model); }); return a; }
+    // 브랜드별(기본): 1차 브랜드 대분류 · 2차 시리즈(시리즈 최저가 순) · 3차 시공가 낮은순
+    var smin = {};
+    a.forEach(function(p){ var k=parentBrand(p)+'::'+seriesKey(p); if(smin[k]==null || p.price<smin[k]) smin[k]=p.price; });
+    a.sort(function(x,y){
+      var pd=(parentOrder[parentBrand(x)]||0)-(parentOrder[parentBrand(y)]||0);
+      if(pd!==0) return pd;
+      var kx=parentBrand(x)+'::'+seriesKey(x), ky=parentBrand(y)+'::'+seriesKey(y);
+      if(kx!==ky){ var sd=smin[kx]-smin[ky]; return sd!==0 ? sd : seriesKey(x).localeCompare(seriesKey(y)); }
+      return (x.price-y.price) || x.model.localeCompare(y.model);
     });
     return a;
   }
-  var sortMode = 'asc';
+  var sortMode = 'brand';
   var brandFilter = 'all';
   var searchTerm = '';
   function matchesSearch(p){
