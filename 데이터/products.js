@@ -480,7 +480,18 @@ window.GG_PRODUCTS = [
   "config": "올올스텐 배수구 + 바스켓 + 수세미망 + 엠보커버",
   "price": 560000,
   "img": "img/싱크볼/n_esql.webp",
-  "detailImgs": []
+  "detailImgs": [
+   "img/상세/esql_1.webp",
+   "img/상세/esql_2.webp",
+   "img/상세/esql_3.webp",
+   "img/상세/esql_4.webp",
+   "img/상세/esql_5.webp",
+   "img/상세/esql_6.webp",
+   "img/상세/esql_7.webp",
+   "img/상세/esql_8.webp",
+   "img/상세/esql_9.webp",
+   "img/상세/esql_10.webp"
+  ]
  },
  {
   "id": "sink-small-세리니티858",
@@ -757,12 +768,16 @@ window.GG_PRODUCTS = [
   "price": 580000,
   "img": "img/싱크볼/n_esql.webp",
   "detailImgs": [
-   "img/상세/sink-mid-esql880_3.webp",
-   "img/상세/sink-mid-esql880_4.webp",
-   "img/상세/sink-mid-esql880_5.webp",
-   "img/상세/sink-mid-esql880_6.webp",
-   "img/상세/sink-mid-esql880_7.webp",
-   "img/상세/sink-mid-esql880_8.webp"
+   "img/상세/esql_1.webp",
+   "img/상세/esql_2.webp",
+   "img/상세/esql_3.webp",
+   "img/상세/esql_4.webp",
+   "img/상세/esql_5.webp",
+   "img/상세/esql_6.webp",
+   "img/상세/esql_7.webp",
+   "img/상세/esql_8.webp",
+   "img/상세/esql_9.webp",
+   "img/상세/esql_10.webp"
   ]
  },
  {
@@ -1143,7 +1158,18 @@ window.GG_PRODUCTS = [
   "config": "올올스텐 배수구 + 바스켓 + 수세미망 + 엠보커버",
   "price": 600000,
   "img": "img/싱크볼/n_esql.webp",
-  "detailImgs": []
+  "detailImgs": [
+   "img/상세/esql_1.webp",
+   "img/상세/esql_2.webp",
+   "img/상세/esql_3.webp",
+   "img/상세/esql_4.webp",
+   "img/상세/esql_5.webp",
+   "img/상세/esql_6.webp",
+   "img/상세/esql_7.webp",
+   "img/상세/esql_8.webp",
+   "img/상세/esql_9.webp",
+   "img/상세/esql_10.webp"
+  ]
  },
  {
   "id": "sink-large-esql940",
@@ -1160,7 +1186,18 @@ window.GG_PRODUCTS = [
   "config": "올올스텐 배수구 + 바스켓 + 수세미망 + 엠보커버",
   "price": 620000,
   "img": "img/싱크볼/n_esql.webp",
-  "detailImgs": []
+  "detailImgs": [
+   "img/상세/esql_1.webp",
+   "img/상세/esql_2.webp",
+   "img/상세/esql_3.webp",
+   "img/상세/esql_4.webp",
+   "img/상세/esql_5.webp",
+   "img/상세/esql_6.webp",
+   "img/상세/esql_7.webp",
+   "img/상세/esql_8.webp",
+   "img/상세/esql_9.webp",
+   "img/상세/esql_10.webp"
+  ]
  },
  {
   "id": "sink-large-esql955",
@@ -1177,7 +1214,18 @@ window.GG_PRODUCTS = [
   "config": "올올스텐 배수구 + 바스켓 + 수세미망 + 엠보커버",
   "price": 620000,
   "img": "img/싱크볼/n_esql.webp",
-  "detailImgs": []
+  "detailImgs": [
+   "img/상세/esql_1.webp",
+   "img/상세/esql_2.webp",
+   "img/상세/esql_3.webp",
+   "img/상세/esql_4.webp",
+   "img/상세/esql_5.webp",
+   "img/상세/esql_6.webp",
+   "img/상세/esql_7.webp",
+   "img/상세/esql_8.webp",
+   "img/상세/esql_9.webp",
+   "img/상세/esql_10.webp"
+  ]
  },
  {
   "id": "sink-large-esql990",
@@ -1194,7 +1242,18 @@ window.GG_PRODUCTS = [
   "config": "올올스텐 배수구 + 바스켓 + 수세미망 + 엠보커버",
   "price": 630000,
   "img": "img/싱크볼/n_esql.webp",
-  "detailImgs": []
+  "detailImgs": [
+   "img/상세/esql_1.webp",
+   "img/상세/esql_2.webp",
+   "img/상세/esql_3.webp",
+   "img/상세/esql_4.webp",
+   "img/상세/esql_5.webp",
+   "img/상세/esql_6.webp",
+   "img/상세/esql_7.webp",
+   "img/상세/esql_8.webp",
+   "img/상세/esql_9.webp",
+   "img/상세/esql_10.webp"
+  ]
  },
  {
   "id": "sink-large-세리니티990",
