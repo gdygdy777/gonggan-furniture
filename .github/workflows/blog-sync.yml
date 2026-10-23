@@ -39,3 +39,10 @@ jobs:
           git add -A
           git commit -m "chore: 블로그 자동 동기화 ($(TZ=Asia/Seoul date '+%Y-%m-%d %H:%M' ) KST)"
           git push
+
+      - name: Supabase 휴면 방지 핑 (DB 활동 기록)
+        if: always()
+        run: |
+          curl -s -o /dev/null -w "supabase ping → %{http_code}\n" \
+            "https://jqwnyeyfeoimtddkiwfh.supabase.co/rest/v1/site_data?select=key&limit=1" \
+            -H "apikey: sb_publishable_hBU978gbT5wBIBufPga8fw_BlsEYmFq" || true

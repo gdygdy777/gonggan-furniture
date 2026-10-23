@@ -1940,8 +1940,8 @@ window.GG_SERVICES = {
 (function(){
   if (location.pathname.indexOf('%EA%B4%80%EB%A6%AC%EC%9E%90') >= 0 || location.pathname.indexOf('관리자') >= 0) return;
   try {
-    fetch('https://hxdidstojcundfehtkuz.supabase.co/rest/v1/site_data?key=eq.products_override&select=data', {
-      headers: { apikey: 'sb_publishable_XeO6hA57cUdatFaBvaDpXA_eQLx5jxg', Authorization: 'Bearer sb_publishable_XeO6hA57cUdatFaBvaDpXA_eQLx5jxg' }
+    fetch('https://jqwnyeyfeoimtddkiwfh.supabase.co/rest/v1/site_data?key=eq.products_override&select=data', {
+      headers: { apikey: 'sb_publishable_hBU978gbT5wBIBufPga8fw_BlsEYmFq', Authorization: 'Bearer sb_publishable_hBU978gbT5wBIBufPga8fw_BlsEYmFq' }
     }).then(function(r){ return r.json(); }).then(function(rows){
       var fresh = (rows && rows[0] && rows[0].data) ? JSON.stringify(rows[0].data) : '{}';
       var cur = localStorage.getItem('gg_products_override') || '{}';
