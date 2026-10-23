@@ -173,31 +173,43 @@ button{font-family:inherit}
   window.GG_SUPA = { url: 'https://jqwnyeyfeoimtddkiwfh.supabase.co', key: 'sb_publishable_hBU978gbT5wBIBufPga8fw_BlsEYmFq', email: 'gdygdy777+admin@gmail.com' };
   var box = document.getElementById('ggLogin');
   function unlock(){ box.style.display = 'none'; }
-  if (sessionStorage.getItem('gg_admin') === '1') { unlock(); }
+  // 클라우드 토큰까지 있어야 입장 — 옛 세션(토큰 없음)은 자동으로 재로그인 유도
+  if (sessionStorage.getItem('gg_admin') === '1' && sessionStorage.getItem('gg_tok')) { unlock(); }
+  function showErr(msg){ var e = document.getElementById('ggErr'); e.textContent = msg; e.style.display = 'block'; }
   async function tryLogin(){
     var id = document.getElementById('ggId').value.trim();
     var pw = document.getElementById('ggPw').value;
     var buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(id + ':' + pw));
     var hex = Array.from(new Uint8Array(buf)).map(function(b){ return b.toString(16).padStart(2,'0'); }).join('');
-    if (hex === HASH) {
-      sessionStorage.setItem('gg_admin','1');
-      try {
-        var res = await fetch(GG_SUPA.url + '/auth/v1/token?grant_type=password', {
-          method: 'POST',
-          headers: { apikey: GG_SUPA.key, 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email: GG_SUPA.email, password: pw })
-        });
-        var tok = await res.json();
-        if (tok.access_token) { sessionStorage.setItem('gg_tok', tok.access_token); }
-        else { sessionStorage.removeItem('gg_tok'); }
-      } catch (e) { sessionStorage.removeItem('gg_tok'); }
-      unlock();
+    if (hex !== HASH) { showErr('아이디 또는 비밀번호가 맞지 않아요'); document.getElementById('ggPw').value=''; return; }
+    showErr('클라우드 연결 중…');
+    try {
+      var res = await fetch(GG_SUPA.url + '/auth/v1/token?grant_type=password', {
+        method: 'POST',
+        headers: { apikey: GG_SUPA.key, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: GG_SUPA.email, password: pw })
+      });
+      var tok = await res.json();
+      if (tok.access_token) {
+        sessionStorage.setItem('gg_admin','1');
+        sessionStorage.setItem('gg_tok', tok.access_token);
+        unlock();
+      } else {
+        sessionStorage.removeItem('gg_tok');
+        showErr('클라우드 연결 실패: ' + (tok.error_description || tok.msg || tok.error || '비밀번호가 Supabase 계정과 달라요') + ' · 관리자 비번과 Supabase 계정 비번이 같아야 해요');
+      }
+    } catch (e) {
+      sessionStorage.removeItem('gg_tok');
+      showErr('클라우드 서버에 연결할 수 없어요. 잠시 후 다시 시도해 주세요.');
     }
-    else { document.getElementById('ggErr').style.display = 'block'; document.getElementById('ggPw').value=''; }
   }
   document.getElementById('ggEnter').addEventListener('click', tryLogin);
   [document.getElementById('ggId'), document.getElementById('ggPw')].forEach(function(el){
     el.addEventListener('keydown', function(e){ if (e.key === 'Enter') tryLogin(); });
+  });
+  document.addEventListener('DOMContentLoaded', function(){
+    var lo = document.getElementById('ggLogout');
+    if (lo) lo.addEventListener('click', function(){ sessionStorage.removeItem('gg_admin'); sessionStorage.removeItem('gg_tok'); location.reload(); });
   });
 })();
 </script>
@@ -213,6 +225,7 @@ button{font-family:inherit}
     <div class="bar-right">
       <button id="inqBtn" style="display:flex;align-items:center;gap:6px;background:#111;color:#fff;border:none;border-radius:999px;padding:9px 16px;font-size:13px;font-weight:700;cursor:pointer">📥 문의 내역 <span id="inqCount" style="background:#ff385c;border-radius:999px;padding:1px 7px;font-size:11px;display:none">0</span></button>
       <div class="save-state" id="saveState"><span class="dot"></span><span class="txt">저장된 변경 없음</span></div>
+      <button id="ggLogout" title="로그아웃 후 다시 로그인하면 클라우드가 재연결됩니다" style="background:none;border:1px solid var(--hairline);border-radius:999px;padding:8px 14px;font-size:13px;font-weight:600;cursor:pointer;color:var(--muted)">로그아웃</button>
       <a class="site-link" href="index.html">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         사이트 보기
