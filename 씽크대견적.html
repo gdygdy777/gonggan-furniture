@@ -237,7 +237,10 @@ footer{border-top:1px solid var(--hairline);padding:var(--sp-xxl) 0 0}
       <button class="sink-tab" data-target="panel-large">대형 싱크볼 <span>21</span><i class="tsz">87~97cm</i></button>
       <button class="sink-tab on" data-target="panel-all">싱크볼 전체 <span>60</span></button>
       <button class="sink-tab" data-target="panel-faucet">수전 <span>26</span></button>
-      <button class="sink-tab" data-target="panel-kitchen">주방기기 <span>40</span></button>
+      <button class="sink-tab" data-target="panel-hood">후드 <span>26</span></button>
+      <button class="sink-tab" data-target="panel-induction">인덕션 <span>8</span></button>
+      <button class="sink-tab" data-target="panel-gas">가스쿡탑 <span>4</span></button>
+      <button class="sink-tab" data-target="panel-watersaver">절수기 <span>2</span></button>
     </div>
 
 
@@ -275,7 +278,10 @@ footer{border-top:1px solid var(--hairline);padding:var(--sp-xxl) 0 0}
 
     <div class="card-grid tab-panel" id="panel-faucet" hidden></div>
 
-    <div class="tab-panel" id="panel-kitchen" hidden></div>
+    <div class="tab-panel" id="panel-hood" hidden></div>
+    <div class="tab-panel" id="panel-induction" hidden></div>
+    <div class="tab-panel" id="panel-gas" hidden></div>
+    <div class="tab-panel" id="panel-watersaver" hidden></div>
 
     <!-- 안내 박스 -->
     <div class="notice-box">
@@ -474,29 +480,40 @@ document.querySelectorAll('.sink-tab').forEach(function(tab){
   // 주방기기 렌더 (후드·인덕션·가스레인지·절수기) — 카테고리별 그룹, 상담문의 연결
   function renderKitchen(){
     if (typeof GG_KITCHEN==='undefined' || !GG_KITCHEN) return;
-    var order=['슬라이드/막후드/빌트인','통후드/글라스 통후드','박스형 후드/침니형 후드','인덕션(3구)','가스레인지','절수기'];
+    var cats=[
+      {panel:'panel-hood', kcats:['슬라이드/막후드/빌트인','통후드/글라스 통후드','박스형 후드/침니형 후드']},
+      {panel:'panel-induction', kcats:['인덕션(3구)']},
+      {panel:'panel-gas', kcats:['가스레인지']},
+      {panel:'panel-watersaver', kcats:['절수기']}
+    ];
     var groups={};
     GG_KITCHEN.forEach(function(k){ (groups[k.kcat]=groups[k.kcat]||[]).push(k); });
-    var html='';
-    order.forEach(function(kc){
-      var list=groups[kc]; if(!list) return;
-      html+='<div class="kcat-group"><h3 class="kcat-title">'+kc+'</h3><div class="card-grid">';
-      list.forEach(function(k){
-        var photo=k.img?'<img src="'+k.img+'" alt="'+k.name+'" loading="lazy">':'<span class="photo-note">제품 사진 준비 중</span>';
-        var tap = k.tapTotal ? '<div class="k-tap">타공 필요시 +30,000원</div>' : '';
-        html+='<a class="p-card" href="상담문의.html">'
-          +'<div class="p-photo">'+photo+'</div>'
-          +'<div class="p-meta"><div class="p-title-row"><span class="p-title">'+k.name+'</span></div>'
-          +'<div class="p-sub">'+k.brand+' · '+k.size+'</div>'
-          +'<div class="p-price">'+won(k.price)+'<span>판매가</span></div>'+tap
-          +'<span class="p-link">상담 문의 ›</span></div></a>';
+    function cardHtml(k){
+      var photo=k.img?'<img src="'+k.img+'" alt="'+k.name+'" loading="lazy">':'<span class="photo-note">제품 사진 준비 중</span>';
+      var tap = k.tapTotal ? '<div class="k-tap">타공 필요시 +30,000원</div>' : '';
+      return '<a class="p-card" href="상담문의.html">'
+        +'<div class="p-photo">'+photo+'</div>'
+        +'<div class="p-meta"><div class="p-title-row"><span class="p-title">'+k.name+'</span></div>'
+        +'<div class="p-sub">'+k.brand+' · '+k.size+'</div>'
+        +'<div class="p-price">'+won(k.price)+'<span>판매가</span></div>'+tap
+        +'<span class="p-link">상담 문의 ›</span></div></a>';
+    }
+    cats.forEach(function(cat){
+      var panel=document.getElementById(cat.panel); if(!panel) return;
+      var multi=cat.kcats.length>1, html='', count=0;
+      cat.kcats.forEach(function(kc){
+        var list=groups[kc]; if(!list||!list.length) return;
+        count+=list.length;
+        html+=multi?('<div class="kcat-group"><h3 class="kcat-title">'+kc+'</h3><div class="card-grid">'):'<div class="card-grid">';
+        list.forEach(function(k){ html+=cardHtml(k); });
+        html+=multi?'</div></div>':'</div>';
       });
-      html+='</div></div>';
+      if(cat.panel==='panel-gas') html+='<p style="font-size:13px;color:var(--muted);text-align:center;margin-top:8px;line-height:1.7">가스레인지 추가 타공이 필요한 경우 30,000원이 별도로 적용됩니다.</p>';
+      if(window.GG_KITCHEN_NOTE) html+='<p style="font-size:13px;color:var(--muted);text-align:center;margin-top:8px;line-height:1.7">'+window.GG_KITCHEN_NOTE+'</p>';
+      panel.innerHTML=html;
+      var tabSpan=document.querySelector('.sink-tab[data-target="'+cat.panel+'"] span');
+      if(tabSpan) tabSpan.textContent=count;
     });
-    html+='<p style="font-size:13px;color:var(--muted);text-align:center;margin-top:8px;line-height:1.7">'+(window.GG_KITCHEN_NOTE||'')+'<br>가스레인지 추가 타공이 필요한 경우 30,000원이 별도로 적용됩니다.</p>';
-    document.getElementById('panel-kitchen').innerHTML=html;
-    var kt=document.querySelector('.sink-tab[data-target="panel-kitchen"] span');
-    if(kt) kt.textContent=GG_KITCHEN.length;
   }
   renderKitchen();
   // 검색
@@ -517,7 +534,7 @@ document.querySelectorAll('.sink-tab').forEach(function(tab){
     var brandBar=document.getElementById('brandFilter');
     document.querySelectorAll('.sink-tab').forEach(function(t){
       t.addEventListener('click', function(){
-        var hideBars = (t.dataset.target==='panel-faucet' || t.dataset.target==='panel-kitchen');
+        var hideBars = (t.dataset.target==='panel-faucet' || ['panel-hood','panel-induction','panel-gas','panel-watersaver'].indexOf(t.dataset.target)>=0);
         sortBar.style.display = hideBars?'none':'flex';
         brandBar.style.display = hideBars?'none':'flex';
       });
@@ -530,7 +547,7 @@ document.querySelectorAll('.sink-tab').forEach(function(tab){
     if (span && counts[k] != null) span.textContent = counts[k];
   });
   // 제품상세에서 '주방기기 보기'로 들어오면(#kitchen) 주방기기 탭 자동 열기 (모든 리스너 등록 후 실행)
-  if (location.hash === '#kitchen') { var _kt=document.querySelector('.sink-tab[data-target="panel-kitchen"]'); if(_kt) _kt.click(); }
+  if (/^#(kitchen|hood|induction|gas|watersaver)$/.test(location.hash)) { var _map={'#kitchen':'panel-hood','#hood':'panel-hood','#induction':'panel-induction','#gas':'panel-gas','#watersaver':'panel-watersaver'}; var _kt=document.querySelector('.sink-tab[data-target="'+_map[location.hash]+'"]'); if(_kt) _kt.click(); }
 
   // #13 뒤로가기 시 목록 상태(카테고리·정렬·브랜드·스크롤) 복원
   function saveQuoteState(){
