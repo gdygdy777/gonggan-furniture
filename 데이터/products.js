@@ -250,7 +250,7 @@ window.GG_PRODUCTS = [
   "refSpec": true,
   "config": "올스텐 배수구 + 드레인보드 + 채소받이 + 물매트 + 엠보커버",
   "price": 770000,
-  "img": "img/싱크볼/n_ak.webp",
+  "img": "img/싱크볼/n_steady_waterfall.webp",
   "detailImgs": [
    "img/상세/ak_line/ak_wf_1.webp",
    "img/상세/ak_line/ak_wf_2.webp",
@@ -616,7 +616,7 @@ window.GG_PRODUCTS = [
   "refSpec": true,
   "config": "올스텐 배수구 + 드레인보드 + 채소받이 + 물매트 + 엠보커버",
   "price": 790000,
-  "img": "img/싱크볼/n_ak.webp",
+  "img": "img/싱크볼/n_steady_waterfall.webp",
   "detailImgs": [
    "img/상세/ak_line/ak_wf_1.webp",
    "img/상세/ak_line/ak_wf_2.webp",
