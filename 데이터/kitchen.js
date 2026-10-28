@@ -385,20 +385,10 @@ window.GG_KITCHEN = [
   "kcat": "절수기",
   "size": "-",
   "brand": "하츠",
-  "model": "하츠 절수기 반판형 (싱글)",
-  "name": "하츠 절수기 반판형 (싱글)",
-  "price": 115000,
+  "model": "하츠 절수기 반판형",
+  "name": "하츠 절수기 반판형",
+  "price": 130000,
   "tapTotal": null,
-  "img": ""
- },
- {
-  "kcat": "절수기",
-  "size": "-",
-  "brand": "하츠",
-  "model": "하츠 절수기 반판형 (듀얼)",
-  "name": "하츠 절수기 반판형 (듀얼)",
-  "price": 120000,
-  "tapTotal": null,
-  "img": ""
+  "img": "img/주방기기/k_watersaver.webp"
  }
 ];
