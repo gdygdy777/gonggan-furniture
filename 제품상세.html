@@ -479,7 +479,7 @@ else if (P.popular) document.getElementById('popularBadge').hidden = false;
     var pageUrl = base + '/' + encodeURIComponent('제품상세.html') + '?id=' + encodeURIComponent(P.id);
     var can = document.querySelector('link[rel="canonical"]'); if (can) can.setAttribute('href', pageUrl);
     var imgAbs = P.img ? (base + '/' + P.img) : (base + '/img/logo.png');
-    var priceVal = (isSink && P.price != null && P.price > 0) ? P.price : null;
+    var priceVal = (isSink ? (P.price != null && P.price > 0 ? P.price : null) : (P.addPrice != null && P.addPrice > 0 ? P.addPrice : null));
     var desc = P.name + ' 교체' + (priceVal ? ' ' + won(priceVal) : '') + ' — 철거·폐기물·시공비 포함가. 서울·경기 방문 시공. 규격·구성·실제 시공사례 확인.';
     var md = document.querySelector('meta[name="description"]'); if (md) md.setAttribute('content', desc);
     var ogt = document.querySelector('meta[property="og:title"]'); if (ogt) ogt.setAttribute('content', P.name + ' — 공간가구연구소');
@@ -499,7 +499,7 @@ else if (P.popular) document.getElementById('popularBadge').hidden = false;
       {"@type":"ListItem","position":2,"name":isSink?'싱크볼 견적':'수전',"item":base + '/' + encodeURIComponent('씽크대견적.html')},
       {"@type":"ListItem","position":3,"name":P.name,"item":pageUrl}
     ]};
-    [product, crumb].forEach(function(o){ var s=document.createElement('script'); s.type='application/ld+json'; s.textContent=JSON.stringify(o); document.head.appendChild(s); });
+    ((priceVal != null) ? [product, crumb] : [crumb]).forEach(function(o){ var s=document.createElement('script'); s.type='application/ld+json'; s.textContent=JSON.stringify(o); document.head.appendChild(s); });
   }catch(e){}
 })();
 
