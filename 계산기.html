@@ -587,11 +587,33 @@ function renderResult(){
         <span style="color:#929292">※ 싱크볼 교체는 실제 견적표 단가 기준 · 그 외 공사는 예시 단가 (정식 오픈 전 교체 예정)</span>
       </div>
       <div class="result-cta">
-        <button class="btn-kakao">카카오톡으로 정확한 견적 받기</button>
-        <a class="btn-outline" href="상담문의.html">사진 첨부 문의하기</a>
+        <button class="btn-kakao" id="resKakao">💬 이 견적으로 카톡 상담하기</button>
+        <a class="btn-kakao" id="resSms" href="#" style="background:#e8f2ff;color:#1a5fb4">📩 문자로 견적 보내기</a>
       </div>
+      <p id="resGuide" style="display:none;font-size:13px;color:#1a8917;text-align:center;margin-top:10px">✅ 견적 내용을 복사했어요 — 카톡 채팅창에 <b>붙여넣기</b>만 하면 바로 상담이 시작돼요!</p>
+      <div style="text-align:center;margin-top:12px"><a class="btn-outline" href="상담문의.html">📷 사진 첨부해서 문의하기</a></div>
       <button class="btn-restart" onclick="restart()">← 처음부터 다시 계산하기</button>
     </div>`;
+  // ── 결과 견적을 카톡/문자로 그대로 전달 (동적 버튼이라 직접 연결) ──
+  var summaryLines = (bd.match(/<div class="bd-row">[\s\S]*?<\/div>/g)||[]).map(function(r){
+    var m1=r.match(/b-label">([^<]*)</), m2=r.match(/b-val">([^<]*)</);
+    return '· ' + (m1?m1[1]:'').trim() + (m2&&m2[1].trim()?' ('+m2[1].trim()+')':'');
+  });
+  var estimateText = '[공간가구연구소 예상 견적]\n' + summaryLines.join('\n') + '\n예상 범위: ' + fmt(p[0]) + '~' + fmt(p[1]) + '만원\n※ 실측 후 확정 · 주방 사진 보내주시면 정확히 안내드려요';
+  var kakaoUrl = (window.SITE_CONFIG && SITE_CONFIG.kakaoChatUrl) || '';
+  var _rk = document.getElementById('resKakao');
+  if (_rk) _rk.addEventListener('click', function(){
+    try{ if(typeof gtag==='function') gtag('event','카톡문의_클릭',{event_label:'계산기결과'}); }catch(e){}
+    try{ if(navigator.clipboard) navigator.clipboard.writeText(estimateText); }catch(e){}
+    var g=document.getElementById('resGuide'); if(g) g.style.display='block';
+    if(kakaoUrl){ window.open(kakaoUrl,'_blank'); } else { alert('카톡 채널 준비 중입니다.\n전화: 010-8726-8288'); }
+  });
+  var _rs = document.getElementById('resSms');
+  if (_rs){
+    var _ios=/iPhone|iPad|iPod/.test(navigator.userAgent);
+    _rs.setAttribute('href','sms:01087268288'+(_ios?'&':'?')+'body='+encodeURIComponent(estimateText));
+    _rs.addEventListener('click', function(){ try{ if(typeof gtag==='function') gtag('event','문자문의_클릭',{event_label:'계산기결과'}); }catch(e){} });
+  }
   window.scrollTo({top:0, behavior:'smooth'});
 }
 
