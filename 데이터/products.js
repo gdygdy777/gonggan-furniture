@@ -1869,6 +1869,16 @@ window.GG_PRODUCTS = [
   ]
  },
  {
+  "id": "faucet-에스티로esk33006way",
+  "cat": "faucet",
+  "grade": "일반",
+  "brand": "에스티로",
+  "model": "ESK-3300 (6WAY 폭포·니켈)",
+  "name": "에스티로 ESK-3300 6WAY 폭포수전 (니켈)",
+  "addPrice": null,
+  "img": "img/수전/f_estilo_esk3300.webp"
+ },
+ {
   "id": "sink-small-kkampote8535",
   "cat": "sink",
   "size": "small",
