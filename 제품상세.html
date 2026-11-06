@@ -198,6 +198,20 @@ footer{border-top:1px solid var(--hairline);padding:var(--sp-xxl) 0 0;margin-top
 .sink-guide .sg-note{max-width:720px;margin:14px auto 0;font-size:13px;line-height:1.7;color:var(--muted);text-align:center}
 .sink-guide .sg-note b{color:var(--ink)}
 @media(max-width:744px){.sink-guide .sg-figure{border-radius:var(--r-md)}.sink-guide .sg-note{font-size:12.5px;text-align:left}}
+/* 배수구 방향 옵션 (싱크볼 전용) */
+.drain-area{margin-top:16px;padding-top:16px;border-top:1px solid var(--hairline-soft)}
+.drain-area .opt-title{font-size:15px;font-weight:700;display:flex;align-items:center;gap:8px;margin-bottom:3px}
+.drain-area .opt-free{font-size:11.5px;font-weight:800;color:#1a7f4b;background:#e9f7ef;padding:3px 9px;border-radius:999px}
+.drain-area .opt-sub{font-size:12.5px;color:var(--muted);margin:0 0 12px}
+.drain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(90px,1fr));gap:9px}
+.drain-opt{border:1.5px solid var(--hairline);border-radius:var(--r-md);padding:11px 6px 9px;background:#fff;cursor:pointer;text-align:center;transition:.15s;display:flex;flex-direction:column;align-items:center;gap:6px;font-family:inherit}
+.drain-opt:hover{border-color:var(--muted-soft)}
+.drain-opt.on{border-color:var(--primary);background:var(--primary-tint);box-shadow:0 0 0 1px var(--primary) inset}
+.drain-opt svg{display:block}
+.drain-opt .dlabel{font-size:13.5px;font-weight:700;color:var(--ink)}
+.drain-opt .dsub{font-size:11px;color:var(--muted)}
+.drain-opt.on .dlabel{color:var(--primary-active)}
+.drain-hint{font-size:11.5px;color:var(--muted-soft);margin-top:9px;line-height:1.5}
 </style>
 </head>
 <body>
@@ -269,6 +283,8 @@ footer{border-top:1px solid var(--hairline);padding:var(--sp-xxl) 0 0;margin-top
           </div>
           <div class="price-include" id="priceInclude"></div>
         </div>
+
+        <div class="drain-area" id="drainArea" hidden></div>
 
         <div class="opt-area" id="optArea" style="display:none">
           <h3>옵션 추가 <span class="opt-hint">필요한 것만 선택하세요</span></h3>
@@ -550,6 +566,27 @@ if (isSink && window.GG_SERVICES) {
   const area = document.getElementById('optArea');
   area.style.display = 'block';
 
+  // 배수구 방향 선택 (P.drain 있는 모델만) — 동일가, 추가금 없음
+  let selectedDrain = (Array.isArray(P.drain) && P.drain.length) ? P.drain[0] : null;
+  (function(){
+    if (!selectedDrain) return;
+    var da = document.getElementById('drainArea');
+    function dcx(dir){ return dir.indexOf('좌')>=0 ? 20 : (dir.indexOf('우')>=0 ? 50 : 35); }
+    function dsvg(dir){ var cx = dcx(dir);
+      return '<svg width="70" height="48" viewBox="0 0 70 48" fill="none"><rect x="3" y="3" width="64" height="42" rx="7" fill="#cfd6db" stroke="#9aa4ab" stroke-width="2"/><circle cx="'+cx+'" cy="24" r="7" fill="#fff" stroke="#ff385c" stroke-width="2.5"/><circle cx="'+cx+'" cy="24" r="2.2" fill="#ff385c"/></svg>'; }
+    function dsub(dir){ return dir.indexOf('좌')>=0 ? '배수구 왼쪽' : (dir.indexOf('우')>=0 ? '배수구 오른쪽' : '배수구 가운데'); }
+    da.innerHTML = '<div class="opt-title">🚰 배수구 방향 <span class="opt-free">추가금 없음</span></div>'
+      + '<p class="opt-sub">설치 위치에 맞는 배수구 방향을 골라주세요. 방향에 따른 추가 비용은 없습니다.</p>'
+      + '<div class="drain-grid">' + P.drain.map(function(d,i){ return '<button type="button" class="drain-opt'+(i===0?' on':'')+'" data-dir="'+d+'">'+dsvg(d)+'<span class="dlabel">'+d+'</span><span class="dsub">'+dsub(d)+'</span></button>'; }).join('') + '</div>'
+      + '<p class="drain-hint">※ 싱크대 앞에 서서 바라본 기준이에요. 하부장 배관 위치에 따라 실측 시 최종 확인해 드려요.</p>';
+    da.hidden = false;
+    da.querySelector('.drain-grid').addEventListener('click', function(e){
+      var b = e.target.closest('.drain-opt'); if(!b) return;
+      da.querySelectorAll('.drain-opt').forEach(function(o){ o.classList.remove('on'); });
+      b.classList.add('on'); selectedDrain = b.getAttribute('data-dir'); recalc();
+    });
+  })();
+
   document.getElementById('optList').innerHTML = `
     <div class="opt-row no-check">
       <div class="opt-info" style="width:100%"><div class="o-name">🚿 수전 업그레이드</div><div class="o-desc">기본으로 크라운 S-3000 3WAY 폭포수전이 무료 포함 — 아래에서 원하는 수전을 고르면 추가금이 자동 합산됩니다</div>
@@ -591,6 +628,7 @@ if (isSink && window.GG_SERVICES) {
   function recalc() {
     let total = P.price;
     const lines = [['제품 + 시공 일체', won(P.price)]];
+    if (selectedDrain) lines.push(['배수구 방향', selectedDrain + ' · 추가금 없음']);
     const quotes = [];
     const fid = $id('optFaucet').value;
     if (fid) {

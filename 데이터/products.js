@@ -477,6 +477,7 @@ window.GG_PRODUCTS = [
   "bowl": "858 x 518",
   "taphole": "800~840 x 430~500",
   "refSpec": false,
+  "drain": ["좌배수", "우배수"],
   "config": "올올스텐 배수구 + 바스켓 + 수세미망 + 엠보커버",
   "price": 560000,
   "img": "img/싱크볼/n_esql.webp",
