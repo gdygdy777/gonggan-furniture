@@ -192,6 +192,12 @@ footer{border-top:1px solid var(--hairline);padding:var(--sp-xxl) 0 0;margin-top
 }
 .detail-stack{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:var(--sp-sm)}
 .detail-stack img{width:100%;height:auto;border-radius:var(--r-md);display:block}
+/* 싱크볼 실측 가이드 (공통) */
+.sink-guide .sg-figure{max-width:720px;margin:0 auto;border:1px solid var(--hairline-soft);border-radius:var(--r-lg);overflow:hidden;background:#fff;box-shadow:0 2px 16px rgba(0,0,0,.05)}
+.sink-guide .sg-figure img{width:100%;height:auto;display:block}
+.sink-guide .sg-note{max-width:720px;margin:14px auto 0;font-size:13px;line-height:1.7;color:var(--muted);text-align:center}
+.sink-guide .sg-note b{color:var(--ink)}
+@media(max-width:744px){.sink-guide .sg-figure{border-radius:var(--r-md)}.sink-guide .sg-note{font-size:12.5px;text-align:left}}
 </style>
 </head>
 <body>
@@ -291,6 +297,17 @@ footer{border-top:1px solid var(--hairline);padding:var(--sp-xxl) 0 0;margin-top
     </div>
   </div>
 </div>
+
+<!-- 싱크볼 실측 가이드 (공통 섹션 · class="sink-cross"로 싱크볼 상세에서만 자동 노출, 전 싱크볼·신규 제품 자동 적용) -->
+<section class="sink-cross sink-guide" hidden style="padding:var(--sp-xl) 0 0">
+  <div class="container">
+    <figure class="sg-figure">
+      <img src="img/sink-size-guide.webp" width="1086" height="1448" loading="lazy"
+           alt="싱크볼 실측 가이드 — 교체 전 측정할 3가지 치수: ① 싱크볼 크기(가로mm×세로mm), ② 싱크대 상판 앞뒤 깊이(세로mm), ③ 싱크대 하부장 내부 가로 폭(mm). 줄자로 측정하고 싱크볼·상판·하부장 사진과 함께 상담하면 정확한 추천이 가능합니다.">
+    </figure>
+    <p class="sg-note">치수는 <b>mm(밀리미터)</b> 단위로 측정해 주세요. 싱크볼·상판·하부장 내부 사진을 함께 보내주시면 더 정확한 상담이 가능합니다. 정확한 설치 가능 여부는 기존 타공 크기·배관 구조·제품 규격 등에 따라 달라질 수 있습니다.</p>
+  </div>
+</section>
 
 <!-- 규격 -->
 <section style="padding-top:0">
