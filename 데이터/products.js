@@ -1591,6 +1591,16 @@ window.GG_PRODUCTS = [
   "img": "img/수전/f_eterno_ek3001.webp"
  },
  {
+  "id": "faucet-에떼르노ef201nbm4way",
+  "cat": "faucet",
+  "grade": "프리미엄",
+  "brand": "에떼르노",
+  "model": "EF-201 NBM (4WAY 필터·무광니켈)",
+  "name": "에떼르노 EF-201 NBM 4WAY 필터수전 (무광니켈)",
+  "addPrice": 110000,
+  "img": "img/수전/f_eterno_ef201nbm.webp"
+ },
+ {
   "id": "faucet-에떼르노ek4001엘리카4way",
   "cat": "faucet",
   "grade": "일반",
