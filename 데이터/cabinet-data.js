@@ -47,28 +47,36 @@ window.GG_CABINETS = {
   },
   "styles": [
    {
+    "img": "img/장제작/builtin_slide.webp",
+    "pid": ""
+   },
+   {
+    "img": "img/장제작/builtin_anbang.webp",
+    "pid": ""
+   },
+   {
+    "img": "img/장제작/builtin_mirror.webp",
+    "pid": ""
+   },
+   {
+    "img": "img/장제작/builtin_trim.webp",
+    "pid": ""
+   },
+   {
+    "img": "img/장제작/builtin_jakeun.webp",
+    "pid": ""
+   },
+   {
     "img": "img/장제작/builtin_computer_1.webp",
     "pid": ""
    },
    {
-    "img": "img/블로그/스타일/s_utility_224390605340_1.webp",
-    "pid": "224390605340"
+    "img": "img/장제작/builtin_teumsae.webp",
+    "pid": ""
    },
    {
-    "img": "img/블로그/스타일/s_utility_224390605340_2.webp",
-    "pid": "224390605340"
-   },
-   {
-    "img": "img/블로그/스타일/s_utility_224377453033_1.webp",
-    "pid": "224377453033"
-   },
-   {
-    "img": "img/블로그/스타일/s_utility_224377453033_2.webp",
-    "pid": "224377453033"
-   },
-   {
-    "img": "img/블로그/스타일/s_utility_224377453033_3.webp",
-    "pid": "224377453033"
+    "img": "img/장제작/builtin_balcony.webp",
+    "pid": ""
    }
   ],
   "cases": [
@@ -450,6 +458,18 @@ window.GG_CABINETS = {
    ]
   },
   "styles": [
+   {
+    "img": "img/장제작/kitchen_full_1.webp",
+    "pid": ""
+   },
+   {
+    "img": "img/장제작/kitchen_full_2.webp",
+    "pid": ""
+   },
+   {
+    "img": "img/장제작/kitchen_full_3.webp",
+    "pid": ""
+   },
    {
     "img": "img/블로그/스타일/s_island_224304790918_1.webp",
     "pid": "224304790918"
