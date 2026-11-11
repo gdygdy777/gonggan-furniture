@@ -94,13 +94,13 @@ window.SITE_CONFIG = {
       drawer.id = 'mDrawer';
       drawer.innerHTML =
         '<a href="index.html">홈</a>' +
-        '<a href="서비스.html">서비스</a>' +
-        '<a href="씽크대견적.html">씽크볼 견적 <span class="m-sub">제품별 가격 공개</span></a>' +
-        '<a href="장제작상세.html">장 제작 <span class="m-sub">붙박이장·냉장고장·키큰장</span></a>' +
-        '<a href="대리석케어.html?type=uv">대리석 리폼 <span class="m-sub">UV 코팅·크랙 보수</span></a>' +
+        '<a href="서비스.html#make">신규 제작 <span class="m-sub">싱크대·장·시스템가구</span></a>' +
+        '<a href="서비스.html#reform">리폼 <span class="m-sub">도어·필름·손잡이</span></a>' +
+        '<a href="서비스.html#counter">상판 교체 <span class="m-sub">인조대리석</span></a>' +
+        '<a href="대리석케어.html?type=uv">상판 관리·복원 <span class="m-sub">UV 코팅·크랙 보수</span></a>' +
+        '<a href="서비스.html#appliance">제품·설비 교체 <span class="m-sub">싱크볼·수전·후드·인덕션</span></a>' +
         '<a href="계산기.html">견적 계산기 <span class="m-sub">30초 예상 견적</span></a>' +
         '<a href="시공사례.html">시공사례</a>' +
-        '<a href="교육.html">교육</a>' +
         '<a href="자료실.html">자료실</a>' +
         '<a href="상담문의.html">상담 문의</a>' +
         '<div class="m-contact"><a href="' + telHref + '">📞 전화하기</a><a href="#" class="k" id="mDrawerKakao">💬 카톡 상담</a></div>';
