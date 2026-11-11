@@ -239,7 +239,8 @@ window.GG_KITCHEN = [
   "name": "린나이 IHB31M",
   "price": 360000,
   "tapTotal": null,
-  "img": "img/주방기기/k_rinnai_ihb31m.webp"
+  "img": "img/주방기기/k_rinnai_ihb31m.webp",
+  "detailImgs": ["img/주방기기/detail_ihb31m.webp"]
  },
  {
   "kcat": "박스형 후드/침니형 후드",
@@ -392,3 +393,7 @@ window.GG_KITCHEN = [
   "img": "img/주방기기/k_watersaver.webp"
  }
 ];
+// 카테고리 공통 안내 이미지 (탭 상단 노출)
+window.GG_KITCHEN_GUIDE = {
+ "인덕션(3구)": "img/주방기기/guide_induction.webp"
+};

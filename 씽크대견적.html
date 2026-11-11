@@ -123,6 +123,18 @@ section{padding:var(--sp-section) 0}
 .p-title{font-size:16px;font-weight:600}
 .p-sub{font-size:14px;color:var(--muted);margin-top:2px}
 .p-link{font-size:14px;font-weight:600;color:var(--primary);margin-top:8px;display:inline-block}
+/* 주방기기 공통 안내 이미지 */
+.k-guide{max-width:720px;margin:0 auto 22px;border:1px solid var(--hairline,#ebebeb);border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 2px 14px rgba(0,0,0,.04)}
+.k-guide img{width:100%;height:auto;display:block}
+/* 주방기기 상세 모달 */
+.k-modal{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:300;display:flex;align-items:center;justify-content:center;padding:18px}
+.k-modal-box{background:#fff;border-radius:16px;max-width:620px;width:100%;max-height:90vh;display:flex;flex-direction:column;overflow:hidden}
+.k-modal-head{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid #eee;font-weight:700;font-size:15px}
+.k-modal-head button{background:none;border:none;font-size:22px;line-height:1;cursor:pointer;color:#888;flex:none}
+.k-modal-body{overflow-y:auto;-webkit-overflow-scrolling:touch}
+.k-modal-body img{width:100%;height:auto;display:block}
+.k-modal-foot{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:13px 18px;border-top:1px solid #eee;font-size:13px;color:#6a6a6a}
+.k-modal-foot .btn-kakao{margin:0;white-space:nowrap;padding:11px 18px}
 
 /* ============ 안내 박스 ============ */
 .notice-box{background:var(--surface-soft);border-radius:var(--r-lg);padding:var(--sp-xl);display:flex;justify-content:space-between;align-items:center;gap:var(--sp-lg);flex-wrap:wrap;margin-top:var(--sp-xxl)}
@@ -487,16 +499,27 @@ document.querySelectorAll('.sink-tab').forEach(function(tab){
       {panel:'panel-watersaver', kcats:['절수기']}
     ];
     var groups={};
+    window.__kDetail = {};
     GG_KITCHEN.forEach(function(k){ (groups[k.kcat]=groups[k.kcat]||[]).push(k); });
     function cardHtml(k){
       var photo=k.img?'<img src="'+k.img+'" alt="'+k.name+'" loading="lazy">':'<span class="photo-note">제품 사진 준비 중</span>';
       var tap = k.tapTotal ? '<div class="k-tap">타공 필요시 +30,000원</div>' : '';
-      return '<a class="p-card" href="상담문의.html">'
+      var hasDetail = k.detailImgs && k.detailImgs.length;
+      var opener, link;
+      if (hasDetail) {
+        window.__kDetail[k.model] = { name:k.name, info: won(k.price) + ' · ' + k.brand + ' · ' + k.size, imgs:k.detailImgs };
+        opener = 'href="javascript:void(0)" onclick="openKdetail(\'' + k.model.replace(/'/g,"\\'") + '\')"';
+        link = '<span class="p-link">상세 보기 ›</span>';
+      } else {
+        opener = 'href="상담문의.html"';
+        link = '<span class="p-link">상담 문의 ›</span>';
+      }
+      return '<a class="p-card" '+opener+'>'
         +'<div class="p-photo">'+photo+'</div>'
         +'<div class="p-meta"><div class="p-title-row"><span class="p-title">'+k.name+'</span></div>'
         +'<div class="p-sub">'+k.brand+' · '+k.size+'</div>'
         +'<div class="p-price">'+won(k.price)+'<span>판매가</span></div>'+tap
-        +'<span class="p-link">상담 문의 ›</span></div></a>';
+        +link+'</div></a>';
     }
     cats.forEach(function(cat){
       var panel=document.getElementById(cat.panel); if(!panel) return;
@@ -510,12 +533,25 @@ document.querySelectorAll('.sink-tab').forEach(function(tab){
       });
       if(cat.panel==='panel-gas') html+='<p style="font-size:13px;color:var(--muted);text-align:center;margin-top:8px;line-height:1.7">가스레인지 추가 타공이 필요한 경우 30,000원이 별도로 적용됩니다.</p>';
       if(window.GG_KITCHEN_NOTE) html+='<p style="font-size:13px;color:var(--muted);text-align:center;margin-top:8px;line-height:1.7">'+window.GG_KITCHEN_NOTE+'</p>';
+      var guideImg = window.GG_KITCHEN_GUIDE && cat.kcats.reduce(function(a,kc){return a||window.GG_KITCHEN_GUIDE[kc];}, null);
+      if (guideImg) html = '<div class="k-guide"><img src="'+guideImg+'" alt="전기레인지 안내 — 인덕션·하이라이트·하이브리드 차이" loading="lazy"></div>' + html;
       panel.innerHTML=html;
       var tabSpan=document.querySelector('.sink-tab[data-target="'+cat.panel+'"] span');
       if(tabSpan) tabSpan.textContent=count;
     });
   }
   renderKitchen();
+  // 주방기기 상세 모달 열기/닫기 (전역)
+  window.openKdetail = function(model){
+    var d = (window.__kDetail||{})[model]; if(!d) return;
+    document.getElementById('kModalTitle').textContent = d.name;
+    document.getElementById('kModalInfo').textContent = d.info || '';
+    document.getElementById('kModalBody').innerHTML = d.imgs.map(function(s){ return '<img src="'+s+'" alt="'+d.name+' 상세정보" loading="lazy">'; }).join('');
+    var m=document.getElementById('kModal'); m.style.display='flex'; document.body.style.overflow='hidden';
+    document.getElementById('kModalBody').scrollTop=0;
+  };
+  window.closeKdetail = function(){ document.getElementById('kModal').style.display='none'; document.body.style.overflow=''; };
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') window.closeKdetail(); });
   // 검색
   (function(){
     var inp = document.getElementById('searchInput');
@@ -580,5 +616,13 @@ document.querySelectorAll('.sink-tab').forEach(function(tab){
 })();
 </script>
 <script src="데이터/config.js?v=7" defer></script>
+<!-- 주방기기 상세 모달 -->
+<div id="kModal" class="k-modal" style="display:none" onclick="if(event.target===this)closeKdetail()">
+  <div class="k-modal-box">
+    <div class="k-modal-head"><span id="kModalTitle"></span><button type="button" onclick="closeKdetail()" aria-label="닫기">✕</button></div>
+    <div class="k-modal-body" id="kModalBody"></div>
+    <div class="k-modal-foot"><span id="kModalInfo"></span><a class="btn-kakao" href="상담문의.html">상담 문의 ›</a></div>
+  </div>
+</div>
 </body>
 </html>
