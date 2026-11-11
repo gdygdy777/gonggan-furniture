@@ -239,7 +239,7 @@ window.GG_KITCHEN = [
   "name": "린나이 IHB31M",
   "price": 360000,
   "tapTotal": null,
-  "img": ""
+  "img": "img/주방기기/k_rinnai_ihb31m.webp"
  },
  {
   "kcat": "박스형 후드/침니형 후드",
