@@ -176,7 +176,7 @@ a{color:inherit;text-decoration:none}
       <a href="서비스.html">서비스</a>
       <a href="씽크대견적.html">씽크볼 견적</a>
       <a href="장제작상세.html">장 제작</a>
-      <a href="대리석케어.html?type=uv">대리석 리폼</a>
+      <a href="대리석케어.html?type=uv">상판 관리·복원</a>
       <a href="계산기.html" class="active">견적 계산기</a>
       <a href="시공사례.html">시공사례</a>
       <a href="교육.html">교육</a>
@@ -228,7 +228,7 @@ const PLACE_STEP = { id:'place', title:'현장은 어떤 곳인가요?', sub:'�
   ]};
 
 const TYPES = {
-  careMarble: { name:'대리석 리폼', desc:'크랙 보수 · UV 코팅', link:'대리석케어.html?type=uv' },
+  careMarble: { name:'상판 관리·복원', desc:'크랙 보수 · UV 코팅', link:'대리석케어.html?type=uv' },
   sink: { name:'싱크볼 교체', desc:'볼만 깔끔하게', base:[0,0],
     icon:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ff385c" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="9" width="18" height="9" rx="2"/><path d="M12 9V5m0 0h4"/><path d="M12 14v.01"/></svg>',
     steps:[ PLACE_STEP,
@@ -281,10 +281,9 @@ const TYPES = {
     steps:[ PLACE_STEP,
       { id:'len', title:'상판 길이가 얼마나 되나요?', sub:'줄자가 없으면 대략이면 돼요. 싱크대 앞에 서서 팔을 벌려보세요 — 한 뼘씩 재지 않아도 됩니다.',
         kind:'chips', unit:'m', chips:[2.4, 3.0, 3.6, 4.2], allowCustom:true },
-      { id:'grade', title:'자재 등급을 골라주세요', sub:'미터당 단가가 달라져요',
+      { id:'grade', title:'자재를 확인해 주세요', sub:'현재는 인조대리석으로 시공합니다 · 엔지니어드 스톤·세라믹은 준비 중이에요',
         kind:'single', options:[
           {name:'인조대리석', desc:'가성비 · 가장 많이 선택', perM:[25,35]},
-          {name:'엔지니어드 스톤', desc:'스크래치·오염에 강함', perM:[40,60]},
         ]},
       { id:'opts', title:'추가 작업이 필요한가요?', sub:'필요한 것만 선택하세요',
         kind:'multi', options:[
@@ -342,7 +341,7 @@ const TYPES = {
       { id:'grade', title:'자재 등급을 골라주세요', sub:'',
         kind:'single', options:[
           {name:'기본형', desc:'PET 도어 + 인조대리석', d:[0,0]},
-          {name:'프리미엄', desc:'도장 도어 + 엔지니어드 스톤', d:[150,300]},
+          {name:'프리미엄', desc:'도장 도어 + 고급 상판', d:[150,300]},
         ]},
       { id:'opts', title:'함께 하실 공사가 있나요?', sub:'',
         kind:'multi', options:[
@@ -360,7 +359,7 @@ const OPT_EMOJI = {
   '수전 업그레이드':'🚿','배수구 부속 교체':'🪠','추가 요청 작업':'➕',
   '일반 수전':'🚰','풀아웃(코브라) 수전':'🐍','벽붙이 수전':'🧱','상판 타공':'🕳️','앵글밸브 교체':'🔩',
   '슬라이드형':'📥','침니형':'🗼','아일랜드형':'🏝️','덕트(배기관) 연장':'🌀','기존 후드 폐기':'🗑️',
-  '인조대리석':'🪨','엔지니어드 스톤':'💎','싱크볼 재설치':'🔄','기존 상판 철거·폐기':'🗑️',
+  '인조대리석':'🪨','싱크볼 재설치':'🔄','기존 상판 철거·폐기':'🗑️',
   '필름 리폼':'🎞️','도어 + 손잡이 교체':'🚪','도어 + 몸통 보수':'🛠️',
   '붙박이장':'🚪','냉장고장':'🧊','키큰장':'🗄️','시스템장':'🧩','수납장 · 기타':'📦','도어 마감 업그레이드':'✨'
 };
