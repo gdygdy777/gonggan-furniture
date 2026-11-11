@@ -201,6 +201,34 @@ footer{border-top:1px solid var(--hairline);padding:var(--sp-xxl) 0 0;margin-top
 @media(max-width:900px){.detail-grid2{grid-template-columns:1fr;gap:24px}}
 #lightbox img{max-width:92vw;max-height:90vh;border-radius:8px}
 
+/* 리폼 vs 제작 */
+.rf-sub{font-size:14px;color:var(--muted);margin:-14px 0 20px}
+.rf-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:720px){.rf-grid{grid-template-columns:1fr}}
+.rf-card{border:1px solid var(--hairline);border-radius:var(--r-lg);padding:22px 22px 20px;background:#fff}
+.rf-card.rf-make{border-color:#ffc6d2;background:linear-gradient(180deg,#fff6f8,#fff)}
+.rf-tag{display:inline-block;font-size:13px;font-weight:800;color:#555;background:#f1f3f5;padding:5px 12px;border-radius:999px;margin-bottom:12px}
+.rf-card.rf-make .rf-tag{color:#fff;background:var(--primary)}
+.rf-card h3{font-size:18px;font-weight:700;margin:0 0 8px}
+.rf-card>p{font-size:13.5px;color:#444;line-height:1.6;margin:0 0 14px}
+.rf-card ul{list-style:none;margin:0;padding:0}
+.rf-card li{font-size:13px;color:#555;padding:5px 0 5px 22px;position:relative}
+.rf-card li::before{content:"✓";position:absolute;left:0;color:var(--primary);font-weight:700}
+.rf-both{margin-top:14px;font-size:13px;color:var(--muted);text-align:center;background:var(--surface-soft);border-radius:var(--r-md);padding:12px}
+.rf-both b{color:var(--ink)}
+/* 종류 가이드 그리드 */
+.tg-head{margin-top:6px}
+.tg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(188px,1fr));gap:12px}
+.tg-card{display:block;border:1px solid var(--hairline);border-radius:var(--r-lg);padding:16px 16px 15px;background:#fff;transition:.15s}
+.tg-card:hover{border-color:var(--muted-soft);transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.06)}
+.tg-card.on{border-color:var(--primary);box-shadow:0 0 0 1px var(--primary) inset;background:var(--primary-tint)}
+.tg-emoji{font-size:26px;line-height:1}
+.tg-group{font-size:11px;font-weight:700;color:var(--muted);background:var(--surface-soft);padding:2px 8px;border-radius:999px;float:right}
+.tg-name{font-size:16px;font-weight:700;margin:9px 0 4px}
+.tg-who{font-size:12.5px;color:#555;line-height:1.55;min-height:36px}
+.tg-price{font-size:12.5px;color:var(--primary);font-weight:700;margin-top:9px}
+/* 갤러리 준비중 플레이스홀더 */
+.style-ready{border:1px dashed var(--hairline);border-radius:var(--r-lg);padding:28px 18px;text-align:center;color:var(--muted);font-size:13.5px;line-height:1.7;background:var(--surface-soft)}
 </style>
 </head>
 
@@ -228,9 +256,35 @@ footer{border-top:1px solid var(--hairline);padding:var(--sp-xxl) 0 0;margin-top
 <div class="container" style="padding-top:24px">
   <nav class="breadcrumb"><a href="서비스.html">서비스</a> › <a href="장제작상세.html">맞춤 장 제작</a> › <b id="crumbName">냉장고장</b></nav>
 
-  <div class="type-tabs" id="typeTabs"></div>
+  <!-- 리폼 vs 제작 -->
+  <div class="rf-vs" style="margin-top:22px">
+    <h2 class="section-head">먼저, 어떤 방식이 필요하세요?</h2>
+    <p class="rf-sub">기존 장을 살릴지 새로 짤지에 따라 비용과 기간이 달라져요.</p>
+    <div class="rf-grid">
+      <div class="rf-card">
+        <span class="rf-tag">🔧 리폼</span>
+        <h3>도어·손잡이만 교체</h3>
+        <p>틀은 그대로 두고 문짝·손잡이만 새것으로. 가장 빠르고 저렴하게 분위기를 바꿉니다.</p>
+        <ul><li>기존 장이 아직 튼튼할 때</li><li>색·질감만 바꾸고 싶을 때</li><li>당일~1일 시공</li></ul>
+      </div>
+      <div class="rf-card rf-make">
+        <span class="rf-tag">🏗 제작</span>
+        <h3>철거 후 새로 맞춤 제작</h3>
+        <p>공장에서 공간 치수에 맞춰 새로 제작·시공. 크기·구성·수납을 원하는 대로 만듭니다.</p>
+        <ul><li>장이 낡았거나 아예 없을 때</li><li>공간에 꼭 맞춰 넓히고 싶을 때</li><li>무료 실측 후 제작·시공</li></ul>
+      </div>
+    </div>
+    <p class="rf-both">어떤 게 맞는지 모르겠다면? <b>방·주방 사진 한 장</b>만 보내주시면 리폼·제작 중 더 나은 쪽으로 안내해 드려요.</p>
+  </div>
 
-  <div class="detail-grid2">
+  <!-- 어떤 장이 필요하세요? (종류 가이드) -->
+  <div class="tg-head" style="margin-top:40px">
+    <h2 class="section-head">어떤 장이 필요하세요?</h2>
+    <p class="rf-sub">공간·용도에 맞는 장을 골라보세요 — 누르면 상세 구성과 예상 견적이 나와요.</p>
+    <div class="tg-grid" id="typeGuide"></div>
+  </div>
+
+  <div class="detail-grid2" style="margin-top:40px">
     <div>
       <div id="mainPhoto" style="aspect-ratio:4/3;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--hairline)">
         <img id="mainImg" alt="" style="width:100%;height:100%;object-fit:cover">
@@ -324,7 +378,7 @@ footer{border-top:1px solid var(--hairline);padding:var(--sp-xxl) 0 0;margin-top
 const won = n => n.toLocaleString('ko-KR');
 const man = ([a,b]) => a + '~' + b + '만원';
 const params = new URLSearchParams(location.search);
-const key = ['builtin','storage','fridge','tall','system'].includes(params.get('type')) ? params.get('type') : 'builtin';
+const key = ['builtin','storage','fridge','tall','system','living','entrance','homebar'].includes(params.get('type')) ? params.get('type') : 'builtin';
 const C = GG_CABINETS[key];
 
 document.title = C.name + ' 맞춤 제작 — 공간가구연구소';
@@ -334,17 +388,28 @@ document.getElementById('infoDesc').textContent = C.desc;
 document.getElementById('featList').innerHTML = C.features.map(f=>`<li>${f}</li>`).join('');
 document.getElementById('caseHead').textContent = C.name + ' 실제 시공 이야기';
 
-// 유형 탭
-document.getElementById('typeTabs').innerHTML = Object.entries(GG_CABINETS)
-  .map(([k,v])=>`<a href="장제작상세.html?type=${k}" class="${k===key?'on':''}">${v.name}</a>`).join('');
+// 종류 가이드 그리드 (어떤 장이 필요하세요?)
+document.getElementById('typeGuide').innerHTML = Object.entries(GG_CABINETS).map(([k,v])=>`
+  <a class="tg-card ${k===key?'on':''}" href="장제작상세.html?type=${k}">
+    <span class="tg-emoji">${v.emoji||'🗄️'}</span><span class="tg-group">${v.group||''}</span>
+    <div class="tg-name">${v.name}</div>
+    <div class="tg-who">${v.who||v.desc}</div>
+    <div class="tg-price">${v.base?v.base[0]+'만원~':'상담 문의'}</div>
+  </a>`).join('');
 
-// 스타일 갤러리
-const styles = C.styles;
-const mainImg = document.getElementById('mainImg');
-if (styles.length) { mainImg.src = styles[0].img; mainImg.alt = C.name + ' 시공 사진'; }
-document.getElementById('styleGrid').innerHTML = styles.slice(0,8).map((s,i)=>
-  `<a href="javascript:void(0)" onclick="showImg('${s.img}')"><img src="${s.img}" alt="${C.name} 스타일 ${i+1}" loading="lazy"></a>`).join('');
-function showImg(src){ mainImg.src = src; document.getElementById('lightbox').style.display='flex'; document.getElementById('lightImg').src = src; }
+// 스타일 갤러리 (사진 없으면 준비중 안내)
+const styles = C.styles || [];
+function showImg(src){ const li=document.getElementById('lightbox'); li.style.display='flex'; document.getElementById('lightImg').src = src; }
+if (styles.length) {
+  const mainImg = document.getElementById('mainImg');
+  mainImg.src = styles[0].img; mainImg.alt = C.name + ' 시공 사진';
+  document.getElementById('styleGrid').innerHTML = styles.slice(0,8).map((s,i)=>
+    `<a href="javascript:void(0)" onclick="showImg('${s.img}')"><img src="${s.img}" alt="${C.name} 시공 사진 ${i+1}" loading="lazy"></a>`).join('');
+} else {
+  document.getElementById('mainPhoto').outerHTML =
+    '<div class="style-ready">📷 <b>' + C.name + '</b> 시공 사진을 준비하고 있어요.<br>지금도 제작 가능합니다 — 상담 주시면 유사 시공 사례를 바로 보여드려요.</div>';
+  const note = document.querySelector('#styleGrid + p'); if (note) note.style.display='none';
+}
 
 // 견적 계산 (계산기와 동일 단가 — 예시 단가, 실측 후 확정)
 document.getElementById('optList').innerHTML = `
@@ -366,7 +431,10 @@ function recalc(){
 document.getElementById('optArea').addEventListener('change', recalc);
 recalc();
 
-// 블로그 사례
+// 블로그 사례 (없으면 섹션 숨김)
+if (!C.cases || !C.cases.length) {
+  document.getElementById('caseGrid').closest('section').style.display = 'none';
+} else
 document.getElementById('caseGrid').innerHTML = C.cases.map(c=>`
   <a class="case-card" href="${c.link}" target="_blank" rel="noopener">
     <div class="c-photo">${c.thumb?`<img src="${c.thumb}" alt="" loading="lazy">`:''}</div>
