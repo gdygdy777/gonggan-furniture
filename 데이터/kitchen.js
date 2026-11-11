@@ -395,5 +395,6 @@ window.GG_KITCHEN = [
 ];
 // 카테고리 공통 안내 이미지 (탭 상단 노출)
 window.GG_KITCHEN_GUIDE = {
- "인덕션(3구)": "img/주방기기/guide_induction.webp"
+ "인덕션(3구)": "img/주방기기/guide_induction.webp",
+ "가스레인지": "img/주방기기/guide_gas.webp"
 };
