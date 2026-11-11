@@ -229,6 +229,14 @@ footer{border-top:1px solid var(--hairline);padding:var(--sp-xxl) 0 0;margin-top
 .tg-price{font-size:12.5px;color:var(--primary);font-weight:700;margin-top:9px}
 /* 갤러리 준비중 플레이스홀더 */
 .style-ready{border:1px dashed var(--hairline);border-radius:var(--r-lg);padding:28px 18px;text-align:center;color:var(--muted);font-size:13.5px;line-height:1.7;background:var(--surface-soft)}
+/* 시공 전·후 비교 */
+.ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:640px){.ba-grid{grid-template-columns:1fr}}
+.ba-item{position:relative;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--hairline)}
+.ba-item img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+.ba-tag{position:absolute;top:12px;left:12px;font-size:12.5px;font-weight:800;color:#fff;padding:5px 12px;border-radius:999px}
+.ba-before{background:#8a8f94}.ba-after{background:var(--primary)}
+.ba-note{font-size:13.5px;color:var(--muted);margin-top:12px;text-align:center}
 </style>
 </head>
 
@@ -325,6 +333,17 @@ footer{border-top:1px solid var(--hairline);padding:var(--sp-xxl) 0 0;margin-top
     </div>
   </div>
 </div>
+
+<section id="baSection" style="display:none;padding-top:0">
+  <div class="container">
+    <h2 class="section-head">시공 전 · 후</h2>
+    <div class="ba-grid">
+      <figure class="ba-item"><span class="ba-tag ba-before">시공 전</span><img id="baBefore" alt="시공 전" loading="lazy"></figure>
+      <figure class="ba-item"><span class="ba-tag ba-after">시공 후</span><img id="baAfter" alt="시공 후" loading="lazy"></figure>
+    </div>
+    <p class="ba-note" id="baNote"></p>
+  </div>
+</section>
 
 <section>
   <div class="container">
@@ -430,6 +449,14 @@ function recalc(){
 }
 document.getElementById('optArea').addEventListener('change', recalc);
 recalc();
+
+// 시공 전·후 비교 (데이터에 beforeAfter 있을 때만)
+if (C.beforeAfter) {
+  document.getElementById('baBefore').src = C.beforeAfter.before;
+  document.getElementById('baAfter').src = C.beforeAfter.after;
+  document.getElementById('baNote').textContent = C.beforeAfter.note || '';
+  document.getElementById('baSection').style.display = '';
+}
 
 // 블로그 사례 (없으면 섹션 숨김)
 if (!C.cases || !C.cases.length) {

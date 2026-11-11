@@ -111,7 +111,13 @@ window.GG_CABINETS = {
   ],
   "who": "방·현관·베란다 벽면 수납이 부족하거나, 자리에 꼭 맞는 장이 필요하신 분",
   "group": "방·수납",
-  "emoji": "🚪"
+  "emoji": "🚪",
+  "beforeAfter": {
+   "label": "안방 붙박이장",
+   "before": "img/장제작/builtin_anbang_before.webp",
+   "after": "img/장제작/builtin_anbang.webp",
+   "note": "잠만 자던 방을 수납까지 챙긴 방으로 — 벽면에 꼭 맞춘 슬라이딩 붙박이장"
+  }
  },
  "storage": {
   "name": "수납장",
