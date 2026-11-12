@@ -1790,7 +1790,7 @@ window.GG_PRODUCTS = [
   "brand": "하츠",
   "model": "FC-US100",
   "name": "하츠 FC-US100",
-  "addPrice": 20000,
+  "addPrice": 40000,
   "img": "img/수전/f_haatz_fcus100.webp",
   "detailImgs": [
    "img/상세/faucet-하츠fcus100_1.webp",
