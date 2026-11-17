@@ -99,7 +99,7 @@ window.SITE_CONFIG = {
         '<a href="씽크대견적.html">씽크볼 견적 <span class="m-sub">싱크볼·수전·후드 가격표</span></a>' +
         '<a href="서비스.html#surface-care">상판 관리 <span class="m-sub">교체·UV코팅·크랙 보수</span></a>' +
         '<a href="계산기.html">견적 계산기 <span class="m-sub">30초 예상 견적</span></a>' +
-        '<a href="시공사례.html">시공사례</a>' +
+        '<a href="시공이야기.html">시공이야기</a>' +
         '<a href="자료실.html">자료실</a>' +
         '<a href="상담문의.html">상담 문의</a>' +
         '<div class="m-contact"><a href="' + telHref + '">📞 전화하기</a><a href="#" class="k" id="mDrawerKakao">💬 카톡 상담</a></div>';
