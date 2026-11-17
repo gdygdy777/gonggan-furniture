@@ -249,7 +249,7 @@ footer{border-top:1px solid var(--hairline);padding:var(--sp-xxl) 0 0}
       <a href="서비스.html#reform">가구 리폼</a>
       <a href="씽크대견적.html">씽크볼 견적</a>
       <a href="서비스.html#surface-care" class="active">상판 관리</a>
-      <a href="시공사례.html" class="active">시공사례</a>
+      <a href="시공이야기.html" class="active">시공사례</a>
       <a href="자료실.html">자료실</a>
     </div>
     <div class="nav-right">
@@ -333,7 +333,7 @@ footer{border-top:1px solid var(--hairline);padding:var(--sp-xxl) 0 0}
 
 <article class="case-wrap" id="caseRoot"></article>
 
-<script src="데이터/stories.js?v=1"></script>
+<script src="데이터/stories.js?v=2"></script>
 <script>
 (function(){
   var S = window.GG_STORIES||[];
@@ -342,7 +342,7 @@ footer{border-top:1px solid var(--hairline);padding:var(--sp-xxl) 0 0}
   if(!d){ document.getElementById('caseRoot').innerHTML='<p>사례를 찾을 수 없습니다.</p>'; return; }
   document.title = d.title + ' — 공간가구연구소';
   var h='';
-  h+='<a class="case-back" href="시공사례.html">‹ 시공 이야기 전체</a>';
+  h+='<a class="case-back" href="시공이야기.html">‹ 시공 이야기 전체</a>';
   h+='<div class="case-chips">'+(d.tags||[]).map(function(t){return '<span>'+t+'</span>';}).join('')+'</div>';
   h+='<h1>'+d.title+'</h1>';
   if(d.sub) h+='<p class="case-sub">'+d.sub+'</p>';
