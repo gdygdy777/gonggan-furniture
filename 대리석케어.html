@@ -304,7 +304,8 @@ footer{border-top:1px solid var(--hairline);padding:var(--sp-xxl) 0 0}
 <!-- 서비스 전환 -->
 <div class="container care-switch">
   <a href="대리석케어.html?type=uv" id="swUv">대리석 UV 코팅</a>
-  <a href="대리석케어.html?type=crack" id="swCrack">대리석 크랙 보수·연마</a>
+  <a href="대리석케어.html?type=sanding" id="swSand">대리석 연마 광택</a>
+  <a href="대리석케어.html?type=crack" id="swCrack">대리석 크랙 보수</a>
 </div>
 
 <!-- 히어로 -->
@@ -399,8 +400,25 @@ footer{border-top:1px solid var(--hairline);padding:var(--sp-xxl) 0 0}
       gallery: Array.from({length:24},function(_,i){return 'img/서비스/uv_'+(i+1)+'.webp';}),
       note:'코팅 효과와 유지 기간은 상판 종류·사용 환경·기존 손상 정도에 따라 달라집니다. 적용 가능 여부와 예상 결과는 상판 사진과 상태를 확인한 뒤 솔직하게 안내드립니다.'
     },
+    sanding: {
+      eyebrow:'Marble Polishing', title:'대리석 연마 광택',
+      sub:'미세 스크래치·착색으로 흐려진 대리석 상판을 단계별로 연마해, 매끈한 광택을 되살립니다.',
+      price:'<b>기본 200,000원</b> (4m 기준) · 1m 추가마다 +40,000원 — 현장 실측 후 확정',
+      hero:'img/서비스/sanding_thumb.webp',
+      introHead:'긁히고 흐려진 상판, 다시 반짝이게',
+      intro:'오래 쓰며 생긴 잔스크래치와 생활 오염으로 대리석은 서서히 윤기를 잃습니다. 전용 장비로 표면을 단계별로 연마하면, 통째로 교체하지 않아도 매끈하고 선명한 광택을 되찾을 수 있습니다.',
+      points:[
+        {t:'광택 복원', d:'흐려진 표면을 갈아내 본래의 윤기를 되살립니다'},
+        {t:'스크래치 제거', d:'잔스크래치·착색을 단계별 연마로 다듬습니다'},
+        {t:'매끈한 마감', d:'손끝에 걸리던 표면을 매끈하게 정리합니다'}
+      ],
+      steps:['표면 상태 점검','거친 연마 · 스크래치 제거','고운 연마 · 광택 올리기','마감 점검'],
+      applies:['광택이 흐려진 대리석 상판','잔스크래치가 많은 표면','착색 · 얼룩이 있는 상판','주방 아일랜드 · 세면대 — 현장 확인'],
+      gallery: Array.from({length:6},function(_,i){return 'img/서비스/sanding_'+(i+1)+'.webp';}),
+      note:'연마로 복원되는 정도는 상판 소재·손상 깊이에 따라 달라집니다. 깊은 균열(크랙)은 연마만으로 해결되지 않아 크랙 보수를 함께 권해드릴 수 있어요. 예상 결과는 사진·상태 확인 후 솔직하게 안내드립니다.'
+    },
     crack: {
-      eyebrow:'Marble Crack Repair', title:'대리석 크랙 보수·연마',
+      eyebrow:'Marble Crack Repair', title:'대리석 크랙 보수',
       sub:'갈라짐(크랙)·스크래치·착색으로 손상된 대리석 상판을 보수하고, 표면을 단계별로 연마해 정리합니다.',
       price:'<b>단독 진행 시 1라인 150,000원~ · 2라인 250,000원~</b> · 손상 범위·상태에 따라 상담',
       hero:'img/서비스/crack_thumb.webp',
@@ -418,7 +436,7 @@ footer{border-top:1px solid var(--hairline);padding:var(--sp-xxl) 0 0}
     }
   };
   var type = new URLSearchParams(location.search).get('type');
-  if (type!=='crack') type='uv';
+  if (type!=='crack' && type!=='sanding') type='uv';
   var d = CARE[type];
   function $(id){ return document.getElementById(id); }
   document.title = d.title + ' — 공간가구연구소';
@@ -436,7 +454,7 @@ footer{border-top:1px solid var(--hairline);padding:var(--sp-xxl) 0 0}
   $('careApplies').innerHTML = d.applies.map(function(a){ return '<span>'+a+'</span>'; }).join('');
   $('careGallery').innerHTML = d.gallery.map(function(src){ return '<img src="'+src+'" alt="'+d.title+' 시공 사진" loading="lazy">'; }).join('');
   $('careNote').innerHTML = '※ '+d.note;
-  document.getElementById(type==='crack'?'swCrack':'swUv').classList.add('on');
+  document.getElementById(type==='crack'?'swCrack':(type==='sanding'?'swSand':'swUv')).classList.add('on');
   // 라이트박스
   var lb=document.getElementById('careLightbox'), lbimg=lb.querySelector('img');
   document.getElementById('careGallery').addEventListener('click', function(e){
