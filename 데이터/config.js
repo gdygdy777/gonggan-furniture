@@ -97,6 +97,7 @@ window.SITE_CONFIG = {
         '<a href="서비스.html#make">주방·장 제작 <span class="m-sub">싱크대·장·시스템가구</span></a>' +
         '<a href="서비스.html#reform">가구 리폼 <span class="m-sub">문짝·필름·냉장고장·식기세척기장</span></a>' +
         '<a href="씽크대견적.html">씽크볼 견적 <span class="m-sub">싱크볼·수전·후드 가격표</span></a>' +
+        '<a href="싱크볼찾기.html">싱크볼 찾기 <span class="m-sub">1분 테스트 추천</span></a>' +
         '<a href="서비스.html#surface-care">상판 관리 <span class="m-sub">교체·UV코팅·크랙 보수</span></a>' +
         '<a href="계산기.html">견적 계산기 <span class="m-sub">30초 예상 견적</span></a>' +
         '<a href="시공이야기.html">시공이야기</a>' +
